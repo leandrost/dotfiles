@@ -1,0 +1,79 @@
+
+snippet usi
+	using
+snippet sys
+	System
+# Modifiers
+snippet pu
+	public 
+snippet po
+	protected 
+snippet it
+	internal 
+snippet pr
+	private 
+snippet st
+	static 
+snippet ab
+	abstract 
+snippet vi
+	virtual 
+snippet ov
+	override 
+snippet vo
+	void 
+#Structure
+snippet ns
+	namespace ${1:NameSpace}
+	{
+		${2}
+	}
+snippet in
+	interface ${1:IName}
+	{
+		${2}
+	}
+snippet cl
+	class ${1:ClassName}
+	{
+		${2}
+	}
+snippet struct
+	struct ${1:StructName} 
+	{
+		${2}
+	}
+snippet en
+	enum ${1:EnumName}
+	{ 
+		${2}
+	}
+# Common Code
+snippet prop
+	${1:type} ${2:MyProperty} { get; set; } 
+snippet main
+	public static void Main(string[] args)
+	{
+		${1}
+	}
+# Console
+snippet cw
+	Console.WriteLine(${1});
+snippet cy
+	Console.ReadKey();
+# Statements
+snippet using 
+	using (${1})
+	{
+		${2}
+	}
+snippet if
+	if (${1})
+	{
+		${2}
+	}
+snippet else
+	else
+	{
+		${1}
+	}
