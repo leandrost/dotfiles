@@ -30,10 +30,12 @@ autocmd FileType cs set omnifunc=cscomplete#Complete
 autocmd FileType cs set foldmethod=marker 
 
 autocmd BufRead,BufNewFile *.spec.js  set filetype=javascript.javascript-jasmine
+autocmd BufRead,BufNewFile *.erb  set filetype=eruby.html
 autocmd BufRead,BufNewFile *.srt set filetype=srt
 autocmd BufRead,BufNewFile *.vb set filetype=vb
 
-map <F2> :NERDTreeToggle<CR>
+map <F2> :set paste<CR>
+map <F3> :set nopaste<CR>
 map <C-l> :let @/=""<CR>
 nmap <C-j> :m+<CR>==
 nmap <C-k> :m-2<CR>==
