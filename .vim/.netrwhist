@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/leandrost/Dropbox/Documents/IRPF2011/transmitidas'
+let g:netrw_dirhist_2='/home/leandrost/Dropbox/Documents'
+let g:netrw_dirhist_3='/home/leandrost/Dropbox/Documents/IRPF2011'
+let g:netrw_dirhist_4='/home/leandrost/Dropbox/Documents/IRPF2011/transmitidas'
