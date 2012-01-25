@@ -13,6 +13,10 @@ alias ls='ls --color=auto'
 alias la='ls -a'
 alias ll='ls -l'
 alias grep='grep --color=auto'
-alias pacman='sudo pacman' 
+alias pacman='sudo pacman-color' 
 
-PS1='\u@\h \W\$ '
+COLOR='[38;05;SETm'
+NO_COLOR='[0m'
+
+PS1='\u\e${COLOR//SET/227}@\h \e${COLOR//SET/229}\w \n\e${COLOR//SET/10}$\e${NO_COLOR} '
+PATH=$PATH:bin/
