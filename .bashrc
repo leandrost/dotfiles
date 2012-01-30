@@ -15,8 +15,14 @@ alias ll='ls -l'
 alias grep='grep --color=auto'
 alias pacman='sudo pacman-color' 
 
-COLOR='[38;05;SETm'
-NO_COLOR='[0m'
+PATH=$PATH:bin/:/usr/lib/ruby/gems/1.9.1/gems/
 
-PS1='\u\e${COLOR//SET/227}@\h \e${COLOR//SET/229}\w \n\e${COLOR//SET/10}$\e${NO_COLOR} '
-PATH=$PATH:bin/
+if [ $TERM = "xterm" ]
+then
+	function SET_COLOR () { echo -ne "\[\033[38;5;$1m\]"; }
+	NO_COLOR='\[\033[0m\]'
+	PS1="\u`SET_COLOR 228`@\h ${NO_COLOR}`SET_COLOR 229`\w$(__git_ps1)\n${NO_COLOR}`SET_COLOR 2`$ ${NO_COLOR}"
+else
+	PS1="\u@\h \w$(__git_ps1)\n$ "
+fi
+
