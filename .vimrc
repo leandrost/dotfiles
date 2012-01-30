@@ -1,5 +1,6 @@
 syntax on
 set encoding=utf-8
+set ruler
 
 if has("win32")
 	set runtimepath=~/.vim,$VIMRUNTIME
@@ -34,6 +35,8 @@ autocmd BufRead,BufNewFile *.erb  set filetype=eruby.html
 autocmd BufRead,BufNewFile *.srt set filetype=srt
 autocmd BufRead,BufNewFile *.vb set filetype=vb
 
+let g:user_zen_expandabbr_key = '<C-e>'
+
 map <F2> :set paste<CR>
 map <F3> :set nopaste<CR>
 map <C-l> :let @/=""<CR>
@@ -41,5 +44,3 @@ nmap <C-j> :m+<CR>==
 nmap <C-k> :m-2<CR>==
 vmap <C-j> :m'>+<CR>gv=gv
 vmap <C-k> :m-2<CR>gv=gv
-
-let g:user_zen_expandabbr_key = '<C-e>'
