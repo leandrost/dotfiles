@@ -11,9 +11,14 @@ fi
 
 alias ls='ls --color=auto'
 alias la='ls -a'
-alias ll='ls -l'
+alias ll='ls -lh'
+alias gs='git status'
+alias gsu='git status --untracked-files=no'
+alias gc='git commit'
+alias gca='git commit -a'
 alias grep='grep --color=auto'
 alias pacman='sudo pacman-color' 
+
 
 PATH=$PATH:bin/:/usr/lib/ruby/gems/1.9.1/gems/
 
