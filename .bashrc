@@ -19,6 +19,7 @@ alias gc='git commit'
 alias gca='git commit -a'
 alias grep='grep --color=auto'
 alias pacman='sudo pacman-color' 
+alias aur='aurget --noedit' 
 
 
 PATH=$PATH:bin/:/usr/lib/ruby/gems/1.9.1/gems/
