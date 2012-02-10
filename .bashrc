@@ -22,6 +22,10 @@ alias pacman='sudo pacman-color'
 alias aur='aurget --noedit' 
 
 
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+export GIT_PS1_SHOWUPSTREAM=auto
+
 PATH=$PATH:bin/:/usr/lib/ruby/gems/1.9.1/gems/
 
 if [ $TERM = "xterm" ]
