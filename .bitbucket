@@ -1,0 +1,6 @@
+[auth]
+username = leandrost
+
+[options]
+scm = 'git'
+protocol = 'ssh'
