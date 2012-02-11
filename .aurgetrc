@@ -80,7 +80,7 @@ edit_pkgbuilds='prompt'
 #
 # if true, aurget will automatically resolve dependencies.
 ###
-resolve_dependencies=false
+resolve_dependencies=true
 
 #
 # a space separated list of package names to be ignored. please quote
