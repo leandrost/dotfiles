@@ -1,0 +1,16 @@
+
+# PACKAGES added by backpac on 2012-02-13
+# ------------------------------------------------------------------------------
+acpi bash-completion chromium directfb espeak firefox flashplugin gimp git gksu
+gnome-mplayer gnome-tweak-tool gparted inkscape libpipeline mongodb netcfg
+net-tools nodejs ntp openssh p7zip pacman-mirrorlist pidgin pidgin-libnotify
+python2-pip rhythmbox ruby rxvt-unicode skype sudo terminator transmission-gtk
+ttf-inconsolata unrar unzip vim virtualbox wicd wicd-gtk wireless_tools
+xorg-xinit xterm
+
+# AUR PACKAGES added by backpac on 2012-02-13
+# ------------------------------------------------------------------------------
+android-platform-10 aurget automake1.10 backpac faenza-hotot-icon
+faenza-icon-theme gnome-gmail gnome-shell-extension-wicd-status hotot
+jre6 mplayer-resumer nautilus-dropbox packer pacman-color pidgin-twitter
+ruby-heroku splashy-full synapse wicd-faenza-dark-icons

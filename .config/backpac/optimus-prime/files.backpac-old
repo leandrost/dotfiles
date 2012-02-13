@@ -1,0 +1,7 @@
+/boot/grub/menu.lst
+/etc/rc.conf
+/etc/mkinitcpio.conf
+/etc/inittab
+/etc/X11/xinit/xinitrc
+/etc/sudoers
+/etc/pacman.conf
