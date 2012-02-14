@@ -5,3 +5,5 @@
 /etc/pacman.conf 644 root root
 /etc/rc.conf 644 root root
 /etc/X11/xinit/xinitrc 644 root root
+/usr/share/applications/7zFM.desktop 644 root root
+/usr/share/applications/gnome-gmail.desktop 644 root root
