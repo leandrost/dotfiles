@@ -27,7 +27,7 @@ alias grep='grep --color=auto'
 alias pacman='sudo pacman-color' 
 alias aur='aurget --noedit' 
 
-
+export EDITOR=vim
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWUPSTREAM=auto
@@ -42,4 +42,3 @@ then
 else
 	PS1="\u@\h \w$(__git_ps1)\n$ "
 fi
-
