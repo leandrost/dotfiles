@@ -14,3 +14,7 @@ android-platform-10 aurget automake1.10 backpac faenza-hotot-icon
 faenza-icon-theme gnome-gmail gnome-shell-extension-wicd-status hotot
 jre6 mplayer-resumer nautilus-dropbox packer pacman-color pidgin-twitter
 ruby-heroku splashy-full synapse wicd-faenza-dark-icons
+
+# PACKAGES added by backpac on 2012-02-18
+# ------------------------------------------------------------------------------
+fbset v86d
