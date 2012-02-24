@@ -28,11 +28,13 @@ alias pacman='sudo pacman-color'
 alias aur='aurget --noedit' 
 
 export EDITOR=vim
+
 export GIT_PS1_SHOWDIRTYSTATE=true
-export GIT_PS1_SHOWUNTRACKEDFILES=true
+#export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWUPSTREAM=auto
 
-PATH=$PATH:bin/:/usr/lib/ruby/gems/1.9.1/gems/
+GEMS=/usr/lib/ruby/gems/1.9.1/gems/
+PATH=$PATH:bin/:$GEMS
 
 if [ $TERM = "xterm" ]
 then
