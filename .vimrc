@@ -24,8 +24,8 @@ set number
 set showcmd
 set autoindent
 
-set tabstop=4 
-set shiftwidth=4
+set tabstop=2 
+set shiftwidth=2
 
 autocmd FileType cs set omnifunc=cscomplete#Complete
 autocmd FileType cs set foldmethod=marker 
