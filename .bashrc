@@ -23,8 +23,11 @@ alias gcm='git commit -m'
 alias gca='git commit -a'
 alias gcam='git commit -am'
 
+if test -n "$(command -v pacman-color)"; then
+	alias pacman='sudo pacman-color' 
+fi
+
 alias grep='grep --color=auto'
-alias pacman='sudo pacman-color' 
 alias aur='aurget --noedit' 
 
 export EDITOR=vim
@@ -33,8 +36,7 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 #export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWUPSTREAM=auto
 
-GEMS=/usr/lib/ruby/gems/1.9.1/gems/
-PATH=$PATH:bin/:$GEMS
+PATH=$PATH:$HOME/bin/
 
 if [ $TERM = "xterm" ]
 then
@@ -44,3 +46,7 @@ then
 else
 	PS1="\u@\h \w$(__git_ps1)\n$ "
 fi
+
+[[ -s "/home/leandrost/.rvm/scripts/rvm" ]] && source "/home/leandrost/.rvm/scripts/rvm"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
