@@ -6,6 +6,7 @@
   title_transmit_bg_color = "#363b3b"
   title_inactive_bg_color = "#0c0c0c"
 [keybindings]
+  toggle_zoom = <Alt>x
   go_up = <Alt>k
   close_window = <Primary><Shift>q
   split_horiz = <Alt>o
@@ -16,10 +17,9 @@
   go_left = <Alt>h
 [profiles]
   [[default]]
-    use_system_font = False
+    scrollbar_position = hidden
     background_darkness = 0.88
     background_type = transparent
-    scrollbar_position = hidden
     cursor_color = "#ffffff"
     foreground_color = "#ffffff"
     icon_bell = False
