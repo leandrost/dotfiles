@@ -16,7 +16,9 @@
 				<attributes/>
 			</status>
 			<status type='away' name='Away' active='false'>
-				<attributes/>
+				<attributes>
+					<attribute id='message' value='I&apos;m not here right now'/>
+				</attributes>
 			</status>
 			<status type='extended_away' name='Extended away' active='false'>
 				<attributes/>
@@ -30,15 +32,12 @@
 		</statuses>
 		<userinfo>&lt;vCard xmlns=&apos;vcard-temp&apos;&gt;&lt;FN&gt;Leandro Thimóteo&lt;/FN&gt;&lt;PHOTO&gt;&lt;TYPE&gt;image/jpeg&lt;/TYPE&gt;&lt;BINVAL&gt;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&lt;/BINVAL&gt;&lt;/PHOTO&gt;&lt;/vCard&gt;</userinfo>
 		<settings>
-			<setting name='bosh_url' type='string'></setting>
 			<setting name='buddy_icon_timestamp' type='int'>0</setting>
 			<setting name='auth_plain_in_clear' type='bool'>0</setting>
 			<setting name='custom_smileys' type='bool'>1</setting>
 			<setting name='port' type='int'>5222</setting>
-			<setting name='connect_server' type='string'></setting>
-			<setting name='check-mail' type='bool'>0</setting>
-			<setting name='buddy_icon'/>
 			<setting name='ft_proxies' type='string'>proxy.eu.jabber.org</setting>
+			<setting name='check-mail' type='bool'>0</setting>
 			<setting name='connection_security' type='string'>require_tls</setting>
 			<setting name='use-global-buddyicon' type='bool'>1</setting>
 			<setting name='silence-suppression' type='bool'>0</setting>
@@ -63,7 +62,9 @@
 				<attributes/>
 			</status>
 			<status type='away' name='Away' active='false'>
-				<attributes/>
+				<attributes>
+					<attribute id='message' value='I&apos;m not here right now'/>
+				</attributes>
 			</status>
 			<status type='extended_away' name='Extended away' active='false'>
 				<attributes/>
@@ -77,15 +78,13 @@
 		</statuses>
 		<userinfo>&lt;vCard xmlns=&apos;vcard-temp&apos;&gt;&lt;FN&gt;Leandro Thimoteo&lt;/FN&gt;&lt;/vCard&gt;</userinfo>
 		<settings>
-			<setting name='bosh_url' type='string'></setting>
 			<setting name='buddy_icon_timestamp' type='int'>0</setting>
 			<setting name='auth_plain_in_clear' type='bool'>0</setting>
 			<setting name='custom_smileys' type='bool'>1</setting>
 			<setting name='port' type='int'>5222</setting>
 			<setting name='connect_server' type='string'>talk.google.com</setting>
-			<setting name='check-mail' type='bool'>0</setting>
-			<setting name='buddy_icon'/>
 			<setting name='ft_proxies' type='string'>proxy.eu.jabber.org</setting>
+			<setting name='check-mail' type='bool'>0</setting>
 			<setting name='connection_security' type='string'>require_tls</setting>
 			<setting name='use-global-buddyicon' type='bool'>1</setting>
 			<setting name='silence-suppression' type='bool'>0</setting>
@@ -110,7 +109,9 @@
 				<attributes/>
 			</status>
 			<status type='away' name='Away' active='false'>
-				<attributes/>
+				<attributes>
+					<attribute id='message' value='I&apos;m not here right now'/>
+				</attributes>
 			</status>
 			<status type='extended_away' name='Extended away' active='false'>
 				<attributes/>
@@ -167,15 +168,12 @@ uM+tFcP/wlVwvyrIcDgcUVPs5D50YdmSdUjBJ6H+Vfoh/wbZk/8Pdfhxz/AMw7Xf8A00XdFFdE
 viRhHc/qRsOIcjj5TX88f/B3zJI/7bHgAu5JHgF1GT0AvJMD6UUVvW+Bepp3PyIuCfXtVG9JCr
 g+tFFZfaJI9zepoooqgP/Z&lt;/BINVAL&gt;&lt;/PHOTO&gt;&lt;/vCard&gt;</userinfo>
 		<settings>
-			<setting name='bosh_url' type='string'></setting>
 			<setting name='buddy_icon_timestamp' type='int'>0</setting>
 			<setting name='auth_plain_in_clear' type='bool'>0</setting>
 			<setting name='custom_smileys' type='bool'>1</setting>
 			<setting name='port' type='int'>5222</setting>
-			<setting name='connect_server' type='string'></setting>
-			<setting name='check-mail' type='bool'>0</setting>
-			<setting name='buddy_icon'/>
 			<setting name='ft_proxies' type='string'>proxy.eu.jabber.org</setting>
+			<setting name='check-mail' type='bool'>0</setting>
 			<setting name='connection_security' type='string'>opportunistic_tls</setting>
 			<setting name='use-global-buddyicon' type='bool'>1</setting>
 			<setting name='silence-suppression' type='bool'>0</setting>
@@ -223,7 +221,6 @@ g+tFFZfaJI9zepoooqgP/Z&lt;/BINVAL&gt;&lt;/PHOTO&gt;&lt;/vCard&gt;</userinfo>
 			<setting name='port' type='int'>1863</setting>
 			<setting name='mpop' type='bool'>1</setting>
 			<setting name='check-mail' type='bool'>0</setting>
-			<setting name='buddy_icon'/>
 			<setting name='direct_connect' type='bool'>1</setting>
 			<setting name='http_method' type='bool'>0</setting>
 			<setting name='server' type='string'>messenger.hotmail.com</setting>
@@ -232,9 +229,6 @@ g+tFFZfaJI9zepoooqgP/Z&lt;/BINVAL&gt;&lt;/PHOTO&gt;&lt;/vCard&gt;</userinfo>
 		<settings ui='gtk-gaim'>
 			<setting name='auto-login' type='bool'>0</setting>
 		</settings>
-		<current_error>
-			<type>6</type>
-			<description>You have signed on from another location</description>
-		</current_error>
+		<current_error/>
 	</account>
 </account>
