@@ -40,7 +40,7 @@
 			<pref name='startup' type='int' value='0'/>
 			<pref name='startup_current_status' type='bool' value='1'/>
 			<pref name='idleaway' type='int' value='1330798965'/>
-			<pref name='isidleaway' type='bool' value='0'/>
+			<pref name='isidleaway' type='bool' value='1'/>
 		</pref>
 		<pref name='conversations'>
 			<pref name='chat'>
@@ -51,8 +51,8 @@
 			</pref>
 		</pref>
 		<pref name='logging'>
-			<pref name='log_ims' type='bool' value='0'/>
-			<pref name='log_chats' type='bool' value='0'/>
+			<pref name='log_ims' type='bool' value='1'/>
+			<pref name='log_chats' type='bool' value='1'/>
 			<pref name='log_system' type='bool' value='0'/>
 			<pref name='format' type='string' value='html'/>
 		</pref>
@@ -387,15 +387,15 @@
 			<pref name='show_buddy_icons' type='bool' value='1'/>
 			<pref name='show_empty_groups' type='bool' value='0'/>
 			<pref name='show_idle_time' type='bool' value='1'/>
-			<pref name='show_offline_buddies' type='bool' value='1'/>
+			<pref name='show_offline_buddies' type='bool' value='0'/>
 			<pref name='show_protocol_icons' type='bool' value='0'/>
-			<pref name='list_visible' type='bool' value='1'/>
+			<pref name='list_visible' type='bool' value='0'/>
 			<pref name='list_maximized' type='bool' value='0'/>
 			<pref name='sort_type' type='string' value='alphabetical'/>
-			<pref name='x' type='int' value='20'/>
-			<pref name='y' type='int' value='26'/>
-			<pref name='width' type='int' value='241'/>
-			<pref name='height' type='int' value='636'/>
+			<pref name='x' type='int' value='9'/>
+			<pref name='y' type='int' value='40'/>
+			<pref name='width' type='int' value='238'/>
+			<pref name='height' type='int' value='672'/>
 			<pref name='theme' type='string' value=''/>
 		</pref>
 		<pref name='conversations'>
@@ -429,8 +429,8 @@
 				<pref name='height' type='int' value='390'/>
 			</pref>
 			<pref name='im'>
-				<pref name='x' type='int' value='1'/>
-				<pref name='y' type='int' value='29'/>
+				<pref name='x' type='int' value='350'/>
+				<pref name='y' type='int' value='97'/>
 				<pref name='width' type='int' value='526'/>
 				<pref name='height' type='int' value='512'/>
 				<pref name='animate_buddy_icons' type='bool' value='1'/>
