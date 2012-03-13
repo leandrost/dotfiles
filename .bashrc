@@ -23,12 +23,15 @@ alias gcm='git commit -m'
 alias gca='git commit -a'
 alias gcam='git commit -am'
 
+#myfreecomm
+alias fs='bundle exec foreman start -f Procfile.development'
+
 if test -n "$(command -v pacman-color)"; then
 	alias pacman='sudo pacman-color' 
 fi
 
 alias grep='grep --color=auto'
-alias aur='aurget --noedit' 
+alias aur='aurget --noedit --asroot' 
 
 export EDITOR=vim
 
@@ -37,6 +40,7 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUPSTREAM=auto
 
 PATH=$PATH:$HOME/bin/
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 if [ $TERM = "xterm" ]
 then
@@ -48,5 +52,3 @@ else
 fi
 
 [[ -s "/home/leandrost/.rvm/scripts/rvm" ]] && source "/home/leandrost/.rvm/scripts/rvm"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

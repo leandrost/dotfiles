@@ -18,6 +18,7 @@ highlight LineNr ctermbg=none
 
 filetype plugin indent on
 
+set cursorline
 set incsearch
 set hlsearch
 set number
@@ -26,6 +27,7 @@ set autoindent
 
 set tabstop=2 
 set shiftwidth=2
+set expandtab
 
 autocmd FileType cs set omnifunc=cscomplete#Complete
 autocmd FileType cs set foldmethod=marker 
@@ -37,6 +39,8 @@ autocmd BufRead,BufNewFile *.vb set filetype=vb
 
 let g:user_zen_expandabbr_key = '<C-e>'
 
+map ff :FufFile **/<CR>
+map tt :NERDTreeToggle<CR>
 map <F2> :set paste<CR>
 map <F3> :set nopaste<CR>
 map <C-l> :let @/=""<CR>
