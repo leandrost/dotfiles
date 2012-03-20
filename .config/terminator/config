@@ -1,9 +1,7 @@
 [global_config]
-  window_state = maximise
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
-  title_inactive_fg_color = "#d6d6d6"
-  title_hide_sizetext = True
   title_transmit_bg_color = "#363b3b"
+  title_inactive_fg_color = "#d6d6d6"
   title_inactive_bg_color = "#0c0c0c"
 [keybindings]
   toggle_zoom = <Alt>x
@@ -17,9 +15,10 @@
   go_left = <Alt>h
 [profiles]
   [[default]]
-    scrollbar_position = hidden
+    use_system_font = False
     background_darkness = 0.88
     background_type = transparent
+    scrollbar_position = hidden
     cursor_color = "#ffffff"
     foreground_color = "#ffffff"
     icon_bell = False

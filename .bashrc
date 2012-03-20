@@ -13,18 +13,28 @@ alias ls='ls --color=auto'
 alias la='ls -a'
 alias ll='ls -lh'
 
+#git
 alias ga='git add'
 
 alias gs='git status'
 alias gsu='git status --untracked-files=no'
+
+alias gk='git checkout'
+alias gkm='git checkout master'
+
 
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gca='git commit -a'
 alias gcam='git commit -am'
 
+#rake
+alias rdbm='rake db:migrate'
+alias rdbp='rake db:test:prepare'
+
 #myfreecomm
 alias fs='bundle exec foreman start -f Procfile.development'
+alias integrate='RAILS_ENV=test time rake integrate'
 
 if test -n "$(command -v pacman-color)"; then
 	alias pacman='sudo pacman-color' 

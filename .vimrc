@@ -25,9 +25,10 @@ set number
 set showcmd
 set autoindent
 
+set expandtab
 set tabstop=2 
 set shiftwidth=2
-set expandtab
+set laststatus=2
 
 autocmd FileType cs set omnifunc=cscomplete#Complete
 autocmd FileType cs set foldmethod=marker 
