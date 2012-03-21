@@ -28,6 +28,7 @@ alias gcm='git commit -m'
 alias gca='git commit -a'
 alias gcam='git commit -am'
 
+alias rc='rails console'
 #rake
 alias rdbm='rake db:migrate'
 alias rdbp='rake db:test:prepare'
