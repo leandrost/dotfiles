@@ -40,11 +40,15 @@ autocmd BufRead,BufNewFile *.vb set filetype=vb
 
 let g:user_zen_expandabbr_key = '<C-e>'
 
-map ff :FufFile **/<CR>
-map tt :NERDTreeToggle<CR>
+map \f :FufFile **/<CR>
+map \t :NERDTreeToggle<CR>
+map \o o<ESC>
+map \O O<ESC>
+
 map <F2> :set paste<CR>
 map <F3> :set nopaste<CR>
 map <C-l> :let @/=""<CR>
+
 nmap <C-j> :m+<CR>==
 nmap <C-k> :m-2<CR>==
 vmap <C-j> :m'>+<CR>gv=gv

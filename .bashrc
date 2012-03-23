@@ -35,7 +35,7 @@ alias rdbp='rake db:test:prepare'
 
 #myfreecomm
 alias fs='bundle exec foreman start -f Procfile.development'
-alias integrate='RAILS_ENV=test time rake integrate'
+alias integrate='RAILS_ENV=test time rake integrate && echo "NOTA:Buzine duas vezes e apague o branch rapazinho!"'
 
 if test -n "$(command -v pacman-color)"; then
 	alias pacman='sudo pacman-color' 
@@ -43,6 +43,7 @@ fi
 
 alias grep='grep --color=auto'
 alias aur='aurget --noedit --asroot' 
+alias trash='trash-put' 
 
 export EDITOR=vim
 

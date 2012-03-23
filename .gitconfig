@@ -6,3 +6,5 @@
 	token = exit
 [color]
 	ui = true
+[push]
+	default = current
