@@ -1,6 +1,5 @@
+call pathogen#infect()
 syntax on
-set encoding=utf-8
-set ruler
 
 if has("win32")
 	set runtimepath=~/.vim,$VIMRUNTIME
@@ -8,30 +7,28 @@ if has("win32")
 	imap <C-S-V> <ESC>"+gP
 endif
 
-colorscheme jellybeans
-
 set t_Co=256
+colorscheme jellybeans
 
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 highlight LineNr ctermbg=none
 
-filetype plugin indent on
-
+set number
+set ruler
 set cursorline
+set showcmd
 set incsearch
 set hlsearch
-set number
-set showcmd
 set autoindent
-
 set expandtab
+
+set encoding=utf-8
+set laststatus=2
 set tabstop=2 
 set shiftwidth=2
-set laststatus=2
 
-autocmd FileType cs set omnifunc=cscomplete#Complete
-autocmd FileType cs set foldmethod=marker 
+filetype plugin indent on
 
 autocmd BufRead,BufNewFile *.spec.js  set filetype=javascript.javascript-jasmine
 autocmd BufRead,BufNewFile *.erb  set filetype=eruby.html
@@ -48,8 +45,12 @@ map \O O<ESC>
 map <F2> :set paste<CR>
 map <F3> :set nopaste<CR>
 map <C-l> :let @/=""<CR>
+map t f_ 
+map <S-t> <S>f_ 
 
 nmap <C-j> :m+<CR>==
 nmap <C-k> :m-2<CR>==
 vmap <C-j> :m'>+<CR>gv=gv
 vmap <C-k> :m-2<CR>gv=gv
+"format xml
+"!xmllint --format --recover -
