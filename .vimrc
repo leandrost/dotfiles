@@ -45,8 +45,6 @@ map \O O<ESC>
 map <F2> :set paste<CR>
 map <F3> :set nopaste<CR>
 map <C-l> :let @/=""<CR>
-map t f_ 
-map <S-t> <S>f_ 
 
 nmap <C-j> :m+<CR>==
 nmap <C-k> :m-2<CR>==
