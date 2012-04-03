@@ -47,8 +47,10 @@ alias trash='trash-put'
 
 export EDITOR=vim
 
+source /usr/share/git/completion/git-completion.bash
+
 export GIT_PS1_SHOWDIRTYSTATE=true
-#export GIT_PS1_SHOWUNTRACKEDFILES=true
+export GIT_PS1_SHOWUNTRACKEDFILES=false
 export GIT_PS1_SHOWUPSTREAM=auto
 
 PATH=$PATH:$HOME/bin/
