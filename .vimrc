@@ -52,3 +52,11 @@ vmap <C-j> :m'>+<CR>gv=gv
 vmap <C-k> :m-2<CR>gv=gv
 "format xml
 "!xmllint --format --recover -
+
+autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim")) |
+    \ call mkdir($HOME . "/.vim") |
+    \ endif |
+    \ execute "mksession! " . $HOME . "/.vim/session.vim"
+
+autocmd VimEnter * nested if argc() == 0 && filereadable($HOME . "/.vim/session.vim") |
+    \ execute "source " . $HOME . "/.vim/session.vim"

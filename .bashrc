@@ -35,7 +35,7 @@ alias rdbp='rake db:test:prepare'
 
 #myfreecomm
 alias fs='bundle exec foreman start -f Procfile.development'
-alias integrate='RAILS_ENV=test time rake integrate && echo "NOTA:Buzine duas vezes e apague o branch rapazinho!"'
+alias integrate='RAILS_ENV=test time rake integrate && echo "NICE! Agora buzine duas vezes e apague o branch que vc integrou rapazinho!"'
 
 if test -n "$(command -v pacman-color)"; then
 	alias pacman='sudo pacman-color' 
