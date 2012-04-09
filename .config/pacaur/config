@@ -1,1 +1,21 @@
+#!/bin/bash
+
+#
+# GENERAL OPTIONS
+#
+
+buildDir="/tmp/pacaurtmp-$USER"
+editor="$EDITOR"
 color=true
+clean=true                      # clean up after package install - default: true
+fallback=true                   # pacman fallback - default: true
+
+#
+# ADVANCED OPTIONS
+#
+
+editpkgbuild=false               # edit PKGBUILD script - default: true
+editinstall=false                # edit install script - default: true
+cleandevel=true                 # clean up devel package - default: true
+carchmagic=false                # CARCH compatibility - default: false
+
