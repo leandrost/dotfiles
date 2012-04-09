@@ -14,6 +14,8 @@ highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 highlight LineNr ctermbg=none
 
+filetype plugin indent on
+
 set number
 set ruler
 set cursorline
@@ -28,7 +30,8 @@ set laststatus=2
 set tabstop=2 
 set shiftwidth=2
 
-filetype plugin indent on
+autocmd FileType python set tabstop=4 
+autocmd FileType python set shiftwidth=4
 
 autocmd BufRead,BufNewFile *.spec.js  set filetype=javascript.javascript-jasmine
 autocmd BufRead,BufNewFile *.erb  set filetype=eruby.html

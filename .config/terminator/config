@@ -22,7 +22,7 @@
     cursor_color = "#ffffff"
     foreground_color = "#ffffff"
     icon_bell = False
-    font = Inconsolata Medium 12
+    font = Inconsolata Bold 11
 [layouts]
   [[default]]
     [[[child1]]]

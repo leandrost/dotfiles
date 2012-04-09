@@ -42,7 +42,7 @@ if test -n "$(command -v pacman-color)"; then
 fi
 
 alias grep='grep --color=auto'
-alias aur='aurget --noedit --asroot' 
+alias aur='pacaur' 
 alias trash='trash-put' 
 
 export EDITOR=vim
