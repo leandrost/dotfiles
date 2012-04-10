@@ -45,6 +45,7 @@ map ,t :NERDTreeToggle<CR>
 map \o o<ESC>
 map \O O<ESC>
 map 1y "+y<CR>
+map 1p "+p<CR>
 
 map <F2> :set paste<CR>
 map <F3> :set nopaste<CR>
