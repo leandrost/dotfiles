@@ -66,3 +66,65 @@ autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim")) |
 
 autocmd VimEnter * nested if argc() == 0 && filereadable($HOME . "/.vim/session.vim") |
     \ execute "source " . $HOME . "/.vim/session.vim"
+
+function! MyTabLine()
+  let s = ''
+  let wn = ''
+  let t = tabpagenr()
+  let i = 1
+  while i <= tabpagenr('$')
+    let buflist = tabpagebuflist(i)
+    let winnr = tabpagewinnr(i)
+    let s .= '%' . i . 'T'
+    let s .= (i == t ? '%1*' : '%2*')
+    let wn = tabpagewinnr(i,'$')
+
+    let s .= (i== t ? '%#TabNumSel#' : '%#TabNum#')
+    let s .= ' '
+    let s .= i
+    if tabpagewinnr(i,'$') > 1
+      let s .= '/'
+      let s .= (i== t ? '%#TabWinNumSel#' : '%#TabWinNum#')
+      let s .= (tabpagewinnr(i,'$') > 1 ? wn : '')
+    end
+
+    let s .= ' %*'
+    let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
+    let bufnr = buflist[winnr - 1]
+    let file = bufname(bufnr)
+    let buftype = getbufvar(bufnr, 'buftype')
+    if buftype == 'nofile'
+      if file =~ '\/.'
+        let file = substitute(file, '.*\/\ze.', '', '')
+      endif
+    else
+      let file = fnamemodify(file, ':p:t')
+    endif
+    if file == ''
+      let file = '[No Name]'
+    endif
+    let s .= file
+    let s .= ' '
+    let s .= (i == t ? '%m' : '')
+    let i = i + 1
+  endwhile
+  let s .= '%T%#TabLineFill#%='
+  let s .= '%=%#TabLine#%999Xclose'
+  return s
+endfunction
+
+function! MyTabLabel(n)
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  return bufname(buflist[winnr - 1])
+endfunction
+
+set tabline=%!MyTabLine()
+set tabpagemax=15
+hi TabLineSel term=bold cterm=bold ctermfg=145 ctermbg=none
+hi TabWinNumSel term=bold cterm=bold ctermfg=208 ctermbg=none
+hi TabNumSel term=bold cterm=bold ctermfg=11 ctermbg=none
+
+hi TabLine term=underline ctermfg=16 ctermbg=145
+hi TabWinNum term=bold cterm=bold ctermfg=161 ctermbg=145
+hi TabNum term=bold cterm=bold ctermfg=88 ctermbg=145
