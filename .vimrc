@@ -14,25 +14,29 @@ highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 highlight LineNr ctermbg=none
 
-filetype plugin indent on
+autocmd InsertEnter * hi StatusLine term=reverse ctermbg=227
+autocmd InsertLeave * hi StatusLine term=reverse ctermfg=16 ctermbg=7
 
+set hlsearch
+set cursorline
 set number
 set ruler
-set cursorline
 set showcmd
+set laststatus=2
+set mouse=a
+set encoding=utf-8
+
 set incsearch
-set hlsearch
+
 set autoindent
 set expandtab
-
-set encoding=utf-8
-set laststatus=2
 set tabstop=2 
 set shiftwidth=2
 
 autocmd FileType python set tabstop=4 
 autocmd FileType python set shiftwidth=4
 
+filetype plugin indent on
 autocmd BufRead,BufNewFile *.spec.js  set filetype=javascript.javascript-jasmine
 autocmd BufRead,BufNewFile *.erb  set filetype=eruby.html
 autocmd BufRead,BufNewFile *.exbl  set filetype=ruby.html
@@ -121,10 +125,12 @@ endfunction
 
 set tabline=%!MyTabLine()
 set tabpagemax=15
-hi TabLineSel term=bold cterm=bold ctermfg=145 ctermbg=none
-hi TabWinNumSel term=bold cterm=bold ctermfg=208 ctermbg=none
-hi TabNumSel term=bold cterm=bold ctermfg=11 ctermbg=none
+highlight TabLineSel term=bold cterm=bold ctermfg=145 ctermbg=none
+highlight TabWinNumSel term=bold cterm=bold ctermfg=208 ctermbg=none
+highlight TabNumSel term=bold cterm=bold ctermfg=11 ctermbg=none
 
-hi TabLine term=underline ctermfg=16 ctermbg=145
-hi TabWinNum term=bold cterm=bold ctermfg=161 ctermbg=145
-hi TabNum term=bold cterm=bold ctermfg=88 ctermbg=145
+highlight TabLine term=underline ctermfg=16 ctermbg=145
+highlight TabWinNum term=bold cterm=bold ctermfg=161 ctermbg=145
+highlight TabNum term=bold cterm=bold ctermfg=88 ctermbg=145
+      
+
