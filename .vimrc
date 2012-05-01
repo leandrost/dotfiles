@@ -33,8 +33,8 @@ set expandtab
 set tabstop=2 
 set shiftwidth=2
 
-autocmd FileType python set tabstop=4 
-autocmd FileType python set shiftwidth=4
+autocmd FileType python set tabstop=2 
+autocmd FileType python set shiftwidth=2
 
 filetype plugin indent on
 autocmd BufRead,BufNewFile *.spec.js  set filetype=javascript.javascript-jasmine
