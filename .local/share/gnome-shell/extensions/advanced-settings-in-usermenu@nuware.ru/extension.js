@@ -3,7 +3,10 @@ const St = imports.gi.St;
 const Main = imports.ui.main;
 const Lang = imports.lang;
 const Shell = imports.gi.Shell;
+const GLib = imports.gi.GLib;
 const PopupMenu = imports.ui.popupMenu;
+const Gettext = imports.gettext.domain("advanced-settings-in-usermenu@nuware.ru");
+const _ = Gettext.gettext;
 
 let item, userMenu;
 
@@ -13,7 +16,7 @@ function _onAdvancedSettingsActivate() {
     app.activate();
 }
 
-function init() {
+function init(extensionMeta) {
     userMenu = Main.panel._statusArea.userMenu.menu;
 }
 
