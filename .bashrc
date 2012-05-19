@@ -9,6 +9,8 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+shopt -s autocd
+
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias ll='ls -lh'
