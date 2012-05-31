@@ -15,23 +15,52 @@ alias ls='ls --color=auto'
 alias la='ls -a'
 alias ll='ls -lh'
 
+function make-completion-wrapper () {
+  local function_name="$2"
+  local arg_count=$(($#-3))
+  local comp_function_name="$1"
+  shift 2
+  local function="
+function $function_name {
+  ((COMP_CWORD+=$arg_count))
+  COMP_WORDS=( "$@" \${COMP_WORDS[@]:1} )
+  "$comp_function_name"
+  return 0
+}"
+  eval "$function"
+}
+
 #git
-alias ga='git add'
+# usage: gitalias <alias> <original command>
+function git_completion_wrapper() {
+  make-completion-wrapper _git _$1 $2
+  complete -o bashdefault -o default -o nospace -F _$1 $1
+}
 
-alias gs='git status'
-alias gsu='git status --untracked-files=no'
+function git_alias () {
+  alias $1="$2"
+  git_completion_wrapper $1 $2
+}
 
-alias gk='git checkout'
-alias gkm='git checkout master'
+git_alias ga 'git add'
 
+git_alias gs 'git status'
+git_alias gsu 'git status --untracked-files no'
 
-alias gc='git commit'
-alias gcm='git commit -m'
-alias gca='git commit -a'
-alias gcam='git commit -am'
+git_alias gk 'git checkout'
+git_alias gkm 'git checkout master'
+
+git_alias gc 'git commit'
+git_alias gcm 'git commit -m'
+git_alias gca 'git commit -a'
+git_alias gcam 'git commit -am'
 
 alias hit='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/home/leandrost/'
-alias hsu='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/home/leandrost/ status --untracked-files=no'
+git_completion_wrapper hit 'hit' 
+
+alias ha='hit add'
+alias hc='hit commit'
+alias hs='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/home/leandrost/ status --untracked-files=no'
 
 #rake
 alias rdbm='rake db:migrate'
