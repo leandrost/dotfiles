@@ -30,12 +30,15 @@ alias gcm='git commit -m'
 alias gca='git commit -a'
 alias gcam='git commit -am'
 
-alias rc='rails console'
+alias hit='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/home/leandrost/'
+alias hsu='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/home/leandrost/ status --untracked-files=no'
+
 #rake
 alias rdbm='rake db:migrate'
 alias rdbp='rake db:test:prepare'
 
 #myfreecomm
+alias rc='rails console'
 alias fs='bundle exec foreman start -f Procfile.development'
 alias integrate='RAILS_ENV=test time rake integrate && echo "NICE! Agora buzine duas vezes e apague o branch que vc integrou rapazinho!"'
 
@@ -57,6 +60,7 @@ export GIT_PS1_SHOWUPSTREAM=auto
 
 PATH=$PATH:$HOME/bin/
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin/
 
 if [ $TERM = "xterm" ]
 then
@@ -68,3 +72,4 @@ else
 fi
 
 [[ -s "/home/leandrost/.rvm/scripts/rvm" ]] && source "/home/leandrost/.rvm/scripts/rvm"
+
