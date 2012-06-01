@@ -32,7 +32,13 @@ set autoindent
 set expandtab
 set tabstop=2 
 set shiftwidth=2
+set autoread
 
+let javaScript_fold=1
+let ruby_fold=1
+let html_fold=1
+autocmd Syntax rb,javascript,vim,gitcommit,xml,html,xhtml set foldmethod=syntax
+autocmd Syntax rb,javascript,vim,gitcommit,xml,html,xhtml normal zR
 autocmd FileType python set tabstop=2 
 autocmd FileType python set shiftwidth=2
 
@@ -51,6 +57,8 @@ map \o o<ESC>
 map \O O<ESC>
 map 1y "+y<CR>
 map 1p "+p<CR>
+map \p "+p<CR>
+map \P "+P<CR>
 
 map <F2> :set paste<CR>
 map <F3> :set nopaste<CR>
@@ -109,7 +117,10 @@ function! MyTabLine()
     endif
     let s .= file
     let s .= ' '
-    let s .= (i == t ? '%m' : '')
+    if getbufvar(bufnr, "&modified")
+      let s.= (i == t ? '%#TabModFlagSel#' : '%#TabModFlag#')
+      let s.= '[+]'
+    endif
     let i = i + 1
   endwhile
   let s .= '%T%#TabLineFill#%='
@@ -128,9 +139,9 @@ set tabpagemax=15
 highlight TabLineSel term=bold cterm=bold ctermfg=145 ctermbg=none
 highlight TabWinNumSel term=bold cterm=bold ctermfg=208 ctermbg=none
 highlight TabNumSel term=bold cterm=bold ctermfg=11 ctermbg=none
+highlight TabModFlagSel term=bold cterm=bold ctermfg=154 ctermbg=none
 
 highlight TabLine term=underline ctermfg=16 ctermbg=145
 highlight TabWinNum term=bold cterm=bold ctermfg=161 ctermbg=145
 highlight TabNum term=bold cterm=bold ctermfg=88 ctermbg=145
-      
-
+highlight TabModFlag term=bold cterm=bold ctermfg=154 ctermbg=145
