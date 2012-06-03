@@ -35,6 +35,11 @@ set ruler
 set showcmd
 set mouse=a
 
+let javaScript_fold=1
+let ruby_fold=1
+let html_fold=1
+autocmd Syntax rb,javascript,vim,gitcommit,xml,html,xhtml set foldmethod=syntax
+autocmd Syntax rb,javascript,vim,gitcommit,xml,html,xhtml normal zR
 autocmd BufRead,BufNewFile *.spec.js  set filetype=javascript.javascript-jasmine
 autocmd BufRead,BufNewFile *.erb  set filetype=eruby.html
 autocmd BufRead,BufNewFile *.exbl  set filetype=ruby.html
@@ -43,8 +48,6 @@ autocmd BufRead,BufNewFile *.vb set filetype=vb
 
 let g:user_zen_expandabbr_key = '<C-e>'
 
-map ,f :FufFile **/<CR>
-map ,t :NERDTreeToggle<CR>
 map \o o<ESC>
 map \O O<ESC>
 "map 1m :set mouse=a<CR>
@@ -121,7 +124,10 @@ function! MyTabLine()
     endif
     let s .= file
     let s .= ' '
-    let s .= (i == t ? '%m' : '')
+    if getbufvar(bufnr, "&modified")
+      let s.= (i == t ? '%#TabModFlagSel#' : '%#TabModFlag#')
+      let s.= '[+]'
+    endif
     let i = i + 1
   endwhile
   let s .= '%T%#TabLineFill#%='
@@ -140,7 +146,10 @@ set tabpagemax=15
 highlight TabLineSel term=bold cterm=bold ctermfg=145 ctermbg=none
 highlight TabWinNumSel term=bold cterm=bold ctermfg=208 ctermbg=none
 highlight TabNumSel term=bold cterm=bold ctermfg=11 ctermbg=none
+highlight TabModFlagSel term=bold cterm=bold ctermfg=154 ctermbg=none
 
 highlight TabLine term=underline ctermfg=16 ctermbg=145
 highlight TabWinNum term=bold cterm=bold ctermfg=161 ctermbg=145
 highlight TabNum term=bold cterm=bold ctermfg=88 ctermbg=145
+
+highlight TabModFlag term=bold cterm=bold ctermfg=154 ctermbg=145
