@@ -1,5 +1,14 @@
 call pathogen#infect()
 syntax on
+set encoding=utf-8
+
+set autoindent
+filetype plugin indent on
+set expandtab
+set tabstop=2 
+set shiftwidth=2
+autocmd FileType python set tabstop=4 
+autocmd FileType python set shiftwidth=4
 
 if has("win32")
 	set runtimepath=~/.vim,$VIMRUNTIME
@@ -10,33 +19,22 @@ endif
 set t_Co=256
 colorscheme jellybeans
 
+set number
+set hlsearch
+set incsearch
+
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 highlight LineNr ctermbg=none
 
+set laststatus=2
 autocmd InsertEnter * hi StatusLine term=reverse ctermbg=227
 autocmd InsertLeave * hi StatusLine term=reverse ctermfg=16 ctermbg=7
 
-set hlsearch
-set cursorline
-set number
 set ruler
 set showcmd
-set laststatus=2
 set mouse=a
-set encoding=utf-8
 
-set incsearch
-
-set autoindent
-set expandtab
-set tabstop=2 
-set shiftwidth=2
-
-autocmd FileType python set tabstop=2 
-autocmd FileType python set shiftwidth=2
-
-filetype plugin indent on
 autocmd BufRead,BufNewFile *.spec.js  set filetype=javascript.javascript-jasmine
 autocmd BufRead,BufNewFile *.erb  set filetype=eruby.html
 autocmd BufRead,BufNewFile *.exbl  set filetype=ruby.html
@@ -49,8 +47,22 @@ map ,f :FufFile **/<CR>
 map ,t :NERDTreeToggle<CR>
 map \o o<ESC>
 map \O O<ESC>
-map 1y "+y<CR>
-map 1p "+p<CR>
+"map 1m :set mouse=a<CR>
+"map 2m :set mouse=<CR>
+
+function ShowBackground()
+  highlight Normal ctermbg=0 
+  colorscheme jellybeans
+endfunction 
+
+function HideBackground()
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+  highlight LineNr ctermbg=none
+endfunction
+
+"map 2b :call ShowBackground()<CR>
+"map 1b :call HideBackground()<CR>
 
 map <F2> :set paste<CR>
 map <F3> :set nopaste<CR>
@@ -132,5 +144,3 @@ highlight TabNumSel term=bold cterm=bold ctermfg=11 ctermbg=none
 highlight TabLine term=underline ctermfg=16 ctermbg=145
 highlight TabWinNum term=bold cterm=bold ctermfg=161 ctermbg=145
 highlight TabNum term=bold cterm=bold ctermfg=88 ctermbg=145
-      
-

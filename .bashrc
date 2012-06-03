@@ -101,4 +101,3 @@ else
 fi
 
 [[ -s "/home/leandrost/.rvm/scripts/rvm" ]] && source "/home/leandrost/.rvm/scripts/rvm"
-
