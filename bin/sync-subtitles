@@ -1,2 +1,9 @@
 #!/usr/bin/env bash
-subdb $HOME/downloads
+
+if [ "$#" -gt 0 ]; then
+  target_dir=$1
+else
+  target_dir=$PWD
+fi
+
+subdb $target_dir
