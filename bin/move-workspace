@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require 'wmctrl'
 
-def move_workspace direction
+def move_to_workspace direction, move_current_window
   wm = WMCtrl.new
 
   workspace_id = wm.list_desktops.detect { |d| d[:current] }[:id]
@@ -10,14 +10,21 @@ def move_workspace direction
   return if workspace_id == 0 && direction == :above
   return if workspace_id == workspace_count && direction == :bellow
 
-  to = { 
+  target = { 
     above: workspace_id - 1,
     bellow: workspace_id + 1 
   }
 
-  return if to[direction].nil?
+  target_workspace = target[direction]
 
-  wm.switch_desktop to[direction]
+  return if target_workspace.nil?
+
+  if move_current_window
+    window_id = wm.list_windows.detect { |d| d[:active] }[:id]
+    wm.action_window(window_id, :move_to_desktop, target_workspace)
+  end
+
+  wm.switch_desktop target_workspace
 end
 
-move_workspace ARGV.first.to_sym if ARGV && ARGV.size > 0
+move_to_workspace ARGV.first.to_sym, ARGV.last == '-w' if ARGV && ARGV.size > 0
