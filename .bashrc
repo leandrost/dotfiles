@@ -60,6 +60,7 @@ git_completion_wrapper hit 'hit'
 
 alias ha='hit add'
 alias hc='hit commit'
+alias hcm='hit commit -m'
 alias hs='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/home/leandrost/ status --untracked-files=no'
 
 #rake
