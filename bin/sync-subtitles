@@ -3,7 +3,7 @@
 if [ "$#" -gt 0 ]; then
   target_dir=$1
 else
-  target_dir=$PWD
+  target_dir=$HOME/downloads
 fi
 
 subdb $target_dir
