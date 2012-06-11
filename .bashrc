@@ -14,6 +14,7 @@ shopt -s autocd
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias ll='ls -lh'
+alias l.='ls -d .* --color=auto'
 
 function make-completion-wrapper () {
   local function_name="$2"
