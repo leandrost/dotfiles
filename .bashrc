@@ -44,6 +44,7 @@ function git_alias () {
 }
 
 git_alias ga 'git add'
+git_alias gba 'git branch -a'
 
 git_alias gs 'git status'
 git_alias gsu 'git status --untracked-files no'

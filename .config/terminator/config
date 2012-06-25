@@ -1,11 +1,14 @@
 [global_config]
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
-  title_transmit_bg_color = "#363b3b"
+  title_transmit_bg_color = "#f7f7f7"
   title_inactive_fg_color = "#d6d6d6"
+  title_transmit_fg_color = "#343a3c"
   title_inactive_bg_color = "#0c0c0c"
 [keybindings]
   toggle_zoom = <Alt>x
+  resize_left = <Primary><Shift>l
   go_up = <Alt>k
+  resize_up = <Primary><Shift>k
   close_window = <Primary><Shift>q
   split_horiz = <Alt>o
   go_down = <Alt>j
@@ -13,6 +16,8 @@
   split_vert = <Alt>i
   go_right = <Alt>l
   go_left = <Alt>h
+  resize_right = <Primary><Shift>h
+  resize_down = <Primary><Shift>j
 [profiles]
   [[default]]
     use_system_font = False
@@ -23,6 +28,22 @@
     foreground_color = "#ffffff"
     icon_bell = False
     font = Inconsolata Bold 11
+  [[sandbox]]
+    use_system_font = False
+    background_darkness = 0.89
+    background_type = transparent
+    scrollbar_position = hidden
+    foreground_color = "#ffffff"
+    font = Inconsolata Bold 11
+    background_color = "#0c1b5f"
+  [[production]]
+    use_system_font = False
+    background_darkness = 0.88
+    background_type = transparent
+    scrollbar_position = hidden
+    foreground_color = "#ffffff"
+    font = Inconsolata Bold 11
+    background_color = "#600606"
 [layouts]
   [[default]]
     [[[child1]]]
@@ -33,3 +54,8 @@
       type = Window
       parent = ""
 [plugins]
+  [[CustomCommandsMenu]]
+    [[[xxx]]]
+      command = ls
+      enabled = True
+      name = xxx

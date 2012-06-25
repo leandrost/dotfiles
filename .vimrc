@@ -35,49 +35,69 @@ set ruler
 set showcmd
 set mouse=a
 
-let javaScript_fold=1
-let ruby_fold=1
-let html_fold=1
-autocmd Syntax rb,javascript,vim,gitcommit,xml,html,xhtml set foldmethod=syntax
-autocmd Syntax rb,javascript,vim,gitcommit,xml,html,xhtml normal zR
+"let javaScript_fold=1
+"let ruby_fold=1
+"let html_fold=1
+"autocmd Syntax rb,javascript,vim,gitcommit,xml,html,xhtml set foldmethod=syntax
+"autocmd Syntax rb,javascript,vim,gitcommit,xml,html,xhtml normal zR
 autocmd BufRead,BufNewFile *.spec.js  set filetype=javascript.javascript-jasmine
 autocmd BufRead,BufNewFile *.erb  set filetype=eruby.html
 autocmd BufRead,BufNewFile *.exbl  set filetype=ruby.html
 autocmd BufRead,BufNewFile *.srt set filetype=srt
 autocmd BufRead,BufNewFile *.vb set filetype=vb
+autocmd BufRead,BufNewFile *.ofx set filetype=xml
 
 let g:user_zen_expandabbr_key = '<C-e>'
 
-map \o o<ESC>
-map \O O<ESC>
-"map 1m :set mouse=a<CR>
-"map 2m :set mouse=<CR>
+"BACKGROUND CONFIG
+let g:bg_flag = 0
 
-function ShowBackground()
+function! ShowBackground()
+  let g:bg_flag = 1
   highlight Normal ctermbg=0 
   colorscheme jellybeans
 endfunction 
 
-function HideBackground()
+function! HideBackground()
+  let g:bg_flag = 0
   highlight Normal ctermbg=none
   highlight NonText ctermbg=none
   highlight LineNr ctermbg=none
 endfunction
 
-"map 2b :call ShowBackground()<CR>
-"map 1b :call HideBackground()<CR>
+function! ToggleBackground()
+    echo g:bg_flag
+  if g:bg_flag == 0
+    call ShowBackground() 
+  else
+    call HideBackground()
+  endif
+endfunction
+
+"CUSTOM MAPS
+map <C-l> :let @/=""<CR>
 
 map <F2> :set paste<CR>
 map <F3> :set nopaste<CR>
-map <C-l> :let @/=""<CR>
+map <F4> :!xmllint --format --recover -
+
+map \p "+p
+
+map \y "+y
+map \yy "+yy
+map \yw "+yw
+map \yb "+yb
 
 nmap <C-j> :m+<CR>==
 nmap <C-k> :m-2<CR>==
 vmap <C-j> :m'>+<CR>gv=gv
 vmap <C-k> :m-2<CR>gv=gv
-"format xml
-"!xmllint --format --recover -
 
+"CUSTOM COMMANDS
+command! FF FufFile
+command! BG call ToggleBackground()
+
+"LAST SESSION
 autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim")) |
     \ call mkdir($HOME . "/.vim") |
     \ endif |
@@ -86,6 +106,7 @@ autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim")) |
 autocmd VimEnter * nested if argc() == 0 && filereadable($HOME . "/.vim/session.vim") |
     \ execute "source " . $HOME . "/.vim/session.vim"
 
+"CUSTOM TABS
 function! MyTabLine()
   let s = ''
   let wn = ''
@@ -143,6 +164,7 @@ endfunction
 
 set tabline=%!MyTabLine()
 set tabpagemax=15
+
 highlight TabLineSel term=bold cterm=bold ctermfg=145 ctermbg=none
 highlight TabWinNumSel term=bold cterm=bold ctermfg=208 ctermbg=none
 highlight TabNumSel term=bold cterm=bold ctermfg=11 ctermbg=none
