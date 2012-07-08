@@ -96,6 +96,7 @@ vmap <C-k> :m-2<CR>gv=gv
 "CUSTOM COMMANDS
 command! FF FufFile
 command! BG call ToggleBackground()
+command! W w !sudo tee %
 
 "LAST SESSION
 autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim")) |
