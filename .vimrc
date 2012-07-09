@@ -98,13 +98,13 @@ command! FF FufFile
 command! BG call ToggleBackground()
 
 "LAST SESSION
-autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim")) |
-    \ call mkdir($HOME . "/.vim") |
+autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim/sessions")) |
+    \ call mkdir($HOME . "/.vim/sessions") |
     \ endif |
-    \ execute "mksession! " . $HOME . "/.vim/session.vim"
+    \ execute "mksession! " . $HOME . "/.vim/sessions/default.vim"
 
-autocmd VimEnter * nested if argc() == 0 && filereadable($HOME . "/.vim/session.vim") |
-    \ execute "source " . $HOME . "/.vim/session.vim"
+autocmd VimEnter * nested if argc() == 0 && filereadable($HOME . "/.vim/sessions/default.vim") |
+    \ execute "source " . $HOME . "/.vim/sessions/default.vim"
 
 "CUSTOM TABS
 function! MyTabLine()
