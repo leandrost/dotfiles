@@ -68,6 +68,7 @@ alias hs='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/hom
 #rake
 alias rdbm='rake db:migrate'
 alias rdbp='rake db:test:prepare'
+alias rdbmp='rake db:migrate && rake db:test:prepare'
 
 #myfreecomm
 alias cdm='cd /home/leandrost/projects/myfinance/src/'
