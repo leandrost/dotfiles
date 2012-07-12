@@ -93,10 +93,12 @@ nmap <C-k> :m-2<CR>==
 vmap <C-j> :m'>+<CR>gv=gv
 vmap <C-k> :m-2<CR>gv=gv
 
+map v$$ vg_
+
 "CUSTOM COMMANDS
 command! FF FufFile
 command! BG call ToggleBackground()
-command! W w !sudo tee %
+command! WS w !sudo tee %
 
 "LAST SESSION
 autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim/sessions")) |
