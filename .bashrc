@@ -43,7 +43,7 @@ function git_alias () {
   git_completion_wrapper $1 $2
 }
 
-git_alias ga 'git add'
+alias ga='git add'
 git_alias gba 'git branch -a'
 
 git_alias gs 'git status'
@@ -83,6 +83,7 @@ fi
 alias grep='grep --color=auto'
 alias aur='pacaur' 
 alias trash='trash-put' 
+alias please='sudo'
 
 export EDITOR=vim
 
