@@ -93,19 +93,21 @@ nmap <C-k> :m-2<CR>==
 vmap <C-j> :m'>+<CR>gv=gv
 vmap <C-k> :m-2<CR>gv=gv
 
+map v$$ vg_
+
 "CUSTOM COMMANDS
 command! FF FufFile
 command! BG call ToggleBackground()
-command! W w !sudo tee %
+command! S w !sudo tee %
 
 "LAST SESSION
-autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim")) |
-    \ call mkdir($HOME . "/.vim") |
+autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim/sessions")) |
+    \ call mkdir($HOME . "/.vim/sessions") |
     \ endif |
-    \ execute "mksession! " . $HOME . "/.vim/session.vim"
+    \ execute "mksession! " . $HOME . "/.vim/sessions/default.vim"
 
-autocmd VimEnter * nested if argc() == 0 && filereadable($HOME . "/.vim/session.vim") |
-    \ execute "source " . $HOME . "/.vim/session.vim"
+autocmd VimEnter * nested if argc() == 0 && filereadable($HOME . "/.vim/sessions/default.vim") |
+    \ execute "source " . $HOME . "/.vim/sessions/default.vim"
 
 "CUSTOM TABS
 function! MyTabLine()
