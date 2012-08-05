@@ -106,10 +106,10 @@ fi
 
 [[ -s "/home/leandrost/.rvm/scripts/rvm" ]] && source "/home/leandrost/.rvm/scripts/rvm"
 
-export PERL_LOCAL_LIB_ROOT="/home/leandrost/perl5";
-export PERL_MB_OPT="--install_base /home/leandrost/perl5";
-export PERL_MM_OPT="INSTALL_BASE=/home/leandrost/perl5";
-export PERL5LIB="/home/leandrost/perl5/lib/perl5/i686-linux-thread-multi:/home/leandrost/perl5/lib/perl5";
-export PATH="/home/leandrost/perl5/bin:$PATH";
+export PERL_LOCAL_LIB_ROOT="/home/leandrost/.perl5";
+export PERL_MB_OPT="--install_base /home/leandrost/.perl5";
+export PERL_MM_OPT="INSTALL_BASE=/home/leandrost/.perl5";
+export PERL5LIB="/home/leandrost/.perl5/lib/perl5/i686-linux-thread-multi:/home/leandrost/.perl5/lib/perl5";
+export PATH="/home/leandrost/.perl5/bin:$PATH";
 
 source $HOME/.certman
