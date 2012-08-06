@@ -1,6 +1,4 @@
-#
-# ~/.bashrc
-#
+#!/usr/bin/env
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -10,11 +8,6 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 shopt -s autocd
-
-alias ls='ls --color=auto'
-alias la='ls -a'
-alias ll='ls -lh'
-alias l.='ls -d .* --color=auto'
 
 function make-completion-wrapper () {
   local function_name="$2"
@@ -31,71 +24,29 @@ function $function_name {
   eval "$function"
 }
 
-#git
-# usage: gitalias <alias> <original command>
-function git_completion_wrapper() {
-  make-completion-wrapper _git _$1 $2
-  complete -o bashdefault -o default -o nospace -F _$1 $1
-}
+export EDITOR=vim
 
-function git_alias () {
-  alias $1="$2"
-  git_completion_wrapper $1 $2
-}
-
-alias ga='git add'
-git_alias gba 'git branch -a'
-
-git_alias gs 'git status'
-git_alias gsu 'git status --untracked-files no'
-
-git_alias gk 'git checkout'
-git_alias gkm 'git checkout master'
-
-git_alias gc 'git commit'
-git_alias gcm 'git commit -m'
-git_alias gca 'git commit -a'
-git_alias gcam 'git commit -am'
-
-alias hit='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/home/leandrost/'
-git_completion_wrapper hit 'hit' 
-
-alias ha='hit add'
-alias hc='hit commit'
-alias hcm='hit commit -m'
-alias hs='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/home/leandrost/ status --untracked-files=no'
-
-#rake
-alias rdbm='rake db:migrate'
-alias rdbp='rake db:test:prepare'
-alias rdbmp='rake db:migrate && rake db:test:prepare'
-
-#myfreecomm
-alias cdm='cd /home/leandrost/projects/myfinance/src/'
-alias rc='rails console'
-alias fs='bundle exec foreman start -f Procfile.development'
-alias integrate='RAILS_ENV=test time rake integrate && echo "NICE! Agora buzine duas vezes e apague o branch que vc integrou rapazinho!"'
-
-if test -n "$(command -v pacman-color)"; then
-	alias pacman='sudo pacman-color' 
-fi
+alias ls='ls --color=auto'
+alias la='ls -a'
+alias ll='ls -lh'
+alias l.='ls -d .* --color=auto'
 
 alias grep='grep --color=auto'
 alias aur='pacaur' 
 alias trash='trash-put' 
 alias please='sudo'
 
-export EDITOR=vim
+if test -n "$(command -v pacman-color)"; then
+  alias pacman='sudo pacman-color' 
+fi
 
-source /usr/share/git/completion/git-completion.bash
-
-export GIT_PS1_SHOWDIRTYSTATE=true
-export GIT_PS1_SHOWUNTRACKEDFILES=false
-export GIT_PS1_SHOWUPSTREAM=auto
-
+#add my scripts to path
 PATH=$PATH:$HOME/bin/
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin/
+
+source $HOME/.profiles/git
+source $HOME/.profiles/perl
+source $HOME/.profiles/ruby
+source $HOME/.profiles/myfreecomm
 
 if [ $TERM = "xterm" ]
 then
@@ -105,13 +56,3 @@ then
 else
 	PS1="\u@\h \w$(__git_ps1)\n$ "
 fi
-
-[[ -s "/home/leandrost/.rvm/scripts/rvm" ]] && source "/home/leandrost/.rvm/scripts/rvm"
-
-export PERL_LOCAL_LIB_ROOT="/home/leandrost/.perl5";
-export PERL_MB_OPT="--install_base /home/leandrost/.perl5";
-export PERL_MM_OPT="INSTALL_BASE=/home/leandrost/.perl5";
-export PERL5LIB="/home/leandrost/.perl5/lib/perl5/i686-linux-thread-multi:/home/leandrost/.perl5/lib/perl5";
-export PATH="/home/leandrost/.perl5/bin:$PATH";
-
-source $HOME/.certman
