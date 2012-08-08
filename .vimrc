@@ -64,7 +64,6 @@ function! HideBackground()
   highlight NonText ctermbg=none
   highlight LineNr ctermbg=none
 endfunction
-
 function! ToggleBackground()
     echo g:bg_flag
   if g:bg_flag == 0
@@ -99,6 +98,7 @@ map v$$ vg_
 command! FF FufFile
 command! BG call ToggleBackground()
 command! S w !sudo tee %
+command! P let @+=expand("%:p")
 
 "LAST SESSION
 autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim/sessions")) |
