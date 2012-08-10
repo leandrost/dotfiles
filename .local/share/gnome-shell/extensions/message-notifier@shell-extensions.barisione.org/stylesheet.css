@@ -19,10 +19,25 @@
 .message-button {
     padding: 0 0.4em;
 }
-
-.message-label {
+/*
+ *.message-label {
+ *    text-align: center;
+ *    padding: 0 4px;
+ *    border-radius: 2px;
+ *    background-color: #CC3C29;
+ *}
+ */
+/* css improvements by https://extensions.gnome.org/accounts/profile/KEIII */
+.message-label { 
     text-align: center;
-    padding: 0 4px;
-    border-radius: 2px;
+    min-width: 3ex;
+    color: #fff;
+    border-radius: .4ex;
+    border-top: 1px solid #ff5a44;
     background-color: #CC3C29;
-}
+    background-gradient-direction: vertical;
+    background-gradient-start: #eb442e;
+    background-gradient-end: #c12c19;
+    text-shadow: rgba(0,0,0,0.7) 0 0.1ex .2ex;
+    box-shadow: 0 0 .3ex 0.1ex #000;
+ }

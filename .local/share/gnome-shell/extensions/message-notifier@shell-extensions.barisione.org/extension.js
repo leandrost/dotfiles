@@ -16,33 +16,39 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+const ExtensionUtils = imports.misc.extensionUtils;
 const GLib = imports.gi.GLib;
 const Lang = imports.lang;
 const Main = imports.ui.main;
+const Meta = imports.gi.Meta;
 const MessageTray = imports.ui.messageTray;
 const PanelMenu = imports.ui.panelMenu;
 const PopupMenu = imports.ui.popupMenu;
 const St = imports.gi.St;
 
+const Me = ExtensionUtils.getCurrentExtension();
+const Convenience = Me.imports.convenience;
+
+const openMenuSettingId = "show-message-notifier";
+
 let originalSetCount = null;
 let indicator = null;
+let settings = null;
 
 let debugEnabled = false;
+let alwaysShow = false;
 
 function debug(message) {
     if (debugEnabled)
         log ("MESSAGE-NOTIFIER: " + message);
 }
 
-function Indicator() {
-    this._init.apply(this, arguments);
-}
-
-Indicator.prototype = {
-    __proto__: PanelMenu.Button.prototype,
+const Indicator = new Lang.Class({
+    Name: "Indicator",
+    Extends: PanelMenu.Button,
 
     _init: function() {
-        PanelMenu.Button.prototype._init.call(this, 0.0, "Message notifier");
+        this.parent(0.0, "Message notifier");
 
         this._countLabel = new St.Label({style_class: 'message-label'});
 
@@ -50,6 +56,28 @@ Indicator.prototype = {
         this.actor.add_actor(this._countLabel);
 
         this.updateCount();
+
+        debug("using keybinding '" + settings.get_strv(openMenuSettingId)[0] +
+            "' to show the menu");
+        global.display.add_keybinding(openMenuSettingId, settings,
+                Meta.KeyBindingFlags.NONE,
+                Lang.bind(this, function () {
+                    if (this.menu.firstMenuItem) {
+                        debug("menu activated through a keybinding");
+                        this.menu.open();
+                        this.menu.firstMenuItem.setActive(true);
+                    }
+                    else
+                        debug("menu activated through a keybinding, " +
+                            "but no items available");
+                }));
+    },
+
+    destroy: function() {
+        debug("unregistering keybindings");
+        global.display.remove_keybinding(openMenuSettingId);
+
+        this.parent();
     },
 
     _addItem: function(title, count, openFunction) {
@@ -179,11 +207,12 @@ Indicator.prototype = {
         debug("updating count");
 
         let app_map = {
-            'telepathy':           this._handleGeneric, /* Chat notifications */
-            'notify-send':         this._handleNotifySend,
-            'xchat-gnome.desktop': this._handleXChat,
-            'xchat.desktop':       this._handleXChat,
-            'pidgin.desktop':      this._handlePidgin,
+            'telepathy':                    this._handleGeneric, /* Chat notifications */
+            'notify-send':                  this._handleNotifySend,
+            'xchat-gnome.desktop':          this._handleXChat,
+            'fedora-xchat-gnome.desktop':   this._handleXChat,
+            'xchat.desktop':                this._handleXChat,
+            'pidgin.desktop':               this._handlePidgin,
         };
 
         this._count = 0;
@@ -233,7 +262,7 @@ Indicator.prototype = {
                             debug ("    app name: '" + source.app.get_name() + "'");
                         }
                         else {
-                            debug ("    app: null'");
+                            debug ("    app: null");
                         }
                     }
                 }
@@ -248,9 +277,9 @@ Indicator.prototype = {
         debug ("the new total count is " + this._count);
 
         this._countLabel.set_text(this._count.toString());
-        this.actor.visible = this._count > 0;
+        this.actor.visible = alwaysShow || this._count > 0;
     },
-}
+});
 
 function customSetCount(count, visible) {
     originalSetCount.call(this, count, visible);
@@ -267,12 +296,19 @@ function customSetCount(count, visible) {
 function init() {
     if (GLib.getenv("MESSAGE_NOTIFIER_DEBUG")) {
         debugEnabled = true;
-        debug ("initialised");
+        debug ("initialising");
+    }
+
+    if (GLib.getenv("MESSAGE_NOTIFIER_ALWAYS_SHOW")) {
+        alwaysShow = true;
+        debug ("always showing the icon");
     }
 }
 
 function enable() {
     debug ("enabling");
+
+    settings = Convenience.getSettings();
 
     originalSetCount = MessageTray.Source.prototype._setCount;
     MessageTray.Source.prototype._setCount = customSetCount;
@@ -289,4 +325,6 @@ function disable() {
 
     indicator.destroy();
     indicator = null;
+
+    settings = null;
 }
