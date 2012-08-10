@@ -1,0 +1,17 @@
+#!/usr/bin/env
+
+#add gem to PATH
+PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin/
+
+#rake alisases
+alias rdbm='rake db:migrate'
+alias rdbp='rake db:test:prepare'
+alias rdbmp='rake db:migrate && rake db:test:prepare'
+
+# add rvm to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin 
+
+#[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+
+#rvm completion
+[[ -r $HOME/.rvm/scripts/completion ]] && source $HOME/.rvm/scripts/completion

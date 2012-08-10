@@ -1,0 +1,41 @@
+#!/usr/bin/env
+#git
+# usage: gitalias <alias> <original command>
+source /usr/share/git/completion/git-completion.bash
+
+function git_completion_wrapper() {
+  make-completion-wrapper _git _$1 $2
+  complete -o bashdefault -o default -o nospace -F _$1 $1
+}
+
+function git_alias () {
+  alias $1="$2"
+  git_completion_wrapper $1 $2
+}
+
+alias ga='git add'
+git_alias gba 'git branch -a'
+
+git_alias gs 'git status'
+git_alias gsu 'git status --untracked-files no'
+
+git_alias gk 'git checkout'
+git_alias gkm 'git checkout master'
+
+git_alias gc 'git commit'
+git_alias gcm 'git commit -m'
+git_alias gca 'git commit -a'
+git_alias gcam 'git commit -am'
+
+alias hit='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/home/leandrost/'
+git_completion_wrapper hit 'hit' 
+
+alias ha='hit add'
+alias hc='hit commit'
+alias hcm='hit commit -m'
+alias hs='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/home/leandrost/ status --untracked-files=no'
+
+
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=false
+export GIT_PS1_SHOWUPSTREAM=auto
