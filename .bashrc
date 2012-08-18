@@ -63,7 +63,13 @@ then
     fi
   }
   function rvm_pp() { 
-      echo -e $(_clr 9 "[$(~/.rvm/bin/rvm-prompt s)]") 
+      prompt="$(~/.rvm/bin/rvm-prompt s)"
+      if [[ $prompt == 'system' ]]; then
+        prompt=''
+      else
+        prompt="[$prompt]"
+      fi
+      echo -e $(_clr 9 "$prompt") 
   }
   function git_pp() { echo -e $(_clr 229 "$(__git_ps1)"); }
   PS1="\u\$(clr 228 @\h) $(clr 229)\w\$(git_pp) \$(rvm_pp)\n$(clr 2 \\)$ $(clr)"
