@@ -11,7 +11,10 @@ alias rdbmp='rake db:migrate && rake db:test:prepare'
 # add rvm to PATH for scripting
 PATH=$PATH:$HOME/.rvm/bin 
 
-#[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+#rvm
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
-#rvm completion
+#completions
 [[ -r $HOME/.rvm/scripts/completion ]] && source $HOME/.rvm/scripts/completion
+source $HOME/.profiles/rails_completion
+source $HOME/.profiles/rake_completion
