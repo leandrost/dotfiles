@@ -50,23 +50,23 @@ source $HOME/.profiles/myfreecomm
 
 if [ $TERM = "xterm" ]
 then
-  function SET_COLOR () { echo -ne "\[\033[38;5;$1m\]"; }
-  NO_COLOR='\[\033[0m\]'
-	function _clr () 
+	function clr () 
   { 
-    if [ $# == '2' ]; then
-      echo -e "\033[38;5;$1m$2\033[0m" 
+    if [[ $2 == '\' ]]; then
+      echo -e "\[\033[38;5;$1m\]"
+    elif [ $# == '2' ]; then
+        echo -e "\033[38;5;$1m$2\033[0m" 
     elif [ $# == '1' ]; then
       echo -e "\033[38;5;$1m"
-    elif [ $# == '0']; then
-      echo -e "\033[0m" 
+    elif [ $# == '0' ]; then
+      echo -e "\[\033[0m\]" 
     fi
   }
-  function _rvm_pp() { 
+  function rvm_pp() { 
       echo -e $(_clr 9 "[$(~/.rvm/bin/rvm-prompt s)]") 
   }
-  function _git_pp() { echo -e $(_clr 229 "$(__git_ps1)"); }
-  PS1="\u\$(_clr 228 @\h) \$(_clr 229)\w\$(_git_pp) \$(_rvm_pp)\n${NO_COLOR}$(SET_COLOR 2)$ ${NO_COLOR}"
+  function git_pp() { echo -e $(_clr 229 "$(__git_ps1)"); }
+  PS1="\u\$(clr 228 @\h) $(clr 229)\w\$(git_pp) \$(rvm_pp)\n$(clr 2 \\)$ $(clr)"
 else
 	PS1="\u@\h \w$(__git_ps1)\n$ "
 fi
