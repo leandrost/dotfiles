@@ -52,27 +52,28 @@ if [ $TERM = "xterm" ]
 then
 	function clr () 
   { 
-    if [[ $2 == '\' ]]; then
-      echo -e "\[\033[38;5;$1m\]"
+    if [[ $2 == '$' ]]; then
+      echo -e "\[\033[38;5;$1m\]$\[\033[0m\]"
     elif [ $# == '2' ]; then
         echo -e "\033[38;5;$1m$2\033[0m" 
     elif [ $# == '1' ]; then
       echo -e "\033[38;5;$1m"
-    elif [ $# == '0' ]; then
-      echo -e "\[\033[0m\]" 
     fi
   }
-  function rvm_pp() { 
+  function rvm_ps1() { 
       prompt="$(~/.rvm/bin/rvm-prompt s)"
       if [[ $prompt == 'system' ]]; then
         prompt=''
       else
         prompt="[$prompt]"
       fi
-      echo -e $(_clr 9 "$prompt") 
+      echo -e $(clr 9 "$prompt") 
   }
-  function git_pp() { echo -e $(_clr 229 "$(__git_ps1)"); }
-  PS1="\u\$(clr 228 @\h) $(clr 229)\w\$(git_pp) \$(rvm_pp)\n$(clr 2 \\)$ $(clr)"
+  function git_ps1() 
+  { 
+    echo -e $(clr 229 "$(__git_ps1)");
+  }
+  PS1="\u\$(clr 228 @\h) $(clr 229)\w\$(git_ps1) \$(rvm_ps1)\n$(clr 2 $) "
 else
 	PS1="\u@\h \w$(__git_ps1)\n$ "
 fi
