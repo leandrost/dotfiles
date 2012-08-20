@@ -50,9 +50,29 @@ source $HOME/.profiles/myfreecomm
 
 if [ $TERM = "xterm" ]
 then
-	function SET_COLOR () { echo -ne "\[\033[38;5;$1m\]"; }
-	NO_COLOR='\[\033[0m\]'
-	PS1="\u`SET_COLOR 228`@\h ${NO_COLOR}`SET_COLOR 229`\w\$(__git_ps1)\n${NO_COLOR}`SET_COLOR 2`$ ${NO_COLOR}"
+	function clr () 
+  { 
+    if [[ $2 == '\' ]]; then
+      echo -e "\[\033[38;5;$1m\]"
+    elif [ $# == '2' ]; then
+        echo -e "\033[38;5;$1m$2\033[0m" 
+    elif [ $# == '1' ]; then
+      echo -e "\033[38;5;$1m"
+    elif [ $# == '0' ]; then
+      echo -e "\[\033[0m\]" 
+    fi
+  }
+  function rvm_pp() { 
+      prompt="$(~/.rvm/bin/rvm-prompt s)"
+      if [[ $prompt == 'system' ]]; then
+        prompt=''
+      else
+        prompt="[$prompt]"
+      fi
+      echo -e $(_clr 9 "$prompt") 
+  }
+  function git_pp() { echo -e $(_clr 229 "$(__git_ps1)"); }
+  PS1="\u\$(clr 228 @\h) $(clr 229)\w\$(git_pp) \$(rvm_pp)\n$(clr 2 \\)$ $(clr)"
 else
 	PS1="\u@\h \w$(__git_ps1)\n$ "
 fi
