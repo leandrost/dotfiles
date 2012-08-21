@@ -6,9 +6,9 @@
   title_inactive_bg_color = "#0c0c0c"
 [keybindings]
   toggle_zoom = <Alt>x
-  resize_left = <Primary><Shift>l
+  resize_left = <Shift><Alt>h
   go_up = <Alt>k
-  resize_up = <Primary><Shift>k
+  resize_up = <Shift><Alt>k
   close_window = <Primary><Shift>q
   split_horiz = <Alt>o
   go_down = <Alt>j
@@ -16,8 +16,8 @@
   split_vert = <Alt>i
   go_right = <Alt>l
   go_left = <Alt>h
-  resize_right = <Primary><Shift>h
-  resize_down = <Primary><Shift>j
+  resize_right = <Shift><Alt>l
+  resize_down = <Shift><Alt>j
 [profiles]
   [[default]]
     use_system_font = False
