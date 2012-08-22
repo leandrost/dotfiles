@@ -69,9 +69,9 @@ then
       else
         prompt="[$prompt]"
       fi
-      echo -e $(_clr 9 "$prompt") 
+      echo -e $(clr 9 "$prompt") 
   }
-  function git_pp() { echo -e $(_clr 229 "$(__git_ps1)"); }
+  function git_pp() { echo -e $(clr 229 "$(__git_ps1)"); }
   PS1="\u\$(clr 228 @\h) $(clr 229)\w\$(git_pp) \$(rvm_pp)\n$(clr 2 \\)$ $(clr)"
 else
 	PS1="\u@\h \w$(__git_ps1)\n$ "
