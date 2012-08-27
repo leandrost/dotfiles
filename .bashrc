@@ -77,3 +77,4 @@ then
 else
 	PS1="\u@\h \w$(__git_ps1)\n$ "
 fi
+
