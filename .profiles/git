@@ -1,13 +1,12 @@
 #!/usr/bin/env
-#git
-# usage: gitalias <alias> <original command>
-source /usr/share/git/completion/git-completion.bash
+source /usr/share/git/git-prompt.sh
 
 function git_completion_wrapper() {
   make-completion-wrapper _git _$1 $2
   complete -o bashdefault -o default -o nospace -F _$1 $1
 }
 
+# usage: gitalias <alias> <original command>
 function git_alias () {
   alias $1="$2"
   git_completion_wrapper $1 $2
