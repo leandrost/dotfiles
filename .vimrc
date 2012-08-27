@@ -86,6 +86,10 @@ map \y "+y
 map \yy "+yy
 map \yw "+yw
 map \yb "+yb
+map \sl :Spec line('.')<CR>
+map \sf :Spec line('.')." --fail-fast"<CR>
+map \s% :Spec ""<CR>
+map \s- :Spec "--fail-fast"<CR>
 
 nmap <C-j> :m+<CR>==
 nmap <C-k> :m-2<CR>==
@@ -94,11 +98,24 @@ vmap <C-k> :m-2<CR>gv=gv
 
 map v$$ vg_
 
+"RSPEC
+function! RunRspec(line)
+  let args = '' 
+  if a:line != ''
+    let args .= ' -l '.a:line 
+  end
+  let cmd = "!rspec %".args." > /dev/pts/2"
+  echo cmd
+  execute cmd
+  let g:last_rspec = cmd
+endfunction
+
 "CUSTOM COMMANDS
 command! FF FufFile
 command! BG call ToggleBackground()
 command! S w !sudo tee %
 command! P let @+=expand("%:p")
+command! -nargs=* Spec call RunRspec(<args>)
 
 "LAST SESSION
 autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim/sessions")) |
