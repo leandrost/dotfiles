@@ -90,6 +90,7 @@ map \sl :Spec line('.')<CR>
 map \sf :Spec line('.')." --fail-fast"<CR>
 map \s% :Spec ""<CR>
 map \s- :Spec "--fail-fast"<CR>
+map \r :Spec "-"<CR>
 
 nmap <C-j> :m+<CR>==
 nmap <C-k> :m-2<CR>==
@@ -99,14 +100,18 @@ vmap <C-k> :m-2<CR>gv=gv
 map v$$ vg_
 
 "RSPEC
-function! RunRspec(line)
+function! RunRspec(args)
   let args = '' 
-  if a:line != ''
-    let args .= ' -l '.a:line 
+  if a:args != ''
+    let args .= ' -l '.a:args 
   end
-  let cmd = "!rspec %".args." > /dev/pts/2"
-  echo cmd
-  execute cmd
+  if a:args == '-'
+    let cmd = g:last_rspec
+  else
+    let cmd = "rspec ".expand("%").args
+  end
+  execute "!echo ".cmd." > /dev/pts/2"
+  execute "!".cmd." > /dev/pts/2"
   let g:last_rspec = cmd
 endfunction
 
