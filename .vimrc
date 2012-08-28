@@ -110,8 +110,8 @@ function! RunRspec(args)
   else
     let cmd = "rspec ".expand("%").args
   end
-  execute "!echo ".cmd." > /dev/pts/2"
-  execute "!".cmd." > /dev/pts/2"
+  execute 'silent execute "!echo ".cmd." > /dev/pts/2" | redraw!'
+  execute 'silent execute "!".cmd." > /dev/pts/2" | redraw!'
   let g:last_rspec = cmd
 endfunction
 
