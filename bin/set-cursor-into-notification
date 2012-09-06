@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+xdotool mousemove 842 1049
+xdotool mousemove 1082 997
+xdotool click 1

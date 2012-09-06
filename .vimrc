@@ -89,6 +89,7 @@ map \yb "+yb
 map \sl :Spec line('.')<CR>
 map \sf :Spec line('.')." --fail-fast"<CR>
 map \s% :Spec ""<CR>
+map \ss :let @+= "rspec ".expand("%")<CR>
 map \s- :Spec "--fail-fast"<CR>
 map \r :Spec "-"<CR>
 
@@ -98,6 +99,8 @@ vmap <C-j> :m'>+<CR>gv=gv
 vmap <C-k> :m-2<CR>gv=gv
 
 map v$$ vg_
+map cu ct_
+map cU F_lct_
 
 "RSPEC
 function! RunRspec(args)
@@ -119,7 +122,7 @@ endfunction
 command! FF FufFile
 command! BG call ToggleBackground()
 command! S w !sudo tee %
-command! P let @+=expand("%:p")
+command! P let @+= "rspec ".expand("%")
 command! -nargs=* Spec call RunRspec(<args>)
 
 "LAST SESSION
@@ -168,16 +171,15 @@ function! MyTabLine()
     if file == ''
       let file = '[No Name]'
     endif
-    let s .= file
-    let s .= ' '
     if getbufvar(bufnr, "&modified")
       let s.= (i == t ? '%#TabModFlagSel#' : '%#TabModFlag#')
-      let s.= '[+]'
     endif
+    let s .= file
+    let s .= ' '
     let i = i + 1
   endwhile
   let s .= '%T%#TabLineFill#%='
-  let s .= '%=%#TabLine#%999Xclose'
+  let s .= '%=%#TabClose#%999XX'
   return s
 endfunction
 
@@ -185,6 +187,7 @@ function! MyTabLabel(n)
   let buflist = tabpagebuflist(a:n)
   let winnr = tabpagewinnr(a:n)
   return bufname(buflist[winnr - 1])
+
 endfunction
 
 set tabline=%!MyTabLine()
@@ -193,10 +196,12 @@ set tabpagemax=15
 highlight TabLineSel term=bold cterm=bold ctermfg=145 ctermbg=none
 highlight TabWinNumSel term=bold cterm=bold ctermfg=208 ctermbg=none
 highlight TabNumSel term=bold cterm=bold ctermfg=11 ctermbg=none
-highlight TabModFlagSel term=bold cterm=bold ctermfg=154 ctermbg=none
+highlight TabModFlagSel term=bold cterm=bold ctermfg=11 ctermbg=none
 
-highlight TabLine term=underline ctermfg=16 ctermbg=145
-highlight TabWinNum term=bold cterm=bold ctermfg=161 ctermbg=145
-highlight TabNum term=bold cterm=bold ctermfg=88 ctermbg=145
 
-highlight TabModFlag term=bold cterm=bold ctermfg=154 ctermbg=145
+highlight TabLine term=underline ctermfg=16 ctermbg=0
+highlight TabWinNum term=bold cterm=bold ctermfg=161 ctermbg=0
+highlight TabNum term=bold cterm=bold ctermfg=166 ctermbg=0
+highlight TabModFlag term=bold cterm=bold ctermfg=166 ctermbg=0
+
+highlight TabClose term=bold cterm=bold ctermfg=11 ctermbg=none
