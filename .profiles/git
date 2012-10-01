@@ -12,7 +12,9 @@ function git_alias () {
   git_completion_wrapper $1 $2
 }
 
+alias gl='git log'
 alias ga='git add'
+
 git_alias gba 'git branch -a'
 
 git_alias gs 'git status'

@@ -1,6 +1,7 @@
 call pathogen#infect()
 syntax on
 set encoding=utf-8
+set nowrap
 
 set autoindent
 filetype plugin indent on
@@ -91,7 +92,8 @@ map \sf :Spec line('.')." --fail-fast"<CR>
 map \s% :Spec ""<CR>
 map \ss :let @+= "rspec ".expand("%")<CR>
 map \s- :Spec "--fail-fast"<CR>
-map \r :Spec "-"<CR>
+omap \r :Spec "-"<CR>
+map \r :let @+= "rspec ".expand("%")<CR>
 
 nmap <C-j> :m+<CR>==
 nmap <C-k> :m-2<CR>==
