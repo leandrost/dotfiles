@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=HipChat
+Exec=chromium -app=https://myfreecomm.hipchat.com/chat --name=app --class=app --user-data-dir=.webapps/hipchat
+StartupNotify=true
+Terminal=false
+Type=Application
+Icon=/home/leandrost/.gnome2/epiphany/app-epiphany-hipchat-829fbcec3f2f8cc8b4f7605491ce51aae21bf1db/app-icon.png
+StartupWMClass=hipchat
