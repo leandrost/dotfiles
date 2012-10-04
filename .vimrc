@@ -49,6 +49,7 @@ autocmd BufRead,BufNewFile *.srt set filetype=srt
 autocmd BufRead,BufNewFile *.vb set filetype=vb
 autocmd BufRead,BufNewFile *.ofx set filetype=xml
 
+"ZEN CODING
 let g:user_zen_expandabbr_key = '<C-e>'
 
 "BACKGROUND CONFIG
@@ -129,13 +130,24 @@ command! P let @+= "rspec ".expand("%")
 command! -nargs=* Spec call RunRspec(<args>)
 
 "LAST SESSION
-autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim/sessions")) |
-    \ call mkdir($HOME . "/.vim/sessions") |
-    \ endif |
-    \ execute "mksession! " . $HOME . "/.vim/sessions/default.vim"
+let g:sessions_dir = $HOME."/.vim/sessions"
+let g:default_session = g:sessions_dir."default.vim"
 
-autocmd VimEnter * nested if argc() == 0 && filereadable($HOME . "/.vim/sessions/default.vim") |
-    \ execute "source " . $HOME . "/.vim/sessions/default.vim"
+function! SaveSession()
+  if !isdirectory(g:sessions_dir)
+    call mkdir(g:sessions_dir)
+  endif
+  execute "mksession! ".g:default_session
+endfunction
+
+function! MakeSession()
+  if argc() == 0 && filereadable(g:default_session)
+    execute "source ".g:default_session
+  endif
+endfunction
+
+autocmd VimLeave * nested call SaveSession()
+autocmd VimEnter * nested call MakeSession()
 
 "CUSTOM TABS
 function! MyTabLine()

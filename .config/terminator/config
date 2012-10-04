@@ -1,8 +1,11 @@
 [global_config]
-  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
-  title_transmit_bg_color = "#f7f7f7"
-  title_inactive_fg_color = "#d6d6d6"
+  handle_size = 1
+  enabled_plugins = CustomCommandsMenu, LaunchpadCodeURLHandler, APTURLHandler
+  dbus = True
   title_transmit_fg_color = "#343a3c"
+  title_inactive_fg_color = "#d6d6d6"
+  geometry_hinting = False
+  title_transmit_bg_color = "#f7f7f7"
   title_inactive_bg_color = "#0c0c0c"
 [keybindings]
   toggle_zoom = <Alt>x
@@ -35,7 +38,7 @@
     scrollbar_position = hidden
     foreground_color = "#ffffff"
     font = Inconsolata Bold 11
-    background_color = "#0c1b5f"
+    background_color = "#1c254b"
   [[production]]
     use_system_font = False
     background_darkness = 0.88
