@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Grooveshark
+Exec=chromium -app=http://grooveshark.com/ --class=grooveshark --user-data-dir=.webapps/grooveshark
+StartupNotify=true
+Terminal=false
+Type=Application
+Icon=grooveshark
+StartupWMClass=grooveshark
