@@ -9,6 +9,12 @@ fi
 
 shopt -s autocd
 
+#add my scripts to path
+PATH=$PATH:$HOME/.local/bin/
+
+export EDITOR=vim
+
+
 function make-completion-wrapper () {
   local function_name="$2"
   local arg_count=$(($#-3))
@@ -24,8 +30,8 @@ function $function_name {
   eval "$function"
 }
 
-export EDITOR=vim
 
+#ALIASES
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias ll='ls -lh'
@@ -40,34 +46,35 @@ if test -n "$(command -v pacman-color)"; then
   alias pacman='sudo pacman-color' 
 fi
 
-#add my scripts to path
-PATH=$PATH:$HOME/bin/
 
+#PROFILES
 source $HOME/.profiles/git
 source $HOME/.profiles/perl
 source $HOME/.profiles/ruby
 source $HOME/.profiles/myfreecomm
 
+#PS1
 if [ $TERM = "xterm" ]
 then
-	function clr () 
+  function clr () 
   { 
     if [[ $2 == '$' ]]; then
       echo -e "\[\033[38;5;$1m\]$\[\033[0m\]"
     elif [ $# == '2' ]; then
-        echo -e "\033[38;5;$1m$2\033[0m" 
+      echo -e "\033[38;5;$1m$2\033[0m" 
     elif [ $# == '1' ]; then
       echo -e "\033[38;5;$1m"
     fi
   }
-  function rvm_ps1() { 
-      prompt="$(~/.rvm/bin/rvm-prompt s)"
-      if [[ $prompt == 'system' ]]; then
-        prompt=''
-      else
-        prompt="[$prompt]"
-      fi
-      echo -e $(clr 9 "$prompt") 
+  function rvm_ps1() 
+  { 
+    prompt="$(~/.rvm/bin/rvm-prompt s)"
+    if [[ $prompt == 'system' ]]; then
+      prompt=''
+    else
+      prompt="[$prompt]"
+    fi
+    echo -e $(clr 9 "$prompt") 
   }
   function git_ps1() 
   { 
@@ -75,6 +82,5 @@ then
   }
   PS1="\u\$(clr 228 @\h) $(clr 229)\w\$(git_ps1) \$(rvm_ps1)\n$(clr 2 $) "
 else
-	PS1="\u@\h \w$(__git_ps1)\n$ "
+  PS1="\u@\h \w$(__git_ps1)\n$ "
 fi
-
