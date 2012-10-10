@@ -46,7 +46,7 @@
     scrollbar_position = hidden
     foreground_color = "#ffffff"
     font = Inconsolata Bold 11
-    background_color = "#600606"
+    background_color = "#480000"
 [layouts]
   [[default]]
     [[[child1]]]
