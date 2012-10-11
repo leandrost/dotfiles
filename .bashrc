@@ -10,7 +10,7 @@ fi
 shopt -s autocd
 
 #add my scripts to path
-PATH=$PATH:$HOME/.local/bin/
+PATH=$PATH:$HOME/.local/bin
 
 export EDITOR=vim
 

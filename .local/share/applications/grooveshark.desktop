@@ -1,3 +1,4 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
 Name=Grooveshark
 Exec=chromium -app=http://grooveshark.com/ --class=grooveshark --user-data-dir=.webapps/grooveshark

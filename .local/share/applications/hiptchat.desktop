@@ -1,3 +1,4 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
 Name=HipChat
 Exec=chromium -app=https://myfreecomm.hipchat.com/chat --class=hipchat --user-data-dir=.webapps/hipchat

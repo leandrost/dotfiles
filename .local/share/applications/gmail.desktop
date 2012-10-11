@@ -1,3 +1,4 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
 Name=Gmail
 Exec=chromium -app=https://mail.google.com/mail/u/0/ --class=gmail --user-data-dir=.webapps/gmail
