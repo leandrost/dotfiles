@@ -6,4 +6,4 @@ Terminal=false
 Type=Application
 Icon=gmail
 StartupWMClass=gmail
-Categories=Internet;
+Categories=Network;

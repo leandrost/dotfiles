@@ -6,4 +6,4 @@ Terminal=false
 Type=Application
 Icon=hipchat
 StartupWMClass=hipchat
-Categories=Internet;
+Categories=Network;
