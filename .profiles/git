@@ -14,6 +14,7 @@ function git_alias () {
 
 alias gl='git log'
 alias ga='git add'
+alias gau='git add -u'
 
 git_alias gba 'git branch -a'
 
@@ -32,6 +33,7 @@ alias hit='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/ho
 git_completion_wrapper hit 'hit' 
 
 alias ha='hit add'
+alias hau='hit add -u'
 alias hc='hit commit'
 alias hcm='hit commit -m'
 alias hs='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/home/leandrost/ status --untracked-files=no'
