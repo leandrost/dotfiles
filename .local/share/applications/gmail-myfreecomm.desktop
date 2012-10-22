@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=GMail at Myfreecomm
+Exec=chromium -app=https://mail.google.com/mail/u/1/ --class=gmail-myfreecomm --user-data-dir=.webapps/gmail-myfreecomm
+StartupNotify=true
+Terminal=false
+Type=Application
+Icon=gmail-myfreecomm
+StartupWMClass=gmail-myfreecomm
+Categories=Network;
+
