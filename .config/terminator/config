@@ -14,10 +14,12 @@
   resize_up = <Shift><Alt>k
   close_window = <Primary><Shift>q
   split_horiz = <Alt>o
+  go_prev = <Shift><Alt>w
   go_down = <Alt>j
   close_term = <Shift><Alt>q
   split_vert = <Alt>i
   go_right = <Alt>l
+  go_next = <Alt>w
   go_left = <Alt>h
   resize_right = <Shift><Alt>l
   resize_down = <Shift><Alt>j
