@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Lock Screen
+Exec=gnome-screensaver-command --lock
+StartupNotify=false
+Terminal=false
+Type=Application
+Icon=gnome-lockscreen
+StartupWMClass=lock-screen
+Categories=GNOME;GTK;Utility;System;
+
