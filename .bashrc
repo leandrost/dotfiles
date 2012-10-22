@@ -7,6 +7,9 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+#desabilita beep do terminal
+setterm -blength 0
+
 shopt -s autocd
 
 #add my scripts to path
