@@ -132,24 +132,33 @@ command! P let @+= "rspec ".expand("%")
 command! -nargs=* Spec call RunRspec(<args>)
 
 "LAST SESSION
-let g:sessions_dir = $HOME."/.vim/sessions"
+let g:sessions_dir = $HOME."/.vim/sessions/"
 let g:default_session = g:sessions_dir."default.vim"
+let g:myfinance_session = g:sessions_dir."myfinance.vim"
 
 function! SaveSession()
   if !isdirectory(g:sessions_dir)
     call mkdir(g:sessions_dir)
   endif
-  execute "mksession! ".g:default_session
+  if getcwd() == $HOME."/projects/myfinance/src"
+    execute "mksession! ".g:myfinance_session
+  else
+    execute "mksession! ".g:default_session
+  endif
 endfunction
 
-function! MakeSession()
-  if argc() == 0 && filereadable(g:default_session)
-    execute "source ".g:default_session
+function! LoadSession()
+  if argc() == 0 
+    if getcwd() == $HOME."/projects/myfinance/src" && filereadable(g:myfinance_session)
+      execute "source ".g:myfinance_session
+    elseif filereadable(g:default_session)
+      execute "source ".g:default_session
+    endif
   endif
 endfunction
 
 autocmd VimLeave * nested call SaveSession()
-autocmd VimEnter * nested call MakeSession()
+autocmd VimEnter * nested call LoadSession()
 
 "CUSTOM TABS
 function! MyTabLine()
