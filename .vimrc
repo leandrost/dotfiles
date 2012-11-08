@@ -219,15 +219,16 @@ endfunction
 set tabline=%!MyTabLine()
 set tabpagemax=15
 
-highlight TabLineSel term=bold cterm=bold ctermfg=145 ctermbg=none
+highlight TabLineSel term=bold cterm=bold ctermfg=252 ctermbg=none
 highlight TabWinNumSel term=bold cterm=bold ctermfg=208 ctermbg=none
 highlight TabNumSel term=bold cterm=bold ctermfg=11 ctermbg=none
 highlight TabModFlagSel term=bold cterm=bold ctermfg=11 ctermbg=none
 
 
-highlight TabLine term=underline ctermfg=16 ctermbg=0
-highlight TabWinNum term=bold cterm=bold ctermfg=161 ctermbg=0
-highlight TabNum term=bold cterm=bold ctermfg=166 ctermbg=0
-highlight TabModFlag term=bold cterm=bold ctermfg=166 ctermbg=0
+highlight TabLine term=underline ctermfg=246 ctermbg=235
+
+highlight TabWinNum term=bold cterm=bold ctermfg=246 ctermbg=235
+highlight TabNum term=bold cterm=bold ctermfg=229 ctermbg=235
+highlight TabModFlag term=bold cterm=bold ctermfg=229 ctermbg=235
 
 highlight TabClose term=bold cterm=bold ctermfg=11 ctermbg=none
