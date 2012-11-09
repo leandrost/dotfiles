@@ -21,7 +21,7 @@ if has("win32")
 endif
 
 set t_Co=256
-colorscheme jellybeans
+colorscheme Tomorrow-Night
 
 set number
 set hlsearch
