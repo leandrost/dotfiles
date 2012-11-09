@@ -3,10 +3,16 @@
 #add gem to PATH
 PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin/
 
+#rails alisases
+alias rdbc='rails dbconsole'
+#
 #rake alisases
+alias rdbs='rake db:migrate:status'
 alias rdbm='rake db:migrate'
 alias rdbp='rake db:test:prepare'
 alias rdbmp='rake db:migrate && rake db:test:prepare'
+alias rdbup='rake db:migrate:up'
+alias rdbdown='rake db:migrate:down'
 
 # add rvm to PATH for scripting
 PATH=$PATH:$HOME/.rvm/bin 

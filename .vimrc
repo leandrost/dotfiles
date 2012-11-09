@@ -33,7 +33,7 @@ highlight LineNr ctermbg=none
 
 set laststatus=2
 autocmd InsertEnter * hi StatusLine term=reverse ctermbg=227
-autocmd InsertLeave * hi StatusLine term=reverse ctermfg=16 ctermbg=7
+autocmd InsertLeave * hi StatusLine term=bold,reverse cterm=reverse ctermfg=240 ctermbg=222 gui=reverse
 
 set ruler
 set showcmd
@@ -216,8 +216,8 @@ function! MyTabLabel(n)
 
 endfunction
 
-set tabline=%!MyTabLine()
-set tabpagemax=15
+"set tabline=%!MyTabLine()
+"set tabpagemax=15
 
 highlight TabLineSel term=bold cterm=bold ctermfg=252 ctermbg=none
 highlight TabWinNumSel term=bold cterm=bold ctermfg=208 ctermbg=none
@@ -225,10 +225,11 @@ highlight TabNumSel term=bold cterm=bold ctermfg=11 ctermbg=none
 highlight TabModFlagSel term=bold cterm=bold ctermfg=11 ctermbg=none
 
 
-highlight TabLine term=underline ctermfg=246 ctermbg=235
+highlight TabLine term=underline ctermfg=246 ctermbg=none
+highlight TabLineFill term=underline ctermfg=246 ctermbg=235
 
 highlight TabWinNum term=bold cterm=bold ctermfg=246 ctermbg=235
-highlight TabNum term=bold cterm=bold ctermfg=229 ctermbg=235
+highlight TabNum term=bold cterm=bold ctermfg=229 ctermbg=none
 highlight TabModFlag term=bold cterm=bold ctermfg=229 ctermbg=235
 
-highlight TabClose term=bold cterm=bold ctermfg=11 ctermbg=none
+highlight TabClose term=bold cterm=bold ctermfg=11 ctermbg=235
