@@ -21,7 +21,9 @@ if has("win32")
 endif
 
 set t_Co=256
-colorscheme Tomorrow-Night
+set background=dark
+colorscheme solarized
+highlight rubydefine ctermbg=none
 
 set number
 set hlsearch
@@ -32,8 +34,6 @@ highlight NonText ctermbg=none
 highlight LineNr ctermbg=none
 
 set laststatus=2
-autocmd InsertEnter * hi StatusLine term=reverse ctermbg=227
-autocmd InsertLeave * hi StatusLine term=bold,reverse cterm=reverse ctermfg=240 ctermbg=222 gui=reverse
 
 set ruler
 set showcmd
@@ -205,7 +205,7 @@ function! MyTabLine()
     let i = i + 1
   endwhile
   let s .= '%T%#TabLineFill#%='
-  let s .= '%=%#TabClose#%999XX'
+  let s .= '%=%#TabClose#%999X X'
   return s
 endfunction
 
@@ -216,20 +216,15 @@ function! MyTabLabel(n)
 
 endfunction
 
-"set tabline=%!MyTabLine()
-"set tabpagemax=15
+set tabline=%!MyTabLine()
+set tabpagemax=15
 
 highlight TabLineSel term=bold cterm=bold ctermfg=252 ctermbg=none
-highlight TabWinNumSel term=bold cterm=bold ctermfg=208 ctermbg=none
-highlight TabNumSel term=bold cterm=bold ctermfg=11 ctermbg=none
-highlight TabModFlagSel term=bold cterm=bold ctermfg=11 ctermbg=none
+highlight TabWinNumSel term=bold cterm=bold ctermfg=11 ctermbg=none
+highlight TabNumSel term=bold cterm=bold ctermfg=226 ctermbg=none
+highlight TabModFlagSel term=bold cterm=bold ctermfg=208 ctermbg=none
 
+highlight TabLineFill cterm=none 
+highlight TabLine cterm=none 
 
-highlight TabLine term=underline ctermfg=246 ctermbg=none
-highlight TabLineFill term=underline ctermfg=246 ctermbg=235
-
-highlight TabWinNum term=bold cterm=bold ctermfg=246 ctermbg=235
-highlight TabNum term=bold cterm=bold ctermfg=229 ctermbg=none
-highlight TabModFlag term=bold cterm=bold ctermfg=229 ctermbg=235
-
-highlight TabClose term=bold cterm=bold ctermfg=11 ctermbg=235
+highlight TabClose term=bold cterm=none ctermfg=255 ctermbg=none
