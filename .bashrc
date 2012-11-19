@@ -15,6 +15,8 @@ shopt -s autocd
 #add my scripts to path
 PATH=$PATH:$HOME/.local/bin
 
+PATH=$PATH:/opt/android-sdk/platform-tools/
+
 export EDITOR=vim
 
 
