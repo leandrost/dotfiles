@@ -1,12 +1,20 @@
 call pathogen#infect()
 
+runtime macros/matchit.vim
+
 syntax on
 set encoding=utf-8
 set nowrap
 
-set autoindent
 filetype plugin indent on
+set autoindent
 set expandtab
+
+if has("win32")
+  set runtimepath=~/.vim,$VIMRUNTIME
+  set backspace=indent,eol,start whichwrap+=<,>,[,]
+  imap <C-S-V> <ESC>"+gP
+endif
 
 autocmd FileType * set tabstop=2 
 autocmd FileType * set shiftwidth=2
@@ -14,11 +22,8 @@ autocmd FileType * set shiftwidth=2
 autocmd FileType python set tabstop=4 
 autocmd FileType python set shiftwidth=4
 
-if has("win32")
-	set runtimepath=~/.vim,$VIMRUNTIME
-	set backspace=indent,eol,start whichwrap+=<,>,[,]
-	imap <C-S-V> <ESC>"+gP
-endif
+autocmd VimLeave * nested call SaveSession()
+autocmd VimEnter * nested call LoadSession()
 
 set t_Co=256
 set background=dark
@@ -81,11 +86,8 @@ endfunction
 "CUSTOM MAPS
 map <C-l> :let @/=""<CR>
 
-map <F2> :set paste<CR>
-map <F3> :set nopaste<CR>
-map <F4> :!xmllint --format --recover -
-
 map \p "+p
+imap <C-v> <ESC>"+p
 
 map \y "+y
 map \yy "+yy
@@ -157,9 +159,6 @@ function! LoadSession()
   endif
 endfunction
 
-autocmd VimLeave * nested call SaveSession()
-autocmd VimEnter * nested call LoadSession()
-
 "CUSTOM TABS
 function! MyTabLine()
   let s = ''
@@ -206,6 +205,17 @@ function! MyTabLine()
   endwhile
   let s .= '%T%#TabLineFill#%='
   let s .= '%=%#TabClose#%999X X'
+
+  highlight TabLineSel term=bold cterm=bold ctermfg=252 ctermbg=none
+  highlight TabWinNumSel term=bold cterm=bold ctermfg=11 ctermbg=none
+  highlight TabNumSel term=bold cterm=bold ctermfg=226 ctermbg=none
+  highlight TabModFlagSel term=bold cterm=bold ctermfg=208 ctermbg=none
+
+  highlight TabLineFill cterm=none 
+  highlight TabLine cterm=none 
+
+  highlight TabClose term=bold cterm=none ctermfg=255 ctermbg=none
+
   return s
 endfunction
 
@@ -218,13 +228,3 @@ endfunction
 
 set tabline=%!MyTabLine()
 set tabpagemax=15
-
-highlight TabLineSel term=bold cterm=bold ctermfg=252 ctermbg=none
-highlight TabWinNumSel term=bold cterm=bold ctermfg=11 ctermbg=none
-highlight TabNumSel term=bold cterm=bold ctermfg=226 ctermbg=none
-highlight TabModFlagSel term=bold cterm=bold ctermfg=208 ctermbg=none
-
-highlight TabLineFill cterm=none 
-highlight TabLine cterm=none 
-
-highlight TabClose term=bold cterm=none ctermfg=255 ctermbg=none
