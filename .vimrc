@@ -19,8 +19,8 @@ endif
 autocmd FileType * set tabstop=2 
 autocmd FileType * set shiftwidth=2
 
-autocmd FileType python set tabstop=4 
-autocmd FileType python set shiftwidth=4
+autocmd FileType python,java set tabstop=4 
+autocmd FileType python,java set tabstop=4 
 
 autocmd VimLeave * nested call SaveSession()
 autocmd VimEnter * nested call LoadSession()
