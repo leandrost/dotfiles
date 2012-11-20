@@ -7,12 +7,12 @@ PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin/
 alias rdbc='rails dbconsole'
 #
 #rake alisases
-alias rdbs='rake db:migrate:status'
+alias rdbtp='rake db:test:prepare'
 alias rdbm='rake db:migrate'
-alias rdbp='rake db:test:prepare'
-alias rdbmp='rake db:migrate && rake db:test:prepare'
-alias rdbup='rake db:migrate:up'
-alias rdbdown='rake db:migrate:down'
+alias rdbmtp='rake db:migrate && rake db:test:prepare'
+alias rdbms='rake db:migrate:status'
+alias rdbmup='rake db:migrate:up'
+alias rdbmdown='rake db:migrate:down'
 
 # add rvm to PATH for scripting
 PATH=$PATH:$HOME/.rvm/bin 
