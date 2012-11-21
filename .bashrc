@@ -15,7 +15,10 @@ shopt -s autocd
 #add my scripts to path
 PATH=$PATH:$HOME/.local/bin
 
+#ANDROID
 PATH=$PATH:/opt/android-sdk/platform-tools/
+PATH=$PATH:/opt/android-sdk/tools/
+export ANDROID_HOME=/opt/android-sdk 
 
 export EDITOR=vim
 
@@ -48,6 +51,7 @@ alias trash='trash-put'
 alias please='sudo'
 alias cdmia='cd ~/projects/mia/src/'
 alias myip='curl ifconfig.me'
+alias diskspace='dfc'
 
 if test -n "$(command -v pacman-color)"; then
   alias pacman='sudo pacman-color' 
