@@ -44,5 +44,7 @@ AddTabularPattern! pascal_assign /:=/l1
 
 AddTabularPattern! trailing_c_comments /\/\*\|\*\/\|\/\//l1
 
+AddTabularPattern! ruby_hash /\w:\zs/l0l1
+
 let &cpo = s:save_cpo
 unlet s:save_cpo
