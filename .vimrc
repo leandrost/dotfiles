@@ -17,10 +17,12 @@ if has("win32")
 endif
 
 autocmd FileType * set tabstop=2 
+autocmd FileType * set softtabstop=2
 autocmd FileType * set shiftwidth=2
 
 autocmd FileType python,java set tabstop=4 
 autocmd FileType python,java set tabstop=4 
+autocmd FileType python,java set softtabstop=4
 
 autocmd VimLeave * nested call SaveSession()
 autocmd VimEnter * nested call LoadSession()
@@ -87,7 +89,9 @@ endfunction
 map <C-l> :let @/=""<CR>
 
 map \p "+p
-imap <C-v> <ESC>"+p
+vmap <C-x> "+d<CR>
+vmap <C-c> "+y<CR>
+imap <C-v> <ESC>"+p 
 
 map \y "+y
 map \yy "+yy
@@ -100,7 +104,9 @@ map \ss :let @+= "rspec ".expand("%")<CR>
 map \s- :Spec "--fail-fast"<CR>
 omap \r :Spec "-"<CR>
 map \r :let @+= "rspec ".expand("%")<CR>
+map \l :let @+= "rspec ".expand("%"). " -l ".line('.')<CR>
 
+"MOVE LINE
 nmap <C-j> :m+<CR>==
 nmap <C-k> :m-2<CR>==
 vmap <C-j> :m'>+<CR>gv=gv
@@ -109,6 +115,9 @@ vmap <C-k> :m-2<CR>gv=gv
 map v$$ vg_
 map cu ct_
 map cU F_lct_
+
+map <S-Insert> <MiddleMouse>
+
 
 "RSPEC
 function! RunRspec(args)
@@ -228,3 +237,68 @@ endfunction
 
 set tabline=%!MyTabLine()
 set tabpagemax=15
+
+"good tab completion - press <tab> to autocomplete if there's a character
+"previously
+function! InsertTabWrapper()
+      let col = col('.') - 1
+      if !col || getline('.')[col - 1] !~ '\k'
+          return "\<tab>"
+      else
+          return "\<c-p>"
+      endif
+endfunction
+
+"CUSTOM FOLD
+vmap <space> zf
+
+function! ToggleFold()
+   if foldlevel('.') == 0
+      " No fold exists at the current line,
+      " so create a fold based on indentation
+
+      let l_min = line('.')   " the current line number
+      let l_max = line('$')   " the last line number
+      let i_min = indent('.') " the indentation of the current line
+      let l = l_min + 1
+
+      " Search downward for the last line whose indentation > i_min
+      while l <= l_max
+         " if this line is not blank ...
+         if strlen(getline(l)) > 0 && getline(l) !~ '^\s*$'
+            if indent(l) <= i_min
+
+               " we've gone too far
+               let l = l - 1    " backtrack one line
+               break
+            endif
+         endif
+         let l = l + 1
+      endwhile
+
+      " Clamp l to the last line
+      if l > l_max
+         let l = l_max
+      endif
+
+      " Backtrack to the last non-blank line
+      while l > l_min
+         if strlen(getline(l)) > 0 && getline(l) !~ '^\s*$'
+            break
+         endif
+         let l = l - 1
+      endwhile
+
+      "execute "normal i" . l_min . "," . l . " fold"   " print debug info
+
+      if l > l_min
+"         " Create the fold from l_min to l
+         execute l_min . "," . l . " fold"
+      endif
+   else
+      " Delete the fold on the current line
+      normal zd
+   endif
+endfunction
+
+nmap <space> :call ToggleFold()<CR>
