@@ -21,8 +21,8 @@ git_alias gba 'git branch -a'
 git_alias gs 'git status'
 git_alias gsu 'git status --untracked-files no'
 
-git_alias gk 'git checkout'
-git_alias gkm 'git checkout master'
+alias gkm ='git checkout master'
+alias gk- ="git checkout -"
 
 git_alias gc 'git commit'
 git_alias gcm 'git commit -m'
