@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+ulimit -m 512
+chromium -app=http://grooveshark.com/ --class=grooveshark --user-data-dir=.webapps/grooveshark
