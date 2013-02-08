@@ -46,7 +46,7 @@ alias ll='ls -lh'
 alias l.='ls -d .* --color=auto'
 
 alias grep='grep --color=auto'
-alias aur='pacaur' 
+alias pac='packer --noedit' 
 alias trash='trash-put' 
 alias please='sudo'
 alias cdmia='cd ~/projects/mia/src/'
