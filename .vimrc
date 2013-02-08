@@ -89,6 +89,7 @@ endfunction
 map <C-l> :let @/=""<CR>
 map <F2> :NERDTreeToggle<CR>
 
+"COPY, PASTE, DELETE
 map \p "+p
 vmap <C-x> "+d<CR>
 vmap <C-c> "+y<CR>
@@ -98,14 +99,7 @@ map \y "+y
 map \yy "+yy
 map \yw "+yw
 map \yb "+yb
-map \sl :Spec line('.')<CR>
-map \sf :Spec line('.')." --fail-fast"<CR>
-map \s% :Spec ""<CR>
-map \ss :let @+= "rspec ".expand("%")<CR>
-map \s- :Spec "--fail-fast"<CR>
-omap \r :Spec "-"<CR>
-map \r :let @+= "rspec ".expand("%")<CR>
-map \l :let @+= "rspec ".expand("%"). " -l ".line('.')<CR>
+
 
 "MOVE LINE
 nmap <C-j> :m+<CR>==
@@ -121,6 +115,9 @@ map <S-Insert> <MiddleMouse>
 cmap w!! %!sudo tee > /dev/null %
 
 "RSPEC
+map \r :let @+= "rspec ".expand("%")<CR>
+map \l :let @+= "rspec ".expand("%"). " -l ".line('.')<CR>
+
 function! RunRspec(args)
   let args = '' 
   if a:args != ''
@@ -140,8 +137,6 @@ endfunction
 command! FF FufFile
 command! BG call ToggleBackground()
 command! S w !sudo tee %
-command! P let @+= "rspec ".expand("%")
-command! -nargs=* Spec call RunRspec(<args>)
 
 "LAST SESSION
 let g:sessions_dir = $HOME."/.vim/sessions/"
