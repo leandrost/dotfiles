@@ -87,6 +87,7 @@ endfunction
 
 "CUSTOM MAPS
 map <C-l> :let @/=""<CR>
+map <F2> :NERDTreeToggle<CR>
 
 map \p "+p
 vmap <C-x> "+d<CR>
@@ -117,7 +118,7 @@ map cu ct_
 map cU F_lct_
 
 map <S-Insert> <MiddleMouse>
-
+cmap w!! %!sudo tee > /dev/null %
 
 "RSPEC
 function! RunRspec(args)
