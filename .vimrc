@@ -88,6 +88,7 @@ endfunction
 "CUSTOM MAPS
 map <C-l> :let @/=""<CR>
 map <F2> :NERDTreeToggle<CR>
+map <F3> :%!xmllint --encode UTF-8 --format -<CR>
 
 "COPY, PASTE, DELETE
 map \p "+p
@@ -113,6 +114,7 @@ map cU F_lct_
 
 map <S-Insert> <MiddleMouse>
 cmap w!! %!sudo tee > /dev/null %
+cmap tq tabclose
 
 "RSPEC
 map \r :let @+= "rspec ".expand("%")<CR>
