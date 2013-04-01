@@ -4,6 +4,7 @@
 PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin/
 
 #rails alisases
+alias rc='rails console'
 alias rdbc='rails dbconsole'
 #
 #rake alisases
