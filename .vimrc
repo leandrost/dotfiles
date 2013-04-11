@@ -89,12 +89,14 @@ endfunction
 map <C-l> :let @/=""<CR>
 map <F2> :NERDTreeToggle<CR>
 map <F3> :%!xmllint --encode UTF-8 --format -<CR>
+map <F6> Obinding.pry<ESC>
+map <F5> :e<CR>
 
 "COPY, PASTE, DELETE
 map \p "+p
 vmap <C-x> "+d<CR>
 vmap <C-c> "+y<CR>
-imap <C-v> <ESC>"+p 
+imap <C-v> <ESC>"+p==<space>
 
 map \y "+y
 map \yy "+yy
@@ -114,7 +116,7 @@ map cU F_lct_
 
 map <S-Insert> <MiddleMouse>
 cmap w!! %!sudo tee > /dev/null %
-cmap tq tabclose
+cmap :q tabclose
 
 "RSPEC
 map \r :let @+= "rspec ".expand("%")<CR>
