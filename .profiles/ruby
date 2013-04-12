@@ -4,6 +4,7 @@
 PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin/
 
 #rails alisases
+alias rc='rails console'
 alias rdbc='rails dbconsole'
 #
 #rake alisases
@@ -24,3 +25,8 @@ PATH=$PATH:$HOME/.rvm/bin
 [[ -r $HOME/.rvm/scripts/completion ]] && source $HOME/.rvm/scripts/completion
 source $HOME/.profiles/rails_completion
 source $HOME/.profiles/rake_completion
+
+#aumenta o limite de memória a ser atingido antes de rodar o garbage collector
+export RUBY_GC_MALLOC_LIMIT=104857600
+export RUBY_HEAP_FREE_MIN=200000
+export RUBY_HEAP_MIN_SLOTS=40000
