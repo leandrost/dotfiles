@@ -55,6 +55,8 @@ alias diskspace='dfc'
 
 if test -n "$(command -v pacman-color)"; then
   alias pacman='sudo pacman-color' 
+else
+  alias pacman='sudo pacman' 
 fi
 
 

@@ -302,3 +302,9 @@ function! ToggleFold()
 endfunction
 
 nmap <space> :call ToggleFold()<CR>
+
+function! WriteCreatingDirs()
+    execute ':silent !mkdir -p %:h'
+    write
+endfunction
+command W call WriteCreatingDirs()
