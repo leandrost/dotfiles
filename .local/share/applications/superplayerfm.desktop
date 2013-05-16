@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=SuperPlayer.fm
+Exec=chromium -app=http://superplayer.fm/ --class=superplayerfm --user-data-dir=.webapps/superplayerfm
+StartupNotify=true
+Terminal=false
+Type=Application
+Icon=superplayerfm
+StartupWMClass=superplayerfm
+Categories=Network;

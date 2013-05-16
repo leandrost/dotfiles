@@ -52,6 +52,7 @@ alias please='sudo'
 alias cdmia='cd ~/projects/mia/src/'
 alias myip='curl ifconfig.me'
 alias diskspace='dfc'
+alias vim='vim --servername VIM'
 
 if test -n "$(command -v pacman-color)"; then
   alias pacman='sudo pacman-color' 
@@ -97,3 +98,5 @@ then
 else
   PS1="\u@\h \w$(__git_ps1)\n$ "
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
