@@ -99,4 +99,3 @@ else
   PS1="\u@\h \w$(__git_ps1)\n$ "
 fi
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
