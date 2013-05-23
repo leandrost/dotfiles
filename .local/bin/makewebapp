@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+#makewebapp <name> <description> <url> <svg_icon_path>
+
+function export_image {
+  iconspath="$HOME/test" #"$HOME/.local/share/icons/Faenza/apps"
+  filebasename=$(basename "$3")
+  filename="${filebasename%.*}"
+  inkscape --export-png=${iconspath}/$1/$2.png --export-width=$1 --export-height=$1 $3
+}
+
+function write_desktop_file {
+  appspath="$HOME/test" #"$HOME/.local/share/icons/Faenza/apps"
+  desktopfile="${appspath}/"$1".desktop"
+  echo ${desktopfile}
+  echo "#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=$2
+Exec=chromium -app=$3 --class=$1 --user-data-dir=.webapps/$1
+StartupNotify=true
+Terminal=false
+Type=Application
+Icon=$1
+StartupWMClass=$1
+Categories=Network;" > ${desktopfile}
+  echo ${desktopfile}
+}
+
+export_image 512 $1 $4
+export_image 256 $1 $4
+export_image 128 $1 $4
+export_image 48 $1 $4
+export_image 32 $1 $4
+export_image 24 $1 $4
+export_image 22 $1 $4
+export_image 16 $1 $4
+
+chmod 777 $(write_desktop_file $1 $2 $3)
