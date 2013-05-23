@@ -31,11 +31,12 @@ const Convenience = Me.imports.convenience;
 
 const openMenuSettingId = "show-message-notifier";
 
-let originalSetCount = null;
+let originalUpdateCount = null;
 let indicator = null;
 let settings = null;
 
 let debugEnabled = false;
+//let debugEnabled = true;
 let alwaysShow = false;
 
 function debug(message) {
@@ -93,13 +94,13 @@ const Indicator = new Lang.Class({
         debug("added item '" + title + "'");
     },
 
-    _addItemWithSource: function(title, count, source) {
-        this._addItem(title, count, Lang.bind(source, source.open));
+    _addItemWithSource: function(title, count, item) {
+        this._addItem(title, count, Lang.bind(item, item.open));
     },
 
     _handleGeneric: function(item, sourceCount) {
         // Easiest case: every notification item represents a single chat.
-        this._addItemWithSource(item.source.title, sourceCount, item.source);
+        this._addItemWithSource(item.title, sourceCount, item);
     },
 
     _handleGenericWithNotifications: function(item, sourceCount, showCount, messageFilter) {
@@ -112,12 +113,12 @@ const Indicator = new Lang.Class({
         // a notification for the first message, so we cannot rely on
         // counting the notifications.
 
-        if (!item.source.notifications)
+        if (!item.notifications)
             return;
 
         let countMap = {}
-        for (let i = 0; i < item.source.notifications.length; i++) {
-            let title = item.source.notifications[i].title;
+        for (let i = 0; i < item..notifications.length; i++) {
+            let title = item.notifications[i].title;
             if (messageFilter)
                 title = messageFilter(title);
 
@@ -129,7 +130,7 @@ const Indicator = new Lang.Class({
         }
 
         for (let title in countMap)
-            this._addItemWithSource(title, showCount ? countMap[title] : -1, item.source);
+            this._addItemWithSource(title, showCount ? countMap[title] : -1, item);
     },
 
     _startHandlingNotifySend: function() {
@@ -146,12 +147,12 @@ const Indicator = new Lang.Class({
         // the notifications with the same title together we try to improve
         // things as a single click can get rid of multiple notifications.
 
-        if (!item.source.notifications)
+        if (!item.notifications)
             return;
 
         // I really don't think there can be multiple ones, but...
-        for (let i = 0; i < item.source.notifications.length; i++) {
-            let title = item.source.notifications[i].title;
+        for (let i = 0; i < item.notifications.length; i++) {
+            let title = item.notifications[i].title;
             let existing = this._pendingNotifySend[title];
             if (existing == undefined) {
                 existing = new Array();
@@ -160,7 +161,7 @@ const Indicator = new Lang.Class({
             else {
                 debug("updating the sources for delayed item '" + title + "'");
             }
-            existing.push(item.source);
+            existing.push(item);
             this._pendingNotifySend[title] = existing;
         }
     },
@@ -202,7 +203,7 @@ const Indicator = new Lang.Class({
                     return message.replace(/\s+says:$/, "");
                 });
     },
-
+ 
     updateCount: function() {
         debug("updating count");
 
@@ -212,54 +213,59 @@ const Indicator = new Lang.Class({
             'xchat-gnome.desktop':          this._handleXChat,
             'fedora-xchat-gnome.desktop':   this._handleXChat,
             'xchat.desktop':                this._handleXChat,
-            'pidgin.desktop':               this._handlePidgin,
+            'pidgin.desktop':               this._handlePidgin
         };
 
         this._count = 0;
         this._startHandlingNotifySend();
         this.menu.removeAll();
 
-        let items = Main.messageTray._summaryItems;
+        let items = Main.messageTray.getSources();
 
         for (let i = 0; i < items.length; i++) {
             let item = items[i];
-            let source = item.source;
-            let sourceCount = parseInt(source._counterLabel.get_text(), 10);
+            let source = item;
+            debug(item)
 
-            if (source.notifications && source.notifications.length > 0) {
-                debug("processing item '" + source.title + "' with " +
-                      source.notifications.length + " notifications:");
-                for (let i = 0; i < source.notifications.length; i++)
-                    debug ("    " + source.notifications[i].title);
+            // make sure we have item._mainIcon
+            let sourceCount = 0;
+            if(item) {
+            	item._ensureMainIcon();
+            	sourceCount = parseInt(item._mainIcon._counterLabel.get_text(), 10);
+						}
+            if (item.notifications && item.notifications.length > 0) {
+                debug("processing item '" + item.title + "' with " +
+                      item.notifications.length + " notifications:");
+                for (let i = 0; i < item.notifications.length; i++)
+                    debug ("    " + item.notifications[i].title);
             }
             else {
-                debug("processing item '" + source.title + "' with " +
+                debug("processing item '" + item.title + "' with " +
                       "no notifications");
             }
 
             if (!isNaN(sourceCount) && sourceCount > 0) {
                 let key = null;
-                if (source.isChat)
+                if (item.isChat)
                     key = 'telepathy';
-                else if (source.title == 'notify-send')
+                else if (item.title == 'notify-send')
                     key = 'notify-send'
-                else if (source.app)
-                    key = source.app.get_id();
-
+                else if (item.app)
+                    key = item.app.get_id();
                 if (key != null) {
                     let app_cb = app_map[key];
                     if (app_cb != null) {
                         debug ("processing with handler for key '" + key +
-                               "', the source count is " + sourceCount);
+                               "', the item count is " + sourceCount);
                         app_cb.call(this, item, sourceCount);
                     }
                     else {
                         debug ("ignoring as there is no associated handler " +
                                "for key '" + key + "':");
-                        debug ("    source title: '" + source.title + "'");
-                        if (source.app) {
-                            debug ("    app ID: '" + source.app.get_id() + "'");
-                            debug ("    app name: '" + source.app.get_name() + "'");
+                        debug ("    item title: '" + item.title + "'");
+                        if (item.app) {
+                            debug ("    app ID: '" + item.app.get_id() + "'");
+                            debug ("    app name: '" + item.app.get_name() + "'");
                         }
                         else {
                             debug ("    app: null");
@@ -281,8 +287,8 @@ const Indicator = new Lang.Class({
     },
 });
 
-function customSetCount(count, visible) {
-    originalSetCount.call(this, count, visible);
+function customUpdateCount() {
+    originalUpdateCount.call(this);
     try {
         indicator.updateCount();
     }
@@ -310,8 +316,8 @@ function enable() {
 
     settings = Convenience.getSettings();
 
-    originalSetCount = MessageTray.Source.prototype._setCount;
-    MessageTray.Source.prototype._setCount = customSetCount;
+    originalUpdateCount = MessageTray.SourceActor.prototype._updateCount;
+    MessageTray.SourceActor.prototype._updateCount = customUpdateCount;
 
     indicator = new Indicator();
     Main.panel.addToStatusArea('message-notifier', indicator, 0);
@@ -320,8 +326,8 @@ function enable() {
 function disable() {
     debug ("disabling");
 
-    MessageTray.Source.prototype._setCount = originalSetCount;
-    originalSetCount = null;
+    MessageTray.SourceActor.prototype._updateCount = originalUpdateCount;
+    originalUpdateCount = null;
 
     indicator.destroy();
     indicator = null;

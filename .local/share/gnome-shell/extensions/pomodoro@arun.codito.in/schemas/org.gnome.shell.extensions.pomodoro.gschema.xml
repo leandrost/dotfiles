@@ -8,8 +8,8 @@
   </enum>
 
   <schema path="/org/gnome/shell/extensions/pomodoro/" id="org.gnome.shell.extensions.pomodoro">
-    <key type="s" name="toggle-key">
-      <default>"&lt;Ctrl&gt;&lt;Alt&gt;P"</default>
+    <key type="as" name="toggle-pomodoro-timer">
+      <default><![CDATA[["<Ctrl><Alt>p"]]]></default>
       <summary>Timer toggle key</summary>
       <description>Key to toggle the timer.</description>
     </key>
@@ -55,11 +55,6 @@
       <default>""</default>
       <summary>Notification sound file</summary>
       <description>Sound file to play on pomodoro start or end.</description>
-    </key>
-    <key type="b" name="restore">
-      <default>true</default>
-      <summary>Restore timer state</summary>
-      <description>Whether to restore state on startup.</description>
     </key>
     <key type="i" name="saved-session-count">
       <default>0</default>

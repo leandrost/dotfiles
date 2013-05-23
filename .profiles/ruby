@@ -16,6 +16,8 @@ alias rdbmup='rake db:migrate:up'
 alias rdbmdown='rake db:migrate:down'
 
 # add rvm to PATH for scripting
+export rvm_path="$HOME/.rvm"
+
 PATH=$PATH:$HOME/.rvm/bin 
 
 #rvm

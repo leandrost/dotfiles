@@ -3,3 +3,4 @@
 *.swo
 .ruby-version
 .ruby-gemset
+.rails_generators~

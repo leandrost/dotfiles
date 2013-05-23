@@ -17,7 +17,9 @@
 const Lang = imports.lang;
 
 const Gio = imports.gi.Gio;
+const Meta = imports.gi.Meta;
 const Pango = imports.gi.Pango;
+const Shell = imports.gi.Shell;
 const St = imports.gi.St;
 
 const Main = imports.ui.main;
@@ -33,13 +35,6 @@ const PomodoroDBus = Extension.imports.dbus;
 const Gettext = imports.gettext.domain('gnome-shell-pomodoro');
 const _ = Gettext.gettext;
 const ngettext = Gettext.ngettext;
-
-try {
-    const Keybinder = imports.gi.Keybinder;
-    Keybinder.init();
-} catch(e) {
-    global.logError('Pomodoro: '+ e.message);
-}
 
 
 // Time in seconds to fade timer label when pause starts or ends
@@ -108,14 +103,16 @@ const Indicator = new Lang.Class({
         
         
         // Register keybindings to toggle
-        if (Keybinder)
-            Keybinder.bind(this._settings.get_string('toggle-key'), Lang.bind(this, this._onKeyPressed), null);
-        
+        Main.wm.addKeybinding('toggle-pomodoro-timer',
+                                      this._settings,
+                                      Meta.KeyBindingFlags.NONE,
+                                      Shell.KeyBindingMode.ALL,
+                                      Lang.bind(this, this._onKeyPressed));
+
         this.connect('destroy', Lang.bind(this, this._onDestroy));
         
         // Initialize
-        if (this._settings.get_boolean('restore') && this._settings.get_enum('saved-state') != PomodoroTimer.State.NULL)
-            this._timer.restore();
+        this._timer.restore();
         
         this._updateLabel();
         this._updateSessionCount();
@@ -144,7 +141,7 @@ const Indicator = new Lang.Class({
         this._optionsMenu.menu.addMenuItem(this._changePresenceStatusToggle);
         
         // Notification dialog toggle
-        this._showDialogsToggle = new PopupMenu.PopupSwitchMenuItem(_("Show Dialog Messages"));
+        this._showDialogsToggle = new PopupMenu.PopupSwitchMenuItem(_("Fullscreen Notifications"));
         this._showDialogsToggle.connect('toggled', Lang.bind(this, function(item) {
             this._settings.set_boolean('show-notification-dialogs', item.state);
         }));
@@ -350,11 +347,13 @@ const Indicator = new Lang.Class({
         this._timerToggle.setToggleState(this._timer.state != PomodoroTimer.State.NULL);
     },
 
-    _onKeyPressed: function(keystring, data) {
+    _onKeyPressed: function() {
         this._timerToggle.toggle();
     },
     
     _onDestroy: function() {
+        Main.wm.removeKeybinding('toggle-pomodoro-timer');
+
         this._timer.destroy();
         this._dbus.destroy();
     }
