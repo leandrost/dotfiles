@@ -3,14 +3,14 @@
 #makewebapp <name> <description> <url> <svg_icon_path>
 
 function export_image {
-  iconspath="$HOME/test" #"$HOME/.local/share/icons/Faenza/apps"
+  iconspath="$HOME/.local/share/icons/Faenza/apps"
   filebasename=$(basename "$3")
   filename="${filebasename%.*}"
   inkscape --export-png=${iconspath}/$1/$2.png --export-width=$1 --export-height=$1 $3
 }
 
 function write_desktop_file {
-  appspath="$HOME/test" #"$HOME/.local/share/icons/Faenza/apps"
+  appspath="$HOME/.local/share/applications"
   desktopfile="${appspath}/"$1".desktop"
   echo ${desktopfile}
   echo "#!/usr/bin/env xdg-open

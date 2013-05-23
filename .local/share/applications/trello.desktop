@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Trello
+Exec=chromium -app=https://trello.com/board/sprint/519a3723c95e9ff0080003cf --class=trello --user-data-dir=.webapps/trello
+StartupNotify=true
+Terminal=false
+Type=Application
+Icon=trello
+StartupWMClass=trello
+Categories=Network;
