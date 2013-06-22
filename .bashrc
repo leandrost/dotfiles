@@ -99,3 +99,5 @@ else
   PS1="\u@\h \w$(__git_ps1)\n$ "
 fi
 
+HEROKU_PATH=/usr/local/heroku/bin
+PATH=$PATH:$HEROKU_PATH
