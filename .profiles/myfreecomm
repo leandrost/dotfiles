@@ -6,4 +6,6 @@ alias rdbr='rake db:data:reset; rake db:test:prepare;'
 alias rdbdr='rake drop; rake db:setup; rake db:data:reset; rake db:test:prepare;'
 alias bfs='bundle && fs'
 
-source $HOME/.certman
+export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:bin/javac::")
+
+source $HOME/.certmanrc
