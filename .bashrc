@@ -61,6 +61,9 @@ else
   alias pacman='sudo pacman' 
 fi
 
+if test -n "$(command -v chromium-browser)"; then
+  alias chromium='chromium-browser'
+fi
 
 #PROFILES
 source $HOME/.profiles/git
@@ -95,6 +98,7 @@ then
   }
   function git_ps1() 
   { 
+    echo $d0
     echo -e $(clr 229 "$(__git_ps1)");
   }
   PS1="\u\$(clr 228 @\h) $(clr 229)\w\$(git_ps1) \$(rvm_ps1)\n$(clr 2 $) "

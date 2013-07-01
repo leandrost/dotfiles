@@ -1,7 +1,11 @@
 {
   "ui" : {
+    "global" : {
+      "ui-type" : "side-doish",
+      "show-indicator" : false
+    },
     "shortcuts" : {
-      "activate" : "<Alt>F3",
+      "activate" : "<Control>space",
       "execute" : "Return",
       "execute-without-hide" : "<Shift>Return",
       "delete-char" : "BackSpace",
@@ -20,9 +24,6 @@
       "paste" : "<Control>v",
       "alt-paste" : "<Shift>Insert",
       "exit" : "<Control>q"
-    },
-    "global" : {
-      "ui-type" : "side-doish"
     }
   }
 }
