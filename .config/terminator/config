@@ -16,7 +16,7 @@
   split_horiz = <Alt>o
   go_prev = <Shift><Alt>w
   go_down = <Alt>j
-  close_term = <Shift><Alt>q
+  close_term = None
   split_vert = <Alt>i
   go_right = <Alt>l
   go_next = <Alt>w
