@@ -52,7 +52,8 @@ alias please='sudo'
 alias cdmia='cd ~/projects/mia/src/'
 alias myip='curl ifconfig.me'
 alias diskspace='dfc'
-alias vim='vim --servername VIM'
+#deve checkar antes se o vim instalado tá abilitado a isso
+#alias vim='vim --servername VIM'
 
 if test -n "$(command -v pacman-color)"; then
   alias pacman='sudo pacman-color' 
@@ -61,6 +62,9 @@ else
 fi
 alias npe='PATH=$(npm bin):$PATH'
 
+if test -n "$(command -v chromium-browser)"; then
+  alias chromium='chromium-browser'
+fi
 
 #PROFILES
 source $HOME/.profiles/git
@@ -83,13 +87,15 @@ then
   }
   function rvm_ps1() 
   { 
-    prompt="$(~/.rvm/bin/rvm-prompt s)"
-    if [[ $prompt == 'system' ]]; then
-      prompt=''
-    else
-      prompt="[$prompt]"
+    if test -n "$(command -v rvm)"; then
+      prompt="$(~/.rvm/bin/rvm-prompt s)"
+      if [[ $prompt == 'system' ]]; then
+        prompt=''
+      else
+        prompt="[$prompt]"
+      fi
+      echo -e $(clr 9 "$prompt") 
     fi
-    echo -e $(clr 9 "$prompt") 
   }
   function git_ps1() 
   { 

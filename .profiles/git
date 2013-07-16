@@ -1,5 +1,9 @@
 #!/usr/bin/env
-source /usr/share/git/git-prompt.sh
+if [ -f /usr/share/git/git-prompt.sh ]; then
+  source /usr/share/git/git-prompt.sh
+elif [ -f /etc/bash_completion.d/git-prompt ]; then
+  source /etc/bash_completion.d/git-prompt
+fi
 
 function git_completion_wrapper() {
   make-completion-wrapper _git _$1 $2

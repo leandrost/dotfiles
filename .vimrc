@@ -120,8 +120,8 @@ cmap w!! %!sudo tee > /dev/null %
 cmap :q tabclose
 
 "RSPEC
-map \r :let @+= "rspec ".expand("%")<CR>
-map \l :let @+= "rspec ".expand("%"). " -l ".line('.')<CR>
+map \r :let @+= "rspec ".GetSpecPath()<CR>
+map \l :let @+= "rspec ".GetSpecPath(). " -l ".line('.')<CR>
 
 function! RunRspec(args)
   let args = '' 
@@ -309,3 +309,14 @@ function! WriteCreatingDirs()
     write
 endfunction
 command W call WriteCreatingDirs()
+
+function! GetSpecPath()
+  let s = expand('%')
+
+  if stridx(s, 'app/') >= 0
+    let s = substitute(s, 'app/', 'spec/', '') 
+    let s = substitute(s, '.rb', '_spec.rb', '') 
+  endif
+
+  return s
+endfunction
