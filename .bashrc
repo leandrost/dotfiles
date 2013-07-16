@@ -59,6 +59,7 @@ if test -n "$(command -v pacman-color)"; then
 else
   alias pacman='sudo pacman' 
 fi
+alias npe='PATH=$(npm bin):$PATH'
 
 
 #PROFILES
