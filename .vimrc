@@ -1,4 +1,5 @@
 call pathogen#infect()
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 runtime macros/matchit.vim
 
