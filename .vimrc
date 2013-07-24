@@ -53,6 +53,7 @@ set mouse=a
 "autocmd Syntax rb,javascript,vim,gitcommit,xml,html,xhtml set foldmethod=syntax
 "autocmd Syntax rb,javascript,vim,gitcommit,xml,html,xhtml normal zR
 autocmd BufRead,BufNewFile *.spec.js  set filetype=javascript.javascript-jasmine
+autocmd BufRead,BufNewFile *Spec.js  set filetype=javascript.javascript-jasmine
 autocmd BufRead,BufNewFile *.erb  set filetype=eruby.html
 autocmd BufRead,BufNewFile *.exbl  set filetype=ruby.html
 autocmd BufRead,BufNewFile *.srt set filetype=srt
