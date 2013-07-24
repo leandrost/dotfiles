@@ -35,4 +35,4 @@ export RUBY_HEAP_FREE_MIN=200000
 export RUBY_HEAP_MIN_SLOTS=40000
 
 #rodar todos os specs que foram alterados ou adicionados no branch atual em relação ao master
-alias branchspec="bundle exec rspec $(git diff --diff-filter=ACMRTUXB --name-only master -- spec test | egrep --color=never '_(spec|test).rb' | sed 's/src\///')"
+#alias branchspec="bundle exec rspec $(git diff --diff-filter=ACMRTUXB --name-only master -- spec test | egrep --color=never '_(spec|test).rb' | sed 's/src\///')"
