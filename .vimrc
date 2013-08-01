@@ -118,7 +118,7 @@ map cU F_lct_
 
 map <S-Insert> <MiddleMouse>
 cmap w!! %!sudo tee > /dev/null %
-cmap :q tabclose
+cmap qq tabclose
 
 "RSPEC
 map \r :let @+= "rspec ".GetSpecPath()<CR>
