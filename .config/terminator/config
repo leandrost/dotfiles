@@ -16,7 +16,7 @@
   split_horiz = <Alt>o
   go_prev = <Shift><Alt>w
   go_down = <Alt>j
-  close_term = None
+  close_term = <Shift><Alt>q
   split_vert = <Alt>i
   go_right = <Alt>l
   go_next = <Alt>w
@@ -36,6 +36,7 @@
     icon_bell = False
     font = Source Code Pro Semi-Bold 10
     background_color = "#00151b"
+    scrollback_infinite = True
   [[leandrost-default]]
     use_system_font = False
     background_darkness = 0.88
