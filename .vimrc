@@ -52,7 +52,7 @@ set mouse=a
 "let html_fold=1
 "autocmd Syntax rb,javascript,vim,gitcommit,xml,html,xhtml set foldmethod=syntax
 "autocmd Syntax rb,javascript,vim,gitcommit,xml,html,xhtml normal zR
-autocmd BufRead,BufNewFile *.spec.js  set filetype=javascript.javascript-jasmine
+autocmd BufRead,BufNewFile *spec.js  set filetype=javascript.javascript-jasmine
 autocmd BufRead,BufNewFile *Spec.js  set filetype=javascript.javascript-jasmine
 autocmd BufRead,BufNewFile *.erb  set filetype=eruby.html
 autocmd BufRead,BufNewFile *.exbl  set filetype=ruby.html
@@ -120,6 +120,13 @@ map <S-Insert> <MiddleMouse>
 cmap w!! %!sudo tee > /dev/null %
 cmap qq tabclose
 
+"COMMANDS
+command! FF FufFile
+command! BG call ToggleBackground()
+command! S w !sudo tee %
+command! -nargs=1 MKS call MakeSession(<f-args>)
+command! -nargs=1 RSE call RecoverSession(<f-args>)
+
 "RSPEC
 map \r :let @+= "rspec ".GetSpecPath()<CR>
 map \l :let @+= "rspec ".GetSpecPath(). " -l ".line('.')<CR>
@@ -139,24 +146,27 @@ function! RunRspec(args)
   let g:last_rspec = cmd
 endfunction
 
-"CUSTOM COMMANDS
-command! FF FufFile
-command! BG call ToggleBackground()
-command! S w !sudo tee %
-
-"LAST SESSION
+"SESSIONS
 let g:sessions_dir = $HOME."/.vim/sessions/"
-let g:default_session = g:sessions_dir."default.vim"
-let g:myfinance_session = g:sessions_dir."myfinance.vim"
+let g:default_session = "default"
+let g:myfinance_session = "myfinance"
+
+function! MakeSession(session_name)
+  execute "mksession! ".g:sessions_dir.a:session_name.".vim"
+endfunction
+
+function! RecoverSession(session_name)
+  execute "source ".g:sessions_dir.a:session_name.".vim"
+endfunction
 
 function! SaveSession()
   if !isdirectory(g:sessions_dir)
     call mkdir(g:sessions_dir)
   endif
   if getcwd() == $HOME."/projects/myfinance/src"
-    execute "mksession! ".g:myfinance_session
+    call MakeSession(g:myfinance_session)
   else
-    execute "mksession! ".g:default_session
+    call MakeSession(g:default_session)
   endif
 endfunction
 
@@ -164,8 +174,9 @@ function! LoadSession()
   if argc() == 0 
     if getcwd() == $HOME."/projects/myfinance/src" && filereadable(g:myfinance_session)
       execute "source ".g:myfinance_session
+      call RecoverSession(g:myfinance_session)
     elseif filereadable(g:default_session)
-      execute "source ".g:default_session
+      call RecoverSession(g:default_session)
     endif
   endif
 endfunction
