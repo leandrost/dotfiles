@@ -110,4 +110,4 @@ fi
 HEROKU_PATH=/usr/local/heroku/bin
 PHANTOMJS_PATH=/opt/phantomjs/phantomjs-1.9.1/bin
 
-PATH=$PATH:$HEROKU_PATH
+PATH=$PATH:$HEROKU_PATH:$PHANTOMJS_PATH
