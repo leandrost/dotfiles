@@ -1,0 +1,78 @@
+body {
+   background: #E6E6E6;
+   width: 100%;
+   margin: 0;
+   padding-top: 10px;
+}
+.item {
+   width: 95%;
+   display: table;
+   margin: auto;
+   margin-bottom: 10px;
+}
+.message {
+   height: auto;
+   background: #f8f8f8;
+   font-family: Droid Sans;
+   border: 1px solid #b0b0b0;
+   border-radius: 5px;
+   -webkit-box-shadow: 0px 1px 3px 0px #C7C7C7;
+   display: table-cell;
+}
+.avatar {
+   width:45px;
+   height: 45px;
+   display: table-cell;  
+}
+.avatar .avatar_border {
+   width:44px;
+   height: 44px;
+   border: 1px solid #b0b0b0;
+   -webkit-box-shadow: 0px 0px 3px 0px #c7c7c7;
+}
+.avatar img {
+   border: 1px solid #f6f6f6;
+}
+.incoming .avatar {
+   padding-left: 7px;
+}
+.outgoing .avatar {
+   padding-right: 7px;
+}
+.message .inner_border {
+   padding: 10px;
+   border: 1px solid #fff;
+   border-radius: 5px;
+}
+.message .header {
+   height: 15px;
+   margin-bottom: 10px;
+}
+.message .header .name {
+   font-size: 15px;
+   float: left;
+   color: #4d4d4d;
+}
+.incoming .message .header .name {
+   color: #927396;
+}
+.message .header .time {
+   font-size: 10px;
+   color: #319ED5;
+   float: right;
+}
+.message .body {
+   font-size: 14px;
+   text-align: left;
+   color: #666;
+}
+a {
+   text-decoration: none;
+}
+a:link, a:visited {
+   color: #0088cc;
+}
+a:hover, a:active {
+   color: #333;
+}
+

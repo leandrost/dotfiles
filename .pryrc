@@ -34,6 +34,7 @@ begin
 rescue LoadError => err
   puts "no awesome_print :("
 end
+Pry.config.editor = ""
 
 Pry.commands.alias_command 'c', 'continue'
 Pry.commands.alias_command 's', 'step'

@@ -26,6 +26,10 @@ Categories=Network;" > ${desktopfile}
   echo ${desktopfile}
 }
 
+if [ $# -eq 0 ] ; then
+  echo "makewebapp <name> <description> <url> <svg_icon_path>"
+  exit 0
+fi
 export_image 512 $1 $4
 export_image 256 $1 $4
 export_image 128 $1 $4

@@ -106,5 +106,8 @@ else
   PS1="\u@\h \w$(__git_ps1)\n$ "
 fi
 
+#CUSTOM PATH
 HEROKU_PATH=/usr/local/heroku/bin
+PHANTOMJS_PATH=/opt/phantomjs/phantomjs-1.9.1/bin
+
 PATH=$PATH:$HEROKU_PATH
