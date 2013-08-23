@@ -31,15 +31,15 @@ autocmd VimEnter * nested call LoadSession()
 set t_Co=256
 set background=dark
 colorscheme solarized
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+highlight LineNr ctermbg=none
 highlight rubydefine ctermbg=none
 
 set number
 set hlsearch
 set incsearch
 
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-highlight LineNr ctermbg=none
 
 set laststatus=2
 
@@ -68,8 +68,7 @@ let g:bg_flag = 0
 
 function! ShowBackground()
   let g:bg_flag = 1
-  highlight Normal ctermbg=0 
-  colorscheme jellybeans
+  colorscheme solarized
 endfunction 
 
 function! HideBackground()
@@ -77,9 +76,10 @@ function! HideBackground()
   highlight Normal ctermbg=none
   highlight NonText ctermbg=none
   highlight LineNr ctermbg=none
+  highlight rubydefine ctermbg=none
 endfunction
+
 function! ToggleBackground()
-    echo g:bg_flag
   if g:bg_flag == 0
     call ShowBackground() 
   else
@@ -91,8 +91,9 @@ endfunction
 map <C-l> :let @/=""<CR>
 map <F2> :NERDTreeToggle<CR>
 map <F3> :%!xmllint --encode UTF-8 --format -<CR>
-map <F6> Obinding.pry<ESC>
+map <F6> binding.pry<ESC>
 map <F5> :e<CR>
+map <F12> :call ToggleBackground()<CR>
 
 "COPY, PASTE, DELETE
 map \p "+p
@@ -156,7 +157,11 @@ function! MakeSession(session_name)
 endfunction
 
 function! RecoverSession(session_name)
-  execute "source ".g:sessions_dir.a:session_name.".vim"
+  let session_file = g:sessions_dir.a:session_name.".vim"
+  if filereadable(session_file)
+    execute "source ".session_file
+    call HideBackground()
+  end
 endfunction
 
 function! SaveSession()
@@ -172,12 +177,9 @@ endfunction
 
 function! LoadSession()
   if argc() == 0 
-    if getcwd() == $HOME."/projects/myfinance/src" && filereadable(g:myfinance_session)
-      execute "source ".g:myfinance_session
-      call RecoverSession(g:myfinance_session)
-    elseif filereadable(g:default_session)
-      call RecoverSession(g:default_session)
-    endif
+    let myfinance_path = $HOME."/projects/myfinance/src"
+    let session_name = getcwd() == myfinance_path ? g:myfinance_session : g:default_session
+    call RecoverSession(session_name)
   endif
 endfunction
 
