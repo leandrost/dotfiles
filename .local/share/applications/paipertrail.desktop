@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=PaiperTrail
+Exec=chromium -app=https://papertrailapp.com/ --class=paipertrail --user-data-dir=.webapps/paipertrail
+StartupNotify=true
+Terminal=false
+Type=Application
+Icon=paipertrail
+StartupWMClass=paipertrail
+Categories=Network;
