@@ -1,7 +1,7 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Name=Helpscout
-Exec=chromium -app=https://secure.helpscout.net/mailbox/ --class=helpscout --user-data-dir=.webapps/helpscout
+Exec=chromium -app=https://secure.helpscout.net/mailbox/7dd11a779784d999/61084/ --class=helpscout --user-data-dir=.webapps/helpscout
 StartupNotify=true
 Terminal=false
 Type=Application
