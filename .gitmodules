@@ -37,3 +37,9 @@
 [submodule ".vim/bundle/tabular"]
 	path = .vim/bundle/tabular
 	url = git@github.com:godlygeek/tabular.git
+[submodule "emmet-vim"]
+	path = emmet-vim
+	url = git@github.com:mattn/emmet-vim.git
+[submodule "/home/leandrost/.vim/bundle/emmet"]
+	path = /home/leandrost/.vim/bundle/emmet
+	url = git@github.com:mattn/emmet-vim.git

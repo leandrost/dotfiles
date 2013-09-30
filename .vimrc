@@ -60,8 +60,8 @@ autocmd BufRead,BufNewFile *.srt set filetype=srt
 autocmd BufRead,BufNewFile *.vb set filetype=vb
 autocmd BufRead,BufNewFile *.ofx set filetype=xml
 
-"ZEN CODING
-let g:user_zen_expandabbr_key = '<C-e>'
+"EMMET
+imap <c-j> <C-y>,
 
 "BACKGROUND CONFIG
 let g:bg_flag = 0
