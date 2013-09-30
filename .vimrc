@@ -334,3 +334,9 @@ function! GetSpecPath()
 
   return s
 endfunction
+
+let g:ctrlp_prompt_mappings = {
+      \ 'AcceptSelection("h")': ['<c-x>', '<c-s>'],
+      \ 'AcceptSelection("e")': ['<c-r>'],
+      \ 'AcceptSelection("t")': ['<cr>', '<c-t>', '<2-LeftMouse>'],
+      \ }
