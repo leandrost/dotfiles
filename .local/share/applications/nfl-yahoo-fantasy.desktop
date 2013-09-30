@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=NFL Yahoo! Fantasy
+Exec=chromium -app=http://football.fantasysports.yahoo.com/ --class=nfl-yahoo-fantasy --user-data-dir=.webapps/nfl-yahoo-fantasy
+StartupNotify=true
+Terminal=false
+Type=Application
+Icon=nfl-yahoo-fantasy
+StartupWMClass=nfl-yahoo-fantasy
+Categories=Network;
