@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#makewebapp <name> <description> <url> <svg_icon_path>
+#makewebapp <id> <name> <url> <svg_icon_path>
 
 function export_image {
   iconspath="$HOME/.local/share/icons/Faenza/apps"
@@ -15,21 +15,22 @@ function write_desktop_file {
   echo ${desktopfile}
   echo "#!/usr/bin/env xdg-open
 [Desktop Entry]
-Name=$2
-Exec=chromium -app=$3 --class=$1 --user-data-dir=.webapps/$1
+Name=${2}
+Exec=chromium -app=${3} --class=${1} --user-data-dir=.webapps/${1}
 StartupNotify=true
 Terminal=false
 Type=Application
-Icon=$1
-StartupWMClass=$1
+Icon=${1}
+StartupWMClass=${1}
 Categories=Network;" > ${desktopfile}
-  echo ${desktopfile}
+ echo ${desktopfile}
 }
 
 if [ $# -eq 0 ] ; then
-  echo "makewebapp <name> <description> <url> <svg_icon_path>"
+  echo "makewebapp <id> <description> <url> <svg_icon_path>"
   exit 0
 fi
+
 export_image 512 $1 $4
 export_image 256 $1 $4
 export_image 128 $1 $4
@@ -39,4 +40,4 @@ export_image 24 $1 $4
 export_image 22 $1 $4
 export_image 16 $1 $4
 
-chmod 777 $(write_desktop_file $1 $2 $3)
+chmod 777 $(write_desktop_file "$1" "$2" $3)
