@@ -5,43 +5,36 @@ elif [ -f /etc/bash_completion.d/git-prompt ]; then
   source /etc/bash_completion.d/git-prompt
 fi
 
-function git_completion_wrapper() {
-  make-completion-wrapper _git _$1 $2
-  complete -o bashdefault -o default -o nospace -F _$1 $1
-}
-
-# usage: gitalias <alias> <original command>
-function git_alias () {
-  alias $1="$2"
-  git_completion_wrapper $1 $2
-}
+source ~/.profiles/git_completion
 
 alias gl='git log'
 alias ga='git add'
 alias gau='git add -u'
 
-git_alias gba 'git branch -a'
+alias gba='git branch -a'
 
-git_alias gs 'git status'
-git_alias gsu 'git status --untracked-files no'
+alias gs='git status'
+alias gsu='git status --untracked-files no'
+
+alias gk='git checkout'
+__git_complete gk _git_checkout
 
 alias gkm='git checkout master'
 alias gk-="git checkout -"
 
-git_alias gc 'git commit'
-git_alias gcm 'git commit -m'
-git_alias gca 'git commit -a'
-git_alias gcam 'git commit -am'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gca='git commit -a'
+alias gcam='git commit -am'
 
 alias hit='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/home/leandrost/'
-git_completion_wrapper hit 'hit' 
+__git_complete hit __git_main
 
 alias ha='hit add'
 alias hau='hit add -u'
 alias hc='hit commit'
 alias hcm='hit commit -m'
-alias hs='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/home/leandrost/ status --untracked-files=no'
-
+alias hs='hit status --untracked-files=no'
 
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=false
