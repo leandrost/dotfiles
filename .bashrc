@@ -59,6 +59,10 @@ alias diskspace='dfc'
 #deve checkar antes se o vim instalado tá abilitado a isso
 #alias vim='vim --servername VIM'
 
+if test -n "$(command -v keychain)"; then
+  alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa) && ssh'
+fi
+
 if test -n "$(command -v pacman-color)"; then
   alias pacman='sudo pacman-color' 
 else
