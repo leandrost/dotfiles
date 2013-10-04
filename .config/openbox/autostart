@@ -1,3 +1,4 @@
 nitrogen --restore &
 setxkbmap br
 xcompmgr &
+tint2

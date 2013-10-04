@@ -48,7 +48,7 @@
       C: close
       S: shade (roll up/down)
       D: omnipresent (on all desktops).
-  -->
+    -->
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
@@ -323,6 +323,11 @@
     <keybind key="A-F2">
       <action name="Execute">
         <command>gmrun</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-T">
+      <action name="Execute">
+        <command>terminator</command>
       </action>
     </keybind>
   </keyboard>
