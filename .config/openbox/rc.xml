@@ -320,6 +320,11 @@
         <menu>root-menu</menu>
       </action>
     </keybind>
+    <keybind key="W-l">
+      <action name="Execute">
+        <command>slimlock</command>
+      </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
