@@ -24,59 +24,67 @@
   resize_right = <Shift><Alt>l
   resize_down = <Shift><Alt>j
 [profiles]
-  [[default]]
+  [[default]] #blackhawk
     scrollbar_position = hidden
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-    copy_on_selection = True
+    palette = "#4c4c4c:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#cecece:#cb4b16:#7f9ea7:#a4bcc5:#376186:#6c71c4:#85e1e1:#fdf6e3"
+    background_image = None
     background_darkness = 0.86
     background_type = transparent
     use_system_font = False
-    cursor_color = "#e8e2ce"
-    foreground_color = "#eee8d5"
+    cursor_color = "#e1e1e1"
+    foreground_color = "#e2e2e2"
     icon_bell = False
-    font = Source Code Pro Semi-Bold 10
-    background_color = "#00151b"
+    show_titlebar = False
+    font = Source Code Pro for Powerline 9
+    background_color = "#101010"
     scrollback_infinite = True
-  [[leandrost-default]]
+  [[terminator-default]]
+    scrollbar_position = hidden
     use_system_font = False
     background_darkness = 0.88
     background_type = transparent
-    scrollbar_position = hidden
+    background_image = None
     cursor_color = "#eee8d5"
     foreground_color = "#ffffff"
     icon_bell = False
-    font = Inconsolata Bold 11
+    font = Source Code Pro for Powerline 9
   [[solarized-dark]]
     scrollbar_position = hidden
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    background_image = None
     background_darkness = 0.89
     background_type = transparent
     use_system_font = False
     cursor_color = "#eee8d5"
     foreground_color = "#eee8d5"
     icon_bell = False
-    font = Inconsolata Bold 11
+    show_titlebar = False
+    font = Source Code Pro for Powerline 9
     background_color = "#00151b"
-  [[production]]
-    use_system_font = False
-    background_darkness = 0.86
-    background_type = transparent
-    scrollbar_position = hidden
-    cursor_color = "#eee8d5"
-    foreground_color = "#ffffff"
-    icon_bell = False
-    font = Inconsolata Bold 11
-    background_color = "#5a000a"
   [[sandbox]]
+    scrollbar_position = hidden
     use_system_font = False
     background_darkness = 0.95
     background_type = transparent
-    scrollbar_position = hidden
+    background_image = None
     cursor_color = "#eee8d5"
     foreground_color = "#ffffff"
     icon_bell = False
-    font = Inconsolata Bold 11
+    show_titlebar = False
+    font = Source Code Pro for Powerline 9
     background_color = "#252845"
+  [[production]]
+    scrollbar_position = hidden
+    use_system_font = False
+    background_darkness = 0.86
+    background_type = transparent
+    background_image = None
+    cursor_color = "#eee8d5"
+    foreground_color = "#ffffff"
+    icon_bell = False
+    show_titlebar = False
+    font = Source Code Pro for Powerline 9
+    background_color = "#5a000a"
 [layouts]
   [[default]]
     [[[child1]]]
