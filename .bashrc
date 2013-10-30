@@ -58,9 +58,11 @@ alias myip='curl ifconfig.me'
 alias diskspace='dfc'
 #deve checkar antes se o vim instalado tá abilitado a isso
 #alias vim='vim --servername VIM'
+alias np='node_modules/.bin/mocha -R nice-spec'
 
 if test -n "$(command -v keychain)"; then
   alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa) && ssh'
+  alias ssh-eval='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa)'
 fi
 
 if test -n "$(command -v pacman-color)"; then
