@@ -8,4 +8,4 @@ alias bfs='bundle && fs'
 
 export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:bin/javac::")
 
-source $HOME/.certmanrc
+loadfile $HOME/.certmanrc

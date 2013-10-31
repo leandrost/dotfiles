@@ -3,9 +3,13 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
+function loadfile() {
+  if [ -f $1 ]; then
+    source $1
+  fi
+}
+
+loadfile /etc/bash_completion
 
 #desabilita beep do terminal
 setterm -blength 0
@@ -54,6 +58,12 @@ alias myip='curl ifconfig.me'
 alias diskspace='dfc'
 #deve checkar antes se o vim instalado tá abilitado a isso
 #alias vim='vim --servername VIM'
+alias np='node_modules/.bin/mocha -R nice-spec'
+
+if test -n "$(command -v keychain)"; then
+  alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa) && ssh'
+  alias ssh-eval='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa)'
+fi
 
 if test -n "$(command -v pacman-color)"; then
   alias pacman='sudo pacman-color' 
@@ -111,3 +121,6 @@ HEROKU_PATH=/usr/local/heroku/bin
 PHANTOMJS_PATH=/opt/phantomjs/phantomjs-1.9.1/bin
 
 PATH=$PATH:$HEROKU_PATH:$PHANTOMJS_PATH
+
+export LC_CTYPE=pt_BR.UTF-8
+export LC_ALL=pt_BR.UTF-8
