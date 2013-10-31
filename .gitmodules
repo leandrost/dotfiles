@@ -1,3 +1,6 @@
 [submodule "/home/leandrost/.vim"]
 	path = /home/leandrost/.vim
 	url = git@github.com:leandrost/vimfiles.git
+[submodule ".vim"]
+	path = .vim
+	url = git@github.com:leandrost/vimfiles.git
