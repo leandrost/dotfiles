@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Basketball Yahoo! Fantasy
+Exec=chromium -app=http://basketball.fantasysports.yahoo.com/ --class=basketball-yahoo-fantasy --user-data-dir=.webapps/basketball-yahoo-fantasy
+StartupNotify=true
+Terminal=false
+Type=Application
+Icon=basketball-yahoo-fantasy
+StartupWMClass=basketball-yahoo-fantasy
+Categories=Network;
