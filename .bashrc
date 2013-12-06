@@ -53,7 +53,7 @@ alias grep='grep --color=auto'
 alias pac='packer --noedit' 
 alias trash='trash-put' 
 alias please='sudo'
-alias cdmia='cd ~/projects/mia/src/'
+alias cdl='cd ~/projects/lista-amiga/'
 alias myip='curl ifconfig.me'
 alias diskspace='dfc'
 #deve checkar antes se o vim instalado tá abilitado a isso
