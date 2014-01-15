@@ -118,10 +118,10 @@ else
 fi
 
 #ELASTICSEARCH
-ELASTICSEARCH_CONFIG_PATH="/etc/elasticsearch"
-ELASTICSEARCH_BIN="/usr/share/elasticsearch/bin/elasticsearch"
-ELASTICSEARCH_CONFIG="$ELASTICSEARCH_CONFIG_PATH/elasticsearch.yml"
-ES_CLASSPATH="$ELASTICSEARCH_CONFIG_PATH/logging.yml"
+export ELASTICSEARCH_CONFIG_PATH="/etc/elasticsearch"
+export ELASTICSEARCH_BIN="/usr/share/elasticsearch/bin/elasticsearch"
+export ELASTICSEARCH_CONFIG="$ELASTICSEARCH_CONFIG_PATH/elasticsearch.yml"
+export ES_CLASSPATH="$ELASTICSEARCH_CONFIG_PATH/logging.yml"
 
 #CUSTOM PATH
 HEROKU_PATH=/usr/local/heroku/bin
