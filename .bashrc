@@ -117,6 +117,12 @@ else
   PS1="\u@\h \w$(__git_ps1)\n$ "
 fi
 
+#ELASTICSEARCH
+ELASTICSEARCH_CONFIG_PATH="/etc/elasticsearch"
+ELASTICSEARCH_BIN="/usr/share/elasticsearch/bin/elasticsearch"
+ELASTICSEARCH_CONFIG="$ELASTICSEARCH_CONFIG_PATH/elasticsearch.yml"
+ES_CLASSPATH="$ELASTICSEARCH_CONFIG_PATH/logging.yml"
+
 #CUSTOM PATH
 HEROKU_PATH=/usr/local/heroku/bin
 PHANTOMJS_PATH=/opt/phantomjs/phantomjs-1.9.1/bin

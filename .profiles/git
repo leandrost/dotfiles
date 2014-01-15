@@ -9,6 +9,7 @@ source ~/.profiles/git_completion
 
 alias gl='git log'
 alias ga='git add'
+alias gA='git add -A'
 alias gau='git add -u'
 
 alias gba='git branch -a'
@@ -25,7 +26,9 @@ alias gk-="git checkout -"
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gca='git commit -a'
+alias gcA='git commit -A'
 alias gcam='git commit -am'
+alias gcAm='git commit -Am'
 
 alias hit='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/home/leandrost/'
 __git_complete hit __git_main
