@@ -103,16 +103,25 @@ then
       if [[ $prompt == 'system' ]]; then
         prompt=''
       else
-        prompt="[$prompt]"
+        prompt=" [$prompt]"
       fi
-      echo -e $(clr 9 "$prompt") 
+      echo -e $(clr 172 "$prompt")
     fi
   }
   function git_ps1() 
   { 
-    echo -e $(clr 229 "$(__git_ps1)");
+    color=147
+    branch_info="$(__git_ps1)"
+    if [$branch_info == '']; then
+      return
+    fi
+    if [[ $branch_info =~ master.*$ ]]; then
+      color=117
+      branch_info=$(echo $branch_info | tr '[:lower:]' '[:upper:]')
+    fi
+    echo -e " $(clr $color $branch_info)"
   }
-  PS1="\u\$(clr 228 @\h) $(clr 229)\w\$(git_ps1) \$(rvm_ps1)\n$(clr 2 $) "
+  PS1="\u\$(clr 228 @\h) $(clr 229)\w\$(git_ps1)\$(rvm_ps1)\n$(clr 75 $) "
 else
   PS1="\u@\h \w$(__git_ps1)\n$ "
 fi
