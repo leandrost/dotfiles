@@ -111,15 +111,15 @@ then
   function git_ps1() 
   { 
     color=147
-    branch_info="$(__git_ps1)"
+    branch_info=$(__git_ps1)
     if [[ $branch_info == '' ]]; then
       return
     fi
     if [[ $branch_info =~ master.*$ ]]; then
       color=117
-      branch_info=$(echo $branch_info | tr '[:lower:]' '[:upper:]')
+      branch_info=$(echo "$branch_info" | tr '[:lower:]' '[:upper:]')
     fi
-    echo -e " $(clr $color $branch_info)"
+    clr $color "$branch_info"
   }
   PS1="\u\$(clr 228 @\h) $(clr 229)\w\$(git_ps1)\$(rvm_ps1)\n$(clr 75 $) "
 else
