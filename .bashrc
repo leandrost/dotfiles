@@ -112,7 +112,7 @@ then
   { 
     color=147
     branch_info="$(__git_ps1)"
-    if [$branch_info == '']; then
+    if [[ $branch_info == '' ]]; then
       return
     fi
     if [[ $branch_info =~ master.*$ ]]; then
