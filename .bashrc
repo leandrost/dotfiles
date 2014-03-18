@@ -99,13 +99,11 @@ then
   function rvm_ps1() 
   { 
     if test -n "$(command -v rvm)"; then
-      prompt="$(~/.rvm/bin/rvm-prompt s)"
-      if [[ $prompt == 'system' ]]; then
-        prompt=''
-      else
-        prompt=" [$prompt]"
+      if [[ $prompt == 'system' || $(__git_ps1) == '' ]]; then
+        return
       fi
-      echo -e $(clr 172 "$prompt")
+      prompt=$(~/.rvm/bin/rvm-prompt s)
+      echo -e $(clr 172 " [$prompt]")
     fi
   }
   function git_ps1() 

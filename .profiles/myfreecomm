@@ -8,6 +8,7 @@ alias bfs='bundle && fs'
 alias specall='bundle exec rake db:migrate db:test:prepare && RAILS_ENV=test time bundle exec rspec spec/models/* && RAILS_ENV=test time bundle exec rspec spec/controllers/* && RAILS_ENV=test time bundle exec rspec spec/helpers/* spec/routing/* spec/lib/* spec/mailers/* spec/workers/* spec/reports/* && RAILS_ENV=test time bundle exec rake spec:javascript && RAILS_ENV=test time bundle exec rspec features/*_spec.rb'
 alias spec-without-mc='bundle exec rake db:migrate db:test:prepare && RAILS_ENV=test time bundle exec rspec spec/helpers/* spec/routing/* spec/lib/* spec/mailers/* spec/workers/* spec/reports/* && RAILS_ENV=test time bundle exec rake spec:javascript && RAILS_ENV=test time bundle exec rspec features/*_spec.rb'
 alias spec-mc='bundle exec rake db:migrate db:test:prepare && RAILS_ENV=test time bundle exec rspec spec/models/* && RAILS_ENV=test time bundle exec rspec spec/controllers/*'
+alias gbdm='git branch -d $(git branch --merged | grep -v "\*\|deploy$")'
 
 export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:bin/javac::")
 
