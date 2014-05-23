@@ -30,6 +30,7 @@ alias gcA='git commit -A'
 alias gcam='git commit -am'
 alias gcAm='git commit -Am'
 
+#dotfiles
 alias hit='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/home/leandrost/'
 __git_complete hit __git_main
 
@@ -38,6 +39,12 @@ alias hau='hit add -u'
 alias hc='hit commit'
 alias hcm='hit commit -m'
 alias hs='hit status --untracked-files=no'
+
+#vimfiles
+alias vit='git --git-dir=/home/leandrost/projects/vimfiles/.git/ --work-tree=/home/leandrost/projects/vimfiles/'
+
+__git_complete vit __git_main
+alias vs='vit status --untracked-files=no'
 
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=false
