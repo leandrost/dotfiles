@@ -29,6 +29,7 @@ alias gca='git commit -a'
 alias gcA='git commit -A'
 alias gcam='git commit -am'
 alias gcAm='git commit -Am'
+alias gcmd='git commit --amend'
 
 #dotfiles
 alias hit='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/home/leandrost/'

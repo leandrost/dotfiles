@@ -57,7 +57,9 @@ alias cdl='cd ~/projects/lista-amiga/'
 alias myip='curl ifconfig.me'
 alias diskspace='dfc'
 #deve checkar antes se o vim instalado tá abilitado a isso
-#alias vim='vim --servername VIM'
+alias vim='vim --servername VIM'
+alias vimt='vim --remote-tab-silent'
+alias vimp='vim -p'
 alias np='node_modules/.bin/mocha -R nice-spec'
 
 if test -n "$(command -v keychain)"; then
@@ -76,6 +78,9 @@ alias apt-get='sudo apt-get'
 if test -n "$(command -v chromium-browser)"; then
   alias chromium='chromium-browser'
 fi
+
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
 
 #PROFILES
 source $HOME/.profiles/git

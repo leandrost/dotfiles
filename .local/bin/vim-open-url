@@ -1,0 +1,46 @@
+#! /usr/bin/env ruby
+
+require 'uri'
+require 'cgi'
+
+# Create a log file. Useful for debugging (to know what args this command was called with) since
+# this is executed non-interactively by xdg-open:
+require 'pathname'
+dir = Pathname("#{ENV['HOME']}/tmp").tap {|dir| dir.mkpath }
+log = (dir + "#{File.basename($0)}.log").open('a')
+log.puts '='*100
+log.puts Time.now
+log.puts ARGV
+
+begin
+  exit unless ARGV[0]
+  uri = URI.parse(ARGV[0])
+  log.puts %(uri=#{(uri).inspect})
+
+  exit unless uri.host == 'open'
+  exit unless uri.query
+
+  command = 'vim --servername vim --remote-tab-silent'
+
+  params = CGI.parse(uri.query)
+  log.puts %(params=#{(params).inspect})
+
+  if params['line']
+    line = params['line'][0]
+    command << " +#{line}"
+  end
+
+  exit unless params['url']
+  log.puts %(params['url'][0]=#{(params['url'][0]).inspect})
+  url_param = URI.parse(params['url'][0])
+  log.puts %(url_param=#{(url_param).inspect})
+  exit unless url_param.scheme == 'file'
+
+  command << %Q[ "#{url_param.path}"]
+  log.puts %(command=#{command})
+  log.puts `#{command}`
+
+rescue Exception
+  log.puts $!.inspect
+  log.puts $!.backtrace
+end

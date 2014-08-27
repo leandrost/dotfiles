@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Vim (Open Url)
+Comment=Edit text files in a console using Vim
+Exec=/home/leandrost/.local/bin/vim-open-url %U
+Terminal=false
+Type=Application
+Categories=Application;Utility;TextEditor;
+MimeType=text/plain;x-scheme-handler/vim;x-scheme-handler/txmt;
+StartupNotify=true
+StartupWMClass=vim_open_url

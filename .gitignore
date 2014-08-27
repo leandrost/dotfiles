@@ -1,4 +1,5 @@
 .vim/.netrwhist
+*/vendor/bundle
 *.swp
 *.swo
 .ruby-version
