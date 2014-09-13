@@ -56,7 +56,7 @@ alias please='sudo'
 alias cdl='cd ~/projects/lista-amiga/'
 alias myip='curl ifconfig.me'
 alias diskspace='dfc'
-#deve checkar antes se o vim instalado tá abilitado a isso
+#deve checkar antes se o vim instalado tá habilitado (instalar vim-gnome)
 alias vim='vim --servername VIM'
 alias vimt='vim --remote-tab-silent'
 alias vimp='vim -p'
