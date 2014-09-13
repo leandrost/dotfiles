@@ -124,7 +124,6 @@ then
     fi
     clr $color "$branch_info"
   }
-  echo "olá"
   PS1="\u\$(clr 228 @\h) $(clr 229)\w\$(git_ps1)\$(rvm_ps1)\n$(clr 75 $) "
 else
   PS1="\u@\h \w$(__git_ps1)\n$ "
