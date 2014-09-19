@@ -1,6 +1,7 @@
 #!/usr/bin/env
 alias cdm='cd /home/leandrost/projects/myfinance/src/'
 alias fs='bundle exec foreman start -f Procfile.development'
+alias fsw='bundle exec foreman start worker -f Procfile.development'
 alias integrate='RAILS_ENV=test time rake integrate && echo "NICE! Agora buzine duas vezes e apague o branch que vc integrou rapazinho!"'
 alias rdbr='rake db:data:reset; rake db:test:prepare;'
 alias rdbdr='rake drop; rake db:setup; rake db:data:reset; rake db:test:prepare;'
