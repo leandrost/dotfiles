@@ -22,7 +22,7 @@ PATH=$PATH:$HOME/.local/bin
 #ANDROID
 PATH=$PATH:/opt/android-sdk/platform-tools/
 PATH=$PATH:/opt/android-sdk/tools/
-export ANDROID_HOME=/opt/android-sdk 
+export ANDROID_HOME=/opt/android-sdk
 
 export EDITOR=vim
 
@@ -50,13 +50,13 @@ alias ll='ls -lh'
 alias l.='ls -d .* --color=auto'
 
 alias grep='grep --color=auto'
-alias pac='packer --noedit' 
-alias trash='trash-put' 
+alias pac='packer --noedit'
+alias trash='trash-put'
 alias please='sudo'
 alias cdl='cd ~/projects/lista-amiga/'
 alias myip='curl ifconfig.me'
 alias diskspace='dfc'
-#deve checkar antes se o vim instalado tá abilitado a isso
+#deve checkar antes se o vim instalado tá habilitado (instalar vim-gnome)
 alias vim='vim --servername VIM'
 alias vimt='vim --remote-tab-silent'
 alias vimp='vim -p'
@@ -70,9 +70,9 @@ if test -n "$(command -v keychain)"; then
 fi
 
 if test -n "$(command -v pacman-color)"; then
-  alias pacman='sudo pacman-color' 
+  alias pacman='sudo pacman-color'
 else
-  alias pacman='sudo pacman' 
+  alias pacman='sudo pacman'
 fi
 alias npe='PATH=$(npm bin):$PATH'
 alias apt-get='sudo apt-get'
@@ -93,18 +93,18 @@ source $HOME/.profiles/myfreecomm
 #PS1
 if [ $TERM = "xterm" ]
 then
-  function clr () 
-  { 
+  function clr ()
+  {
     if [[ $2 == '$' ]]; then
       echo -e "\[\033[38;5;$1m\]$\[\033[0m\]"
     elif [ $# == '2' ]; then
-      echo -e "\033[38;5;$1m$2\033[0m" 
+      echo -e "\033[38;5;$1m$2\033[0m"
     elif [ $# == '1' ]; then
       echo -e "\033[38;5;$1m"
     fi
   }
-  function rvm_ps1() 
-  { 
+  function rvm_ps1()
+  {
     if test -n "$(command -v rvm)"; then
       if [[ $prompt == 'system' || $(__git_ps1) == '' ]]; then
         return
@@ -113,8 +113,8 @@ then
       echo -e $(clr 172 " [$prompt]")
     fi
   }
-  function git_ps1() 
-  { 
+  function git_ps1()
+  {
     color=147
     branch_info=$(__git_ps1)
     if [[ $branch_info == '' ]]; then
