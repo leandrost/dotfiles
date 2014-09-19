@@ -61,6 +61,8 @@ alias vim='vim --servername VIM'
 alias vimt='vim --remote-tab-silent'
 alias vimp='vim -p'
 alias np='node_modules/.bin/mocha -R nice-spec'
+alias ttpt='normit en pt'
+alias tten='normit pt en'
 
 if test -n "$(command -v keychain)"; then
   alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa) && ssh'
