@@ -29,3 +29,4 @@ text/plain=sublime-text.desktop;
 video/x-matroska=smplayer.desktop;
 video/mp4=smplayer.desktop;
 application/x-matroska=smplayer.desktop;totem.desktop;
+application/pdf=sublime-text.desktop;
