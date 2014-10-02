@@ -145,3 +145,8 @@ PATH=$PATH:$HEROKU_PATH:$PHANTOMJS_PATH
 
 export LC_CTYPE=pt_BR.UTF-8
 export LC_ALL=pt_BR.UTF-8
+
+#DIRENV
+if test -n "$(command -v direnv)"; then
+  eval "$(direnv hook bash)"
+fi
