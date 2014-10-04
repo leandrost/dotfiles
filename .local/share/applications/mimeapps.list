@@ -1,11 +1,11 @@
 [Default Applications]
-x-scheme-handler/http=chromium-browser.desktop
-text/html=chromium-browser.desktop
+x-scheme-handler/http=google-chrome.desktop
+text/html=google-chrome.desktop
 text/xml=chromium-browser.desktop
 application/xhtml_xml=chromium-browser.desktop
-x-scheme-handler/https=chromium-browser.desktop
-x-scheme-handler/about=chromium-browser.desktop
-x-scheme-handler/unknown=chromium-browser.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
 video/x-msvideo=smplayer.desktop
 video/x-matroska=smplayer.desktop
 video/mp4=smplayer.desktop
@@ -29,4 +29,3 @@ text/plain=sublime-text.desktop;
 video/x-matroska=smplayer.desktop;
 video/mp4=smplayer.desktop;
 application/x-matroska=smplayer.desktop;totem.desktop;
-application/pdf=sublime-text.desktop;

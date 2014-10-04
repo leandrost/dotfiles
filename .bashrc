@@ -143,10 +143,5 @@ PHANTOMJS_PATH=/opt/phantomjs/phantomjs-1.9.1/bin
 
 PATH=$PATH:$HEROKU_PATH:$PHANTOMJS_PATH
 
-export LC_CTYPE=pt_BR.UTF-8
-export LC_ALL=pt_BR.UTF-8
-
-#DIRENV
-if test -n "$(command -v direnv)"; then
-  eval "$(direnv hook bash)"
-fi
+#export LC_CTYPE=pt_BR.UTF-8
+#export LC_ALL=pt_BR.UTF-8

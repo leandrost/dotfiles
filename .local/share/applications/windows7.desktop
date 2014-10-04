@@ -1,8 +1,0 @@
-#!/usr/bin/env xdg-open
-[Desktop Entry]
-Type=Application
-Encoding=UTF-8
-Name=Windows 7
-Exec=gksu 'virtualbox --startvm Windows_7_Home_Premium'
-Icon=wine.png
-Terminal=false

@@ -1,7 +1,7 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Name=Mailtrap
-Exec=chromium -app=http://mailtrap.io/inboxes/myfinance-dev-f7756df67d806fd5 --class=mailtrap --user-data-dir=.webapps/mailtrap
+Exec=google-chrome -app=http://mailtrap.io/inboxes/myfinance-dev-f7756df67d806fd5 --class=mailtrap --user-data-dir=.webapps/mailtrap
 StartupNotify=true
 Terminal=false
 Type=Application

@@ -1,7 +1,7 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Name=Cartola FC
-Exec=chromium -app=http://cartolafc.globo.com --class=cartolafc --user-data-dir=.webapps/cartolafc
+Exec=google-chrome -app=http://cartolafc.globo.com --class=cartolafc --user-data-dir=.webapps/cartolafc
 StartupNotify=true
 Terminal=false
 Type=Application
