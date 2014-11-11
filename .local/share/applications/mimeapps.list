@@ -10,6 +10,7 @@ video/x-msvideo=smplayer.desktop
 video/x-matroska=smplayer.desktop
 video/mp4=smplayer.desktop
 x-scheme-handler/txmt=vim-open-url.desktop
+x-scheme-handler/mailto=google-chrome.desktop
 
 [Added Associations]
 text/html=chromium-browser.desktop;
