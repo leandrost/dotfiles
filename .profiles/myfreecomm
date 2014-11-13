@@ -1,5 +1,5 @@
 #!/usr/bin/env
-alias cdm='cd /home/leandrost/projects/myfinance/src/'
+alias cdm='cd ${HOME}/projects/myfinance/src/'
 alias fs='bundle exec foreman start -f Procfile.development'
 alias fsw='bundle exec foreman start worker -f Procfile.development'
 alias integrate='RAILS_ENV=test time rake integrate && echo "NICE! Agora buzine duas vezes e apague o branch que vc integrou rapazinho!"'
@@ -17,6 +17,7 @@ alias watch-elb-production='watch -n 5 elb-describe-instance-health myfinance-pr
 alias depisandbox='echo "@all fazendo deploy do app myfinance para sandbox a partir do branch $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) em $(git rev-parse HEAD)" | pbcopy'
 alias depiproduction='echo "@all fazendo deploy do app myfinance para production a partir do branch deploy em $(git rev-parse HEAD)" | pbcopy'
 
+export MYFINANCE_HOME="${HOME}/projects/myfinance"
 export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:bin/javac::")
 
 loadfile $HOME/.certmanrc
