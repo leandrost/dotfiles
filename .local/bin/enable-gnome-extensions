@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+gsettings set org.gnome.shell enabled-extensions "['mediaplayer@patapon.info',
+'system-monitor@paradoxxx.zero.gmail.com',
+'weather-extension@xeked.com',
+'transmission-daemon@patapon.info',
+'todo.txt@bart.libert.gmail.com',
+'pomodoro@arun.codito.in',
+'message-notifier@shell-extensions.barisione.org']"
