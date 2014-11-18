@@ -81,6 +81,10 @@ if test -n "$(command -v chromium-browser)"; then
   alias chromium='chromium-browser'
 fi
 
+if test -n "$(command -v ack-grep)"; then
+  alias ack='ack-grep'
+fi
+
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
