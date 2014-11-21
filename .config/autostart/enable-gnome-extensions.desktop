@@ -1,0 +1,6 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Enable Gnome Extensions
+Exec=/home/leandrost/.local/bin/enable-gnome-extensions
+Terminal=false
+Type=Application
