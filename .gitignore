@@ -6,4 +6,6 @@
 .ruby-gemset
 .rails_generators~
 .~*
+.local/share/applications/mimeapps.list
+.config/terminator/config
 
