@@ -63,6 +63,7 @@ alias vimp='vim -p'
 alias np='node_modules/.bin/mocha -R nice-spec'
 alias ttpt='normit en pt'
 alias tten='normit pt en'
+alias cdd='cd ~/projects/dozeoudez'
 
 if test -n "$(command -v keychain)"; then
   alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa) && ssh'
@@ -154,3 +155,4 @@ PATH=$PATH:$HEROKU_PATH:$PHANTOMJS_PATH
 if test -n "$(command -v direnv)"; then
   eval "$(direnv hook bash)"
 fi
+source ~/.autoenv/activate.sh
