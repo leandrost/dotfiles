@@ -1,0 +1,2 @@
+---
+:editor: "/usr/bin/vim --servername VIM --remote-tab-silent"

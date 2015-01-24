@@ -19,6 +19,7 @@ alias rdbmup='rake db:migrate:up'
 alias rdbmdown='rake db:migrate:down'
 
 alias rspec='bin/rspec'
+alias spring='bundle exec spring'
 
 # add rvm to PATH for scripting
 export rvm_path="$HOME/.rvm"
