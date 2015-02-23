@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Vim (Remote)
+Comment=Edit text files in a console using Vim
+Exec=vim --remote-tab-silent %U
+Terminal=false
+Type=Application
+Categories=Application;Utility;TextEditor;
+MimeType=text/plain;x-scheme-handler/vim;x-scheme-handler/txmt;
+StartupNotify=true
+Icon=vim
