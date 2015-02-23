@@ -13,6 +13,7 @@ alias gA='git add -A'
 alias gau='git add -u'
 
 alias gba='git branch -a'
+alias gbam='git branch --merged | grep -v "^*\|deploy$")'
 
 alias gs='git status'
 alias gsu='git status --untracked-files no'
@@ -30,6 +31,7 @@ alias gcA='git commit -A'
 alias gcam='git commit -am'
 alias gcAm='git commit -Am'
 alias gcmd='git commit --amend'
+
 
 #dotfiles
 alias hit='git --git-dir=/home/leandrost/projects/dotfiles/.git/ --work-tree=/home/leandrost/'
