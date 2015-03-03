@@ -8,4 +8,7 @@
 .~*
 .local/share/applications/mimeapps.list
 .config/terminator/config
+.profiles/myfreecomm
+.certman
+.certmanrc
 
