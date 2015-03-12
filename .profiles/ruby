@@ -18,7 +18,7 @@ alias rdbms='rake db:migrate:status'
 alias rdbmup='rake db:migrate:up'
 alias rdbmdown='rake db:migrate:down'
 
-alias rspec='bin/rspec'
+alias rspec='bundle exec rspec'
 alias spring='bundle exec spring'
 
 # add rvm to PATH for scripting
@@ -42,6 +42,8 @@ source $HOME/.profiles/rake_completion
 export RUBY_GC_MALLOC_LIMIT=104857600
 export RUBY_HEAP_FREE_MIN=200000
 export RUBY_GC_HEAP_INIT_SLOTS=40000
+
+export SKIP_CODE_CLIMATE_TEST_REPORTER=true
 
 #rodar todos os specs que foram alterados ou adicionados no branch atual em relação ao master
 #alias branchspec="bundle exec rspec $(git diff --diff-filter=ACMRTUXB --name-only master -- spec test | egrep --color=never '_(spec|test).rb' | sed 's/src\///')"
