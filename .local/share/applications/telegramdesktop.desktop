@@ -10,4 +10,3 @@ Type=Application
 Categories=Network;
 MimeType=application/x-xdg-protocol-tg;x-scheme-handler/tg;
 X-Desktop-File-Install-Version=0.22
-Name[en_US]=Telegram
