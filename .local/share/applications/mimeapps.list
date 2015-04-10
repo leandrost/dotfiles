@@ -1,24 +1,23 @@
 [Default Applications]
-x-scheme-handler/http=google-chrome.desktop
-text/html=google-chrome.desktop
-text/xml=chromium-browser.desktop
+x-scheme-handler/http=google-chrome-unstable.desktop
+text/html=google-chrome-unstable.desktop
+text/xml=google-chrome-unstable.desktop
 application/xhtml_xml=chromium-browser.desktop
-x-scheme-handler/https=google-chrome.desktop
-x-scheme-handler/about=google-chrome.desktop
-x-scheme-handler/unknown=google-chrome.desktop
+x-scheme-handler/http=google-chrome-unstable.desktop
+x-scheme-handler/https=google-chrome-unstable.desktop
+x-scheme-handler/about=google-chrome-unstable.desktop
+x-scheme-handler/unknown=google-chrome-unstable.desktop
 video/x-msvideo=smplayer.desktop
 video/x-matroska=smplayer.desktop
 video/mp4=smplayer.desktop
 x-scheme-handler/txmt=vim-open-url.desktop
-x-scheme-handler/mailto=google-chrome.desktop
+x-scheme-handler/vim-remote=vim-open-url.desktop
+x-scheme-handler/mailto=google-chrome-unstable.desktop
 text/plain=gvim.desktop
 x-scheme-handler/tg=telegramdesktop.desktop
 
 [Added Associations]
-text/html=chromium-browser.desktop;
-text/xml=chromium-browser.desktop;
-application/xhtml_xml=chromium-browser.desktop;
-x-scheme-handler/https=chromium-browser.desktop;
+application/xhtml_xml=google-chrome-unstable.desktop;
 application/x-deb=gdebi.desktop;
 x-scheme-handler/webapp=webapp-open.desktop
 x-scheme-handler/webapps=webapp-open.desktop
@@ -33,4 +32,5 @@ video/x-matroska=smplayer.desktop;
 video/mp4=smplayer.desktop;
 application/x-matroska=smplayer.desktop;totem.desktop;
 application/pdf=sublime-text.desktop;
+application/xml=vim-remote.desktop;
 application/x-ruby=vim-remote.desktop;
