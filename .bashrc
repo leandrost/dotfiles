@@ -66,6 +66,8 @@ alias tten='normit pt en'
 alias lockscreen='gnome-screensaver-command -l'
 alias cdd='cd ~/projects/dozeoudez'
 
+alias ns='npm start'
+
 if test -n "$(command -v keychain)"; then
   alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa) && ssh'
   alias ssh-eval='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa)'

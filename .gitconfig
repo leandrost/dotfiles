@@ -14,3 +14,5 @@
   ignore = update-index --assume-unchanged 
   unignore = update-index --no-assume-unchanged
   ignored = !git ls-files -v | grep ^[a-z]
+[credential]
+	helper = cache --timeout=3600
