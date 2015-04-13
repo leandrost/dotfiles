@@ -1,20 +1,21 @@
 [Default Applications]
-x-scheme-handler/http=google-chrome-unstable.desktop
-text/html=google-chrome-unstable.desktop
+x-scheme-handler/http=google-chrome.desktop
+text/html=google-chrome.desktop
 text/xml=google-chrome-unstable.desktop
 application/xhtml_xml=chromium-browser.desktop
 x-scheme-handler/http=google-chrome-unstable.desktop
-x-scheme-handler/https=google-chrome-unstable.desktop
-x-scheme-handler/about=google-chrome-unstable.desktop
-x-scheme-handler/unknown=google-chrome-unstable.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
 video/x-msvideo=smplayer.desktop
 video/x-matroska=smplayer.desktop
 video/mp4=smplayer.desktop
 x-scheme-handler/txmt=vim-open-url.desktop
 x-scheme-handler/vim-remote=vim-open-url.desktop
 x-scheme-handler/mailto=google-chrome-unstable.desktop
-text/plain=gvim.desktop
+text/plain=vim-remote.desktop
 x-scheme-handler/tg=telegramdesktop.desktop
+application/javascript=vim-remote.desktop
 
 [Added Associations]
 application/xhtml_xml=google-chrome-unstable.desktop;
@@ -27,10 +28,11 @@ image/png=libreoffice-draw.desktop;inkscape.desktop;
 application/x-executable=file-roller.desktop;
 application/x-virtualbox-vdi=virtualbox.desktop;
 image/jpeg=inkscape.desktop;
-text/plain=gvim.desktop;sublime-text.desktop;
+text/plain=vim-remote.desktop;gvim.desktop;sublime-text.desktop;
 video/x-matroska=smplayer.desktop;
 video/mp4=smplayer.desktop;
 application/x-matroska=smplayer.desktop;totem.desktop;
 application/pdf=sublime-text.desktop;
 application/xml=vim-remote.desktop;
 application/x-ruby=vim-remote.desktop;
+application/javascript=vim-remote.desktop;

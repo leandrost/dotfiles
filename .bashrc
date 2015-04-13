@@ -89,6 +89,7 @@ fi
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+alias ember=node_modules/.bin/ember
 
 #PROFILES
 source $HOME/.profiles/git
