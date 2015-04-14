@@ -1,9 +1,9 @@
 [Default Applications]
 x-scheme-handler/http=google-chrome.desktop
 text/html=google-chrome.desktop
-text/xml=google-chrome-unstable.desktop
-application/xhtml_xml=chromium-browser.desktop
-x-scheme-handler/http=google-chrome-unstable.desktop
+text/xml=google-chrome.desktop
+application/xhtml_xml=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
 x-scheme-handler/https=google-chrome.desktop
 x-scheme-handler/about=google-chrome.desktop
 x-scheme-handler/unknown=google-chrome.desktop
@@ -16,9 +16,11 @@ x-scheme-handler/mailto=google-chrome-unstable.desktop
 text/plain=vim-remote.desktop
 x-scheme-handler/tg=telegramdesktop.desktop
 application/javascript=vim-remote.desktop
+image/webp=google-chrome.desktop
+x-scheme-handler/ftp=google-chrome.desktop
 
 [Added Associations]
-application/xhtml_xml=google-chrome-unstable.desktop;
+application/xhtml_xml=google-chrome-unstable.desktop;google-chrome.desktop;
 application/x-deb=gdebi.desktop;
 x-scheme-handler/webapp=webapp-open.desktop
 x-scheme-handler/webapps=webapp-open.desktop
@@ -36,3 +38,6 @@ application/pdf=sublime-text.desktop;
 application/xml=vim-remote.desktop;
 application/x-ruby=vim-remote.desktop;
 application/javascript=vim-remote.desktop;
+text/xml=google-chrome.desktop;
+image/webp=google-chrome.desktop;
+x-scheme-handler/ftp=google-chrome.desktop;
