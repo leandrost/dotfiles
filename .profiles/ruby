@@ -6,6 +6,10 @@ PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin/
 #rails alisases
 alias rails='bundle exec rails'
 alias rake='bundle exec rake'
+alias rspec='bundle exec rspec'
+alias spring='bundle exec spring'
+alias guard='bundle exec guard'
+
 alias rc='rails console'
 alias rs='rails server'
 alias rdbc='rails dbconsole'
@@ -17,9 +21,6 @@ alias rdbmtp='rake db:migrate && rake db:test:prepare'
 alias rdbms='rake db:migrate:status'
 alias rdbmup='rake db:migrate:up'
 alias rdbmdown='rake db:migrate:down'
-
-alias rspec='bundle exec rspec'
-alias spring='bundle exec spring'
 
 # add rvm to PATH for scripting
 export rvm_path="$HOME/.rvm"
