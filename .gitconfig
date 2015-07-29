@@ -16,3 +16,5 @@
   ignored = !git ls-files -v | grep ^[a-z]
 [credential]
 	helper = cache --timeout=3600
+[rebase]
+	autosquash = true

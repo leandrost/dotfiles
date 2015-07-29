@@ -1,1 +1,67 @@
-/home/leandrost/dropbox/myfreecomm/dp-production
+#!/usr/bin/env bash
+
+. ~/.certmanrc
+
+DEPLOY_ENV='production'
+ASG=$MYFINANCE_ASG_PRODUCTION
+ASG_MIN_SIZE=3
+ASG_MAX_SIZE=3
+ASG_DESIRED_CAPACITY=3
+BRANCH="deploy"
+ELB=$MYFINANCE_ELB_PRODUCTION
+DEFAULT_ASG_MIN_SIZE=3
+DEFAULT_ASG_MAX_SIZE=6
+DEFAULT_ASG_DESIRED_CAPACITY=3
+
+as-describe-auto-scaling-groups $ASG
+
+echo "Instance count: " &&
+read INSTANCE_COUNT
+
+for i in `seq 1 $INSTANCE_COUNT`;
+do
+  echo "Enter instance $i: " &&
+    read DEPLOY_INSTANCE_$i
+done
+
+cd $CERTMAN_HOME
+. bin/activate
+cd src
+
+fab $DEPLOY_ENV asg:$ASG deploy:$MYFINANCE_HOME,branch=$BRANCH &&
+  cd $MYFINANCE_HOME/src &&
+  as-update-auto-scaling-group $ASG --min-size $ASG_MIN_SIZE --max-size $ASG_MAX_SIZE --desired-capacity $ASG_DESIRED_CAPACITY --health-check-type EC2 &&
+  ec2ssh $DEPLOY_INSTANCE_1 'for i in /etc/init/application-work-*; do NAME=$(basename $i); sudo initctl stop ${NAME%.conf}; done' &&
+  rds-create-db-snapshot myfinance --db-snapshot-identifier myfinance-$(echo "puts Time.now.utc.strftime('%Y%m%d%H%M%S%Z')" | ruby) &&
+  as-terminate-instance-in-auto-scaling-group $DEPLOY_INSTANCE_1 --no-decrement-desired-capacity --force &&
+  echo "Enter the new instance: " &&
+  read NEW_INSTANCE &&
+  ec2log $NEW_INSTANCE
+
+read -r -p "Proceed the deploy ? [Y/n] " response
+
+if [[ $response =~ ^([nN][oO]|[nN])$ ]]
+then
+  exit 0
+fi
+
+ec2ssh $DEPLOY_INSTANCE_2 'for i in /etc/init/application-work-*; do NAME=$(basename $i); sudo initctl stop ${NAME%.conf}; done' &&
+  ec2ssh $DEPLOY_INSTANCE_3 'for i in /etc/init/application-work-*; do NAME=$(basename $i); sudo initctl stop ${NAME%.conf}; done'
+
+cd $CERTMAN_HOME && . bin/activate && cd src && fab freeze:$NEW_INSTANCE && cd $MYFINANCE_HOME/src &&
+  as-terminate-instance-in-auto-scaling-group $DEPLOY_INSTANCE_2 --no-decrement-desired-capacity --force &&
+  as-terminate-instance-in-auto-scaling-group $DEPLOY_INSTANCE_3 --no-decrement-desired-capacity --force
+
+read -r -p "Finish the deploy (all instances are OK) ? [Y/n] " response
+
+if [[ $response =~ ^([nN][oO]|[nN])$ ]]
+then
+  exit 0
+fi
+
+as-update-auto-scaling-group $ASG --min-size $DEFAULT_ASG_MIN_SIZE --max-size $DEFAULT_ASG_MAX_SIZE --desired-capacity $DEFAULT_ASG_DESIRED_CAPACITY --health-check-type ELB --grace-period 600 --default-cooldown 300
+curl https://api.rollbar.com/api/1/deploy/ \
+  -F access_token=3e33dfb922a74fdda83584a0ddb2b4f6 \
+  -F environment=$DEPLOY_ENV \
+  -F revision=`git log -n 1 --pretty=format:"%h"` \
+  -F local_username=`whoami`
