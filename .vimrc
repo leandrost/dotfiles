@@ -152,8 +152,10 @@ autocmd BufRead,BufNewFile *.ofx set filetype=xml
 "CUSTOM MAPS
 map <C-l> :let @/=""<CR>
 map <F2> :NERDTreeToggle<CR>
+map <S-F3> :%!xmllint --encode UTF-8 --format -<CR>
 map <F4> xf 3xi:<ESC>
 map <F5> :e<CR>
+autocmd BufEnter,BufRead,BufNewFile *.haml map <S-F6> O- binding.pry<ESC>
 autocmd BufEnter,BufRead,BufNewFile *.rb map <S-F6> Obinding.pry<ESC>
 autocmd BufEnter,BufRead,BufNewFile *.js map <S-F6> Odebugger<ESC>
 map <F7> :SyntasticCheck rubocop<CR>
@@ -399,14 +401,17 @@ let g:ctrlp_prompt_mappings = {
       \ }
 
 "Airline
+let g:airline_theme = 'powerlineish'
 let g:airline_powerline_fonts = 1
+let g:airline_detect_modified=1
+
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#show_buffers = 0
-let g:airline_theme = 'powerlineish'
 let g:airline#extensions#tabline#left_sep = '  '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#fnamemod = ':p:t'
+
 
 "LongLines
 
