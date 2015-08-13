@@ -1,2 +1,3 @@
 #! /usr/bin/env bash
 sudo cp * /usr/share/terminator/ -r
+sudo ln -s /usr/share/terminator/remotinator /usr/bin/remotinator

@@ -81,8 +81,8 @@ fi
 alias npe='PATH=$(npm bin):$PATH'
 alias apt-get='sudo apt-get'
 
-if test -n "$(command -v chromium-browser)"; then
-  alias chromium='chromium-browser'
+if test -n "$(command -v google-chrome-stable)"; then
+  alias chrome='google-chrome-stable'
 fi
 
 if test -n "$(command -v ack-grep)"; then
