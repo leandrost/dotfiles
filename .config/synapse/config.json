@@ -1,29 +1,29 @@
 {
   "ui" : {
+    "global" : {
+      "ui-type" : "virgilio",
+      "show-indicator" : false
+    },
     "shortcuts" : {
       "activate" : "<Control>space",
       "execute" : "Return",
       "execute-without-hide" : "<Shift>Return",
       "delete-char" : "BackSpace",
       "alternative-delete-char" : "Delete",
-      "next-match" : "Down",
-      "prev-match" : "Up",
+      "next-match" : "<Control>n",
+      "prev-match" : "<Control>p",
       "first-match" : "Home",
       "last-match" : "End",
       "next-match-page" : "Page_Down",
       "prev-match-page" : "Page_Up",
-      "next-category" : "Right",
-      "prev-category" : "Left",
+      "next-category" : "<Control>l",
+      "prev-category" : "<Control>h",
       "next-search-type" : "Tab",
       "prev-search-type" : "<Shift>ISO_Left_Tab",
       "cancel" : "Escape",
       "paste" : "<Control>v",
       "alt-paste" : "<Shift>Insert",
       "exit" : "<Control>q"
-    },
-    "global" : {
-      "ui-type" : "side-doish",
-      "show-indicator" : false
     }
   }
 }
