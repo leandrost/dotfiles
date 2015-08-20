@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Name=Google Chrome (Alternative Profile)
+Exec=/usr/bin/google-chrome-stable --profile-directory='Profile 1'
+TargetEnvironment=Unity
+Type=Application
+Icon=chromium
