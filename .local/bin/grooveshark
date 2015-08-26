@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-ulimit -m 512
-google-chrome -app=http://grooveshark.com/ --class=grooveshark --user-data-dir=.webapps/grooveshark
