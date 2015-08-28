@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Name=Google Chrome (Main Profile)
+Exec=/usr/bin/google-chrome-stable --profile-directory='Default'
+TargetEnvironment=Unity
+Type=Application
+Icon=google-chrome
