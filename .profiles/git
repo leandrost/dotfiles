@@ -31,7 +31,7 @@ alias gcA='git commit -A'
 alias gcam='git commit -am'
 alias gcAm='git commit -Am'
 alias gcmd='git commit --amend'
-alias gcfix="git commit --fixup $(git rev-parse HEAD)"
+alias gcfix="git rev-parse HEAD | xargs git commit --fixup"
 
 
 #dotfiles
