@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Name=Vim (Remote)
 Comment=Edit text files in a console using Vim
-Exec=vim --remote-tab-silent %U
+Exec=/home/leandrost/.local/bin/vim-open %U
 Terminal=false
 Type=Application
 Categories=Application;Utility;TextEditor;

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+echo $*
+if [ "$(pidof "vim")" ]
+then
+  vim --servername vim --remote-tab-silent $*
+else
+  gvim --servername vim $*
+fi

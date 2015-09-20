@@ -20,7 +20,7 @@ begin
   exit unless uri.host == 'open'
   exit unless uri.query
 
-  command = 'vim --servername vim --remote-tab-silent'
+  command = '~/.local/bin/vim-open --servername vim --remote-tab-silent'
 
   params = CGI.parse(uri.query)
   log.puts %(params=#{(params).inspect})
