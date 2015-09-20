@@ -152,7 +152,7 @@ autocmd BufRead,BufNewFile *.ofx set filetype=xml
 "CUSTOM MAPS
 map <C-l> :let @/=""<CR>
 map <F2> :NERDTreeToggle<CR>
-map <S-F3> :%!xmllint --encode UTF-8 --format -<CR>
+autocmd BufRead,BufNewFile *.xml map <F3> :.!xmllint --format --recover -<CR>
 map <F4> xf 3xi:<ESC>
 map <F5> :e<CR>
 autocmd BufEnter,BufRead,BufNewFile *.haml map <S-F6> O- binding.pry<ESC>
@@ -239,8 +239,10 @@ function! GetJsSpecPath()
   return s
 endfunction
 
-map \r :let @+= "rspec ".GetSpecPath()<CR>
-map \l :let @+= "rspec ".GetSpecPath(). ":".line('.')<CR>
+"map \r :let @+= "rspec ".GetSpecPath()<CR>
+"map \l :let @+= "rspec ".GetSpecPath(). ":".line('.')<CR>
+map \r :execute "!dracarys bundle exec rspec ".GetSpecPath()<CR>
+map \l :execute "!dracarys bundle exec rspec ".GetSpecPath(). ":".line('.')<CR>
 map \j :let @+= "mocha ".GetJsSpecPath()<CR>
 
 """ Commands
