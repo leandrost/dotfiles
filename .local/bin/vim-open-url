@@ -20,13 +20,13 @@ begin
   exit unless uri.host == 'open'
   exit unless uri.query
 
-  command = '~/.local/bin/vim-open --servername vim --remote-tab-silent'
+  command = '~/.local/bin/vim-open'
 
   params = CGI.parse(uri.query)
   log.puts %(params=#{(params).inspect})
 
   if params['line']
-    line = params['line'][0]
+    line = params['line']
     command << " +#{line}"
   end
 
