@@ -13,7 +13,8 @@ alias gA='git add -A'
 alias gau='git add -u'
 
 alias gba='git branch -a'
-alias gbam='git branch --merged | grep -v "^*\|deploy$")'
+alias gbam='git branch --merged | grep -v "^*\|deploy\|master$")'
+alias gbdm='git branch -d $(git branch --merged | grep -v "\*\|deploy\|master$")'
 
 alias gs='git status'
 alias gsu='git status --untracked-files no'
