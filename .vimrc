@@ -239,10 +239,10 @@ function! GetJsSpecPath()
   return s
 endfunction
 
-"map \r :let @+= "rspec ".GetSpecPath()<CR>
-"map \l :let @+= "rspec ".GetSpecPath(). ":".line('.')<CR>
-map \r :execute "!dracarys bundle exec rspec ".GetSpecPath()<CR>
-map \l :execute "!dracarys bundle exec rspec ".GetSpecPath(). ":".line('.')<CR>
+map \r :let @+= "rspec ".GetSpecPath()<CR>
+map \l :let @+= "rspec ".GetSpecPath(). ":".line('.')<CR>
+"map \r :execute "!dracarys bundle exec rspec ".GetSpecPath()<CR>
+"map \l :execute "!dracarys bundle exec rspec ".GetSpecPath(). ":".line('.')<CR>
 map \j :let @+= "mocha ".GetJsSpecPath()<CR>
 
 """ Commands
