@@ -1,2 +1,2 @@
 ---
-:editor: "/usr/bin/vim --servername VIM --remote-tab-silent"
+:editor: "/home/leandrost/.local/bin/vim-open"
