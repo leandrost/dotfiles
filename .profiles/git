@@ -22,6 +22,7 @@ alias gs='git status'
 alias gsu='git status --untracked-files no'
 
 alias gk='git checkout'
+alias gkb='git checkout -b'
 __git_complete gk _git_checkout
 
 alias gkm='git checkout master'
@@ -34,7 +35,9 @@ alias gcA='git commit -A'
 alias gcam='git commit -am'
 alias gcAm='git commit -Am'
 alias gcmd='git commit --amend'
-alias gcfix="git rev-parse HEAD | xargs git commit --fixup"
+alias gcfl="git rev-parse HEAD | xargs git commit --fixup"
+alias gcf="git commit --fixup"
+alias grbc="git rebase --continue"
 
 
 #dotfiles
