@@ -11,9 +11,6 @@ function loadfile() {
 
 loadfile /etc/bash_completion
 
-#desabilita beep do terminal
-setterm -blength 0
-
 shopt -s autocd
 
 #add my scripts to path
@@ -54,7 +51,7 @@ alias pac='packer --noedit'
 alias trash='trash-put'
 alias please='sudo'
 alias cdl='cd ~/projects/lista-amiga/'
-alias myip='curl ifconfig.me'
+alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias diskspace='dfc'
 #deve checkar antes se o vim instalado tá habilitado (instalar vim-gnome)
 alias vim='vim --servername VIM'
@@ -164,3 +161,6 @@ fi
 if test -n "$(command -v autoenv)"; then
   source ~/.autoenv/activate.sh
 fi
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
