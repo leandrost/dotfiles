@@ -401,6 +401,7 @@ let g:ctrlp_prompt_mappings = {
       \ 'AcceptSelection("e")': ['<c-r>', '<c-j>'],
       \ 'AcceptSelection("t")': ['<cr>', '<c-t>', '<2-LeftMouse>'],
       \ }
+let g:ctrlp_root_markers = ['.ruby-version']
 
 "Airline
 let g:airline_theme = 'powerlineish'
