@@ -1,9 +1,7 @@
 ! remap caps_lock to do mode switching
 keycode 66 = Mode_switch ISO_Next_Group Mode_switch ISO_Next_Group
 
-!                       --- GROUP 1 ----                  ---- GROUP 2 ----
-
-keycode  43 =   h                H                      Left            Home
-keycode  44 =   j                J                      Down            Next
-keycode  45 =   k                K                      Up              Prior
-keycode  46 =   l                L                      Right           End
+keycode  43 =   h H   Left  Home
+keycode  44 =   j J   Down  Next
+keycode  45 =   k K   Up    Prior
+keycode  46 =   l L   Right End
