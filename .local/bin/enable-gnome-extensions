@@ -1,18 +1,2 @@
 #!/usr/bin/env bash
-gsettings set org.gnome.shell enabled-extensions "[
-'gmail_notify@jablona123.pl',
- 'mediaplayer@patapon.info',
- 'message-notifier@shell-extensions.barisione.org',
- 'openweather-extension@jenslody.de',
- 'pidgin@muffinmad',
- 'pomodoro@arun.codito.in',
- 'system-monitor@paradoxxx.zero.gmail.com',
- 'todo.txt@bart.libert.gmail.com',
- 'transmission-daemon@patapon.info',
- 'weather-extension@xeked.com',
- 'transparenttopbar@julienpecqueur.net',
- 'wikipedia_search_provider@awamper.gmail.com',
- 'lockkeys@vaina.lt',
- 'battery-percentage@nohales.org',
- 'calc@patapon.info'
- ]"
+gsettings set org.gnome.shell enabled-extensions "['gmail_notify@jablona123.pl', 'mediaplayer@patapon.info', 'message-notifier@shell-extensions.barisione.org', 'openweather-extension@jenslody.de', 'pidgin@muffinmad', 'system-monitor@paradoxxx.zero.gmail.com', 'todo.txt@bart.libert.gmail.com', 'transmission-daemon@patapon.info', 'weather-extension@xeked.com', 'transparenttopbar@julienpecqueur.net', 'wikipedia_search_provider@awamper.gmail.com', 'lockkeys@vaina.lt', 'battery-percentage@nohales.org', 'calc@patapon.info', 'duolingostatus@david.bonnal.gmail.com', 'sound-output-device-chooser@kgshank.net', 'refresh-wifi@kgshank.net']"

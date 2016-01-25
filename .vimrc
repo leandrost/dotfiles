@@ -401,7 +401,7 @@ let g:ctrlp_prompt_mappings = {
       \ 'AcceptSelection("e")': ['<c-r>', '<c-j>'],
       \ 'AcceptSelection("t")': ['<cr>', '<c-t>', '<2-LeftMouse>'],
       \ }
-let g:ctrlp_root_markers = ['.ruby-version']
+let g:ctrlp_root_markers = ['.ruby-version', 'package.json']
 
 "Airline
 let g:airline_theme = 'powerlineish'
@@ -447,5 +447,14 @@ nnoremap <silent> <leader>wl :call TooEasyWindowSwap()<CR>
 "vim-javascript
 let javascript_enable_domhtmlcss=1
 
-"ACK
+"vim-jsx
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+"ack
 let g:ack_autoclose = 1
+
+"syntastic
+let g:syntastic_javascript_checkers = ['eshint']
+let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
+let g:syntastic_javascript_checkers = ['eslint']
+
