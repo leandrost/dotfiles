@@ -11,7 +11,7 @@ if ! test -n "$(command -v dropbox)"; then
   sh -c 'echo "deb http://linux.dropbox.com/ubuntu/ vivid main" >> /etc/apt/sources.list.d/dropbox.list'
 fi
 
-if ! test -n "$(command -v spotify-client)"; then
+if ! test -n "$(command -v spotify)"; then
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D2C19886
   sh -c 'echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list.d/spotify.list'
 fi
@@ -21,6 +21,7 @@ fi
 apt-get update
 
 PKGS="
+ git
  terminator
  vim-gnome
  google-chrome-stable
