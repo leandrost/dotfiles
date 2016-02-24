@@ -165,8 +165,8 @@ map <F9> :call HighlightLongLines()<CR>
 map <F10> :tabe $MYVIMRC<CR>
 map <F12> :call ToggleBackground()<CR>
 
-map \* <S-*>:AckFromSearch! app<CR>
-map \\* <S-*>:AckFromSearch! app spec<CR>
+map \* <S-*>:AckFromSearch! app lib<CR>
+map \\* <S-*>:AckFromSearch! app lib spec<CR>
 map \@ :Ack! "(def (self.\|)\|class )<cword>" app<CR>
 map \\@ :Ack! "(class\|module) <cword>" app<CR>
 map \f :Ack! 

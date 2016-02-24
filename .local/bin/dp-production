@@ -13,6 +13,8 @@ DEFAULT_ASG_MIN_SIZE=3
 DEFAULT_ASG_MAX_SIZE=6
 DEFAULT_ASG_DESIRED_CAPACITY=3
 
+echo "@all fazendo deploy do app myfinance para $DEPLOY_ENV a partir do branch $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) em $(git rev-parse HEAD)" | xclip -selection clipboard
+
 as-describe-auto-scaling-groups $ASG
 
 echo "Instance count: " &&
