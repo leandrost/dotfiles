@@ -46,3 +46,5 @@ else
       -F revision=`git log -n 1 --pretty=format:"%h"` \
       -F local_username=`whoami`
 fi
+
+echo "@all deploy do app myfinance para $DEPLOY_ENV a partir do branch $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) terminado" | xclip -selection clipboard
