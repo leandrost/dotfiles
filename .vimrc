@@ -394,16 +394,16 @@ function! WriteCreatingDirs()
 endfunction
 command! W call WriteCreatingDirs()
 
-"CTRLP
+"ctrlp
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_prompt_mappings = {
-      \ 'AcceptSelection("h")': ['<c-x>', '<c-s>'],
-      \ 'AcceptSelection("e")': ['<c-r>', '<c-j>'],
-      \ 'AcceptSelection("t")': ['<cr>', '<c-t>', '<2-LeftMouse>'],
+      \ 'AcceptSelection("h")': ['<C-X>', '<C-S>'],
+      \ 'AcceptSelection("e")': ['<C-R>', '<C-M>'],
+      \ 'AcceptSelection("t")': ['<CR>', '<C-T>', '<2-LeftMouse>'],
       \ }
-let g:ctrlp_root_markers = ['.ruby-version', 'package.json']
+let g:ctrlp_root_markers = ['Gemfile', 'package.json']
 
-"Airline
+"airline
 let g:airline_theme = 'powerlineish'
 let g:airline_powerline_fonts = 1
 let g:airline_detect_modified=1
@@ -415,26 +415,8 @@ let g:airline#extensions#tabline#left_sep = '  '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#fnamemod = ':p:t'
 
-
-"LongLines
-
-" Highlight EOL whitespace, http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-highlight LongLines ctermbg=darkred guibg=#382424
-"autocmd InsertLeave * match LongLines /\%>121v.\+/
-"autocmd ColorScheme * highlight LongLines ctermbg=red guibg=red
-
-" The above flashes annoyingly while typing, be calmer in insert mode
-autocmd InsertLeave * match LongLines /\%>120v.\+/
-autocmd InsertEnter * match LongLines /\%>120v.\+/
-
-function! HighlightLongLines()
-    match LongLines /\%>120v.\+/
-endfunction
-command! HighlightLongLines call HighlightLongLines()
-function! FixHashSyntax()
-  xf
-endfunction
 command! FixHashSyntax call FixHashSyntax()
+
 "WindowSwap
 function! TooEasyWindowSwap()
   call WindowSwap#EasyWindowSwap()
@@ -454,7 +436,6 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:ack_autoclose = 1
 
 "syntastic
-let g:syntastic_javascript_checkers = ['eshint']
 let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['jshint']
 
