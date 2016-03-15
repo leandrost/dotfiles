@@ -16,6 +16,8 @@ if ! test -n "$(command -v spotify)"; then
   sh -c 'echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list.d/spotify.list'
 fi
 
+sudo add-apt-repository ppa:moka/stable
+
 #ADD PPA's
 
 apt-get update
@@ -32,6 +34,7 @@ PKGS="
  ack-grep
  curl
  tree
+ moka-icon-theme
 "
 DEV_PKGS="
  golang
