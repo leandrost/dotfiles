@@ -398,7 +398,7 @@ command! W call WriteCreatingDirs()
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_prompt_mappings = {
       \ 'AcceptSelection("h")': ['<C-X>', '<C-S>'],
-      \ 'AcceptSelection("e")': ['<C-R>', '<C-M>'],
+      \ 'AcceptSelection("e")': ['<C-R>', '<C-O>'],
       \ 'AcceptSelection("t")': ['<CR>', '<C-T>', '<2-LeftMouse>'],
       \ }
 let g:ctrlp_root_markers = ['Gemfile', 'package.json']
