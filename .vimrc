@@ -149,9 +149,9 @@ autocmd BufRead,BufNewFile *.vb set filetype=vb
 autocmd BufRead,BufNewFile *.ofx set filetype=xml
 
 """ Key Mapping
-"CUSTOM MAPS
+"custom maps
 map <C-l> :let @/=""<CR>
-map <F2> :NERDTreeToggle<CR>
+map <F2> :NERDTreeTabsToggle<CR>
 autocmd BufRead,BufNewFile *.xml map <F3> :.!xmllint --format --recover -<CR>
 map <F4> xf 3xi:<ESC>
 map <F5> :e<CR>
@@ -172,6 +172,7 @@ map \\@ :Ack! "(class\|module) <cword>" app<CR>
 map \f :Ack! 
 map \c :%s///gn<CR>
 map \i :IndentLinesToggle<CR>
+map \n :NERDTreeTabsToggle<CR>
 
 "COPY, PASTE, DELETE
 map \p "+p
@@ -197,8 +198,6 @@ map cU F_lct_
 map <S-Insert> <MiddleMouse>
 cmap w!! %!sudo tee > /dev/null %
 cmap qq tabclose
-map <C-f>* <S-*>:AckFromSearch! app<CR>
-map <C-f>@ :Ack! "def (self.\|)<cword>" app<CR>
 
 "NERDCommenter
 map \cc :call NERDComment(0, "toggle")<CR>
@@ -438,4 +437,8 @@ let g:ack_autoclose = 1
 "syntastic
 let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
 let g:syntastic_javascript_checkers = ['jshint']
+"let g:syntastic_ruby_checkers = ['rubocop']
+
+"nerdtree
+let g:NERDTreeShowLineNumbers=1
 
