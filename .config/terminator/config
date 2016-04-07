@@ -10,7 +10,8 @@
   inactive_bgcolor = "#222222"
 [keybindings]
   toggle_zoom = <Alt>x
-  resize_left = <Shift><Alt>h
+  copy = <Alt>c
+  paste = <Alt>v
   go_up = <Alt>k
   resize_up = <Shift><Alt>k
   close_window = <Primary><Shift>q
@@ -20,6 +21,7 @@
   close_term = <Shift><Alt>q
   split_vert = <Alt>i
   go_right = <Alt>l
+  resize_left = <Shift><Alt>h
   go_next = <Alt>w
   go_left = <Alt>h
   resize_right = <Shift><Alt>l
