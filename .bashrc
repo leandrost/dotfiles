@@ -44,6 +44,7 @@ function $function_name {
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias ll='ls -lh'
+alias lla='ls -lha'
 alias l.='ls -d .* --color=auto'
 
 alias grep='grep --color=auto'
@@ -61,7 +62,8 @@ alias np='node_modules/.bin/mocha -R nice-spec'
 alias ttpt='normit en pt'
 alias tten='normit pt en'
 alias lockscreen='gnome-screensaver-command -l'
-alias cdd='cd ~/projects/dozeoudez'
+alias cdb='cd ~/projects/ballers'
+alias cdg='cd ~/projects/got-board'
 
 alias ns='npm start'
 
