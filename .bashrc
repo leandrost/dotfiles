@@ -39,6 +39,7 @@ function $function_name {
   eval "$function"
 }
 
+source $HOME/.npm_completion
 
 #ALIASES
 alias ls='ls --color=auto'

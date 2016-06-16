@@ -167,8 +167,7 @@ map <F12> :call ToggleBackground()<CR>
 
 map \* <S-*>:AckFromSearch! app lib<CR>
 map \\* <S-*>:AckFromSearch! app lib spec<CR>
-map \@ :Ack! "(def (self.\|)\|class )<cword>" app<CR>
-map \\@ :Ack! "(class\|module) <cword>" app<CR>
+map \@ :Ack! "(def (self.\|)\|(class\|module) )<cword>" app<CR>
 map \f :Ack! 
 map \c :%s///gn<CR>
 map \i :IndentLinesToggle<CR>
