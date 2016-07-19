@@ -376,7 +376,7 @@ nnoremap <silent> <leader>wl :call TooEasyWindowSwap()<CR>
 let javascript_enable_domhtmlcss=1
 
 "vim-jsx
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+"let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 "ack
 let g:ack_autoclose = 1

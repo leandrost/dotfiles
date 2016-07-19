@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Deactivate CAPS LOCK
+Exec=xmodmap /home/leandrost/.alt-keyboard
+Terminal=true
+Type=Application
+StartupNotify=false
