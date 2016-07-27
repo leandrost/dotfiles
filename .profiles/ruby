@@ -6,7 +6,7 @@ PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin/
 #rails alisases
 alias rails='bundle exec rails'
 alias rake='bundle exec rake'
-alias rspec='bundle exec spring rspec'
+alias rspec='bundle exec rspec'
 alias spring='bundle exec spring'
 alias guard='bundle exec guard'
 alias guard-sidekiq='guard -P sidekiq'
