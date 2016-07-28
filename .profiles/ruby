@@ -1,12 +1,16 @@
 #!/usr/bin/env
 
-#add gem to PATH
-PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin/
+function run_rspec() {
+  if [ -f bin/rspec ]; then
+    bin/spring rspec $1
+  else
+    bundle exec rspec $1
+  fi
+}
 
-#rails alisases
 alias rails='bundle exec rails'
 alias rake='bundle exec rake'
-alias rspec='bundle exec rspec'
+alias rspec='run_rspec'
 alias spring='bundle exec spring'
 alias guard='bundle exec guard'
 alias guard-sidekiq='guard -P sidekiq'
@@ -16,22 +20,13 @@ alias guard-rubocop='guard -P rubocop'
 alias rc='rails console'
 alias rs='rails server'
 alias rdbc='rails dbconsole'
-#
-#rake alisases
+
 alias rdbtp='rake db:test:prepare'
 alias rdbm='rake db:migrate'
 alias rdbmtp='rake db:migrate && rake db:test:prepare'
 alias rdbms='rake db:migrate:status'
 alias rdbmup='rake db:migrate:up'
 alias rdbmdown='rake db:migrate:down'
-
-# add rvm to PATH for scripting
-export rvm_path="$HOME/.rvm"
-
-PATH=$PATH:$HOME/.rvm/bin
-
-#rvm
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
 #rbenv
 export PATH="$HOME/.rbenv/bin:~/.rbenv/shims:$PATH"
@@ -46,8 +41,3 @@ source $HOME/.profiles/rake_completion
 export RUBY_GC_MALLOC_LIMIT=104857600
 export RUBY_HEAP_FREE_MIN=200000
 export RUBY_GC_HEAP_INIT_SLOTS=40000
-
-export SKIP_CODE_CLIMATE_TEST_REPORTER=true
-
-#rodar todos os specs que foram alterados ou adicionados no branch atual em relação ao master
-#alias branchspec="bundle exec rspec $(git diff --diff-filter=ACMRTUXB --name-only master -- spec test | egrep --color=never '_(spec|test).rb' | sed 's/src\///')"

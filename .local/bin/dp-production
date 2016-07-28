@@ -2,18 +2,20 @@
 
 . ~/.certmanrc
 
-DEPLOY_ENV='production'
-ASG=$MYFINANCE_ASG_PRODUCTION
-ASG_MIN_SIZE=3
-ASG_MAX_SIZE=3
-ASG_DESIRED_CAPACITY=3
-BRANCH="deploy"
-ELB=$MYFINANCE_ELB_PRODUCTION
-DEFAULT_ASG_MIN_SIZE=3
-DEFAULT_ASG_MAX_SIZE=6
-DEFAULT_ASG_DESIRED_CAPACITY=3
+export DEPLOY_ENV='production'
+export ASG=$MYFINANCE_ASG_PRODUCTION
+export ASG_MIN_SIZE=3
+export ASG_MAX_SIZE=3
+export ASG_DESIRED_CAPACITY=3
+export BRANCH="deploy"
+export ELB=$MYFINANCE_ELB_PRODUCTION
+export DEFAULT_ASG_MIN_SIZE=3
+export DEFAULT_ASG_MAX_SIZE=6
+export DEFAULT_ASG_DESIRED_CAPACITY=3
 
-echo "@all fazendo deploy do app myfinance para $DEPLOY_ENV a partir do branch $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) em $(git rev-parse HEAD)" | xclip -selection clipboard
+export msg="@all fazendo deploy do app myfinance para $DEPLOY_ENV a partir do branch $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) em $(git rev-parse HEAD)"
+echo $msg | xclip -selection clipboard
+read -p "AVISE NO HIPCHAT: $msg"
 
 as-describe-auto-scaling-groups $ASG
 
@@ -50,7 +52,11 @@ fi
 ec2ssh $DEPLOY_INSTANCE_2 'for i in /etc/init/application-work-*; do NAME=$(basename $i); sudo initctl stop ${NAME%.conf}; done' &&
   ec2ssh $DEPLOY_INSTANCE_3 'for i in /etc/init/application-work-*; do NAME=$(basename $i); sudo initctl stop ${NAME%.conf}; done'
 
-cd $CERTMAN_HOME && . bin/activate && cd src && fab freeze:$NEW_INSTANCE && cd $MYFINANCE_HOME/src &&
+cd $CERTMAN_HOME && . bin/activate && cd src && fab freeze:$NEW_INSTANCE
+
+read -r -p "Siga em frente se o freeze estiver OK. Tecle enter para prosseguir."
+
+cd $MYFINANCE_HOME/src &&
   as-terminate-instance-in-auto-scaling-group $DEPLOY_INSTANCE_2 --no-decrement-desired-capacity --force &&
   as-terminate-instance-in-auto-scaling-group $DEPLOY_INSTANCE_3 --no-decrement-desired-capacity --force
 
@@ -67,3 +73,10 @@ curl https://api.rollbar.com/api/1/deploy/ \
   -F environment=$DEPLOY_ENV \
   -F revision=`git log -n 1 --pretty=format:"%h"` \
   -F local_username=`whoami`
+
+read -r -p "Link para o RELEASE:  " release
+msg="@all deploy do app myfinance para $DEPLOY_ENV a partir do branch $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) em $(git rev-parse HEAD) terminado, release: $release"
+echo $msg | xclip -selection clipboard
+read -r -p "AVISE NO HIPCHAT: $msg"
+
+echo "DONE!"

@@ -50,6 +50,7 @@ alias hc='hit commit'
 alias hcm='hit commit -m'
 alias hs='hit status --untracked-files=no'
 alias hk='hit checkout'
+alias hl='hit log'
 
 #vimfiles
 alias vit='git --git-dir=/home/leandrost/projects/vimfiles/.git/ --work-tree=/home/leandrost/projects/vimfiles/'
