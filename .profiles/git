@@ -30,6 +30,7 @@ alias gk-="git checkout -"
 
 alias gc='git commit'
 alias gcm='git commit -m'
+alias sgcm='SKIP=RuboCop git commit -m'
 alias gca='git commit -a'
 alias gcA='git commit -A'
 alias gcam='git commit -am'

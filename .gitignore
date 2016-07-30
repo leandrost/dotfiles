@@ -1,5 +1,4 @@
 .vim/.netrwhist
-*/vendor/bundle
 *.swp
 *.swo
 .ruby-version
@@ -7,8 +6,9 @@
 .rails_generators~
 .~*
 .local/share/applications/mimeapps.list
-.config/terminator/config
 .profiles/myfreecomm
-.certman
 .certmanrc
+.bundle
+.rspec
+vendor
 
