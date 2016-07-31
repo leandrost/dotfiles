@@ -1,14 +1,21 @@
-.vim/.netrwhist
-*.swp
-*.swo
-.ruby-version
-.ruby-gemset
-.rails_generators~
 .~*
 .local/share/applications/mimeapps.list
 .profiles/myfreecomm
 .certmanrc
+*.zip
+
+# vim
+.vim/.netrwhist
+*.swp
+*.swo
+
+# ruby
+.ruby-version
+.ruby-gemset
+.rails_generators~
 .bundle
 .rspec
 vendor
 
+# js
+npm-debug.log
