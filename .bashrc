@@ -170,3 +170,9 @@ fi
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$HOME/.meteor:$PATH"
 
+#DOCKER
+alias docker='sudo docker'
+
+docker-ip() {
+  docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
+}
