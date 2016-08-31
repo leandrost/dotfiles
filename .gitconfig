@@ -18,3 +18,5 @@
 	helper = cache --timeout=3600
 [rebase]
 	autosquash = true
+[pull]
+	rebase = true

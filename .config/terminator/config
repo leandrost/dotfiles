@@ -18,6 +18,7 @@
   go_prev = <Shift><Alt>w
   go_right = <Alt>l
   go_up = <Alt>k
+  layout_launcher = <Shift><Alt>y
   paste = <Alt>v
   resize_down = <Shift><Alt>j
   resize_left = <Shift><Alt>h
@@ -26,7 +27,6 @@
   split_horiz = <Alt>o
   split_vert = <Alt>i
   toggle_zoom = <Alt>x
-  layout_launcher = <Shift><Alt>y
 [layouts]
   [[default]]
     [[[child1]]]
@@ -45,7 +45,7 @@
 [profiles]
   [[default]]
     background_color = "#101010"
-    background_darkness = 0.95
+    background_darkness = 0.91
     background_image = None
     background_type = transparent
     cursor_color = "#e1e1e1"
@@ -58,6 +58,8 @@
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
+  [[glassy]]
+    background_image = None
   [[production]]
     background_color = "#5a000a"
     background_darkness = 0.86

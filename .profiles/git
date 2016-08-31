@@ -30,7 +30,6 @@ alias gk-="git checkout -"
 
 alias gc='git commit'
 alias gcm='git commit -m'
-alias sgcm='SKIP=RuboCop git commit -m'
 alias gca='git commit -a'
 alias gcA='git commit -A'
 alias gcam='git commit -am'
@@ -39,6 +38,11 @@ alias gcmd='git commit --amend'
 alias gcfl="git rev-parse HEAD | xargs git commit --fixup"
 alias gcf="git commit --fixup"
 alias grbc="git rebase --continue"
+
+alias sgc='SKIP=RuboCop git commit'
+alias sgcm='SKIP=RuboCop git commit -m'
+alias sgcam='SKIP=RuboCop git commit -am'
+alias sgcmd='SKIP=RuboCop git commit --amend'
 
 
 #dotfiles

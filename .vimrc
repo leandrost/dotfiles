@@ -175,6 +175,7 @@ map \f :Ack!
 map \c :%s///gn<CR>
 map \i :IndentLinesToggle<CR>
 map \n :NERDTreeTabsToggle<CR>
+map \, :BreakLineCommas<CR>
 
 "COPY, PASTE, DELETE
 map \p "+p
@@ -431,10 +432,10 @@ nnoremap <silent> <leader>wl :call TooEasyWindowSwap()<CR>
 let javascript_enable_domhtmlcss=1
 
 "vim-jsx
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+"let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 "ack
-let g:ack_autoclose = 1
+"let g:ack_autoclose = 1
 
 "syntastic
 let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
