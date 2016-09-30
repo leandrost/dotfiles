@@ -43,6 +43,8 @@ alias sgc='SKIP=RuboCop git commit'
 alias sgcm='SKIP=RuboCop git commit -m'
 alias sgcam='SKIP=RuboCop git commit -am'
 alias sgcmd='SKIP=RuboCop git commit --amend'
+alias sgcf="SKIP=RuboCop git commit --fixup"
+alias sgcfl="SKIP=RuboCop git rev-parse HEAD | xargs git commit --fixup"
 
 
 #dotfiles
