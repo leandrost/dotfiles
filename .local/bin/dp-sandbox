@@ -13,7 +13,9 @@ DEFAULT_ASG_MIN_SIZE=1
 DEFAULT_ASG_MAX_SIZE=1
 DEFAULT_ASG_DESIRED_CAPACITY=1
 
-echo "@all fazendo deploy do app myfinance para $DEPLOY_ENV a partir do branch $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) em $(git rev-parse HEAD)" | xclip -selection clipboard
+export msg="@all fazendo deploy do app myfinance para $DEPLOY_ENV a partir do branch $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) em $(git rev-parse HEAD)"
+echo $msg | xclip -selection clipboard
+read -p "AVISE NO HIPCHAT: $msg"
 
 as-describe-auto-scaling-groups $ASG
 echo "Enter instance: " &&
@@ -45,4 +47,8 @@ else
      -F local_username=`whoami`
 fi
 
-echo "@all deploy do app myfinance para $DEPLOY_ENV a partir do branch $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) terminado" | xclip -selection clipboard
+export msg="@all deploy do app myfinance para $DEPLOY_ENV a partir do branch $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) terminado"
+echo $msg | xclip -selection clipboard
+read -r -p "AVISE NO HIPCHAT: $msg"
+
+echo "DONE!"
