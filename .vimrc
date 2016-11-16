@@ -37,6 +37,7 @@ autocmd FileType * set shiftwidth=2
 autocmd FileType python,java set tabstop=4
 autocmd FileType python,java set tabstop=4
 autocmd FileType python,java set softtabstop=4
+autocmd FileType json set conceallevel=0
 
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
@@ -60,10 +61,6 @@ set wildignore+=*.sassc
 set t_Co=256
 set background=dark
 colorscheme tomorrow-night
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-highlight LineNr ctermbg=none
-highlight rubydefine ctermbg=none
 
 let g:bg_flag = 0
 
@@ -74,11 +71,9 @@ endfunction
 
 function! HideBackground()
   let g:bg_flag = 0
-  execute 'colorscheme '.tolower(g:colors_name)
   highlight Normal ctermbg=none
   highlight NonText ctermbg=none
   highlight LineNr ctermbg=none
-  highlight rubydefine ctermbg=none
 endfunction
 
 function! ToggleBackground()
@@ -89,6 +84,7 @@ function! ToggleBackground()
   endif
 endfunction
 
+call HideBackground()
 """ Search
 set hlsearch
 set incsearch

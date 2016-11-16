@@ -9,6 +9,8 @@
   title_transmit_bg_color = "#f7f7f7"
   title_transmit_fg_color = "#343a3c"
 [keybindings]
+  broadcast_group = None
+  broadcast_off = <Shift><Alt>a
   close_term = <Shift><Alt>q
   close_window = <Primary><Shift>q
   copy = <Alt>c
@@ -18,6 +20,10 @@
   go_prev = <Shift><Alt>w
   go_right = <Alt>l
   go_up = <Alt>k
+  group_all = None
+  group_all_toggle = <Alt>g
+  group_tab = None
+  group_tab_toggle = None
   layout_launcher = <Shift><Alt>y
   paste = <Alt>v
   resize_down = <Shift><Alt>j
