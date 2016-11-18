@@ -113,16 +113,6 @@ then
       echo -e "\033[38;5;$1m"
     fi
   }
-  function rvm_ps1()
-  {
-    if test -n "$(command -v rvm)"; then
-      if [[ $prompt == 'system' || $(__git_ps1) == '' ]]; then
-        return
-      fi
-      prompt=$(~/.rvm/bin/rvm-prompt s)
-      echo -e $(clr 172 " [$prompt]")
-    fi
-  }
   function git_ps1()
   {
     color=147
@@ -136,7 +126,7 @@ then
     fi
     clr $color "$branch_info"
   }
-  PS1="\u\$(clr 228 @\h) $(clr 229)\w\$(git_ps1)\$(rvm_ps1)\n$(clr 75 $) "
+  PS1="\u\$(clr 228 @\h) $(clr 229)\w\$(git_ps1)\n$(clr 75 $) "
 else
   PS1="\u@\h \w$(__git_ps1)\n$ "
 fi
@@ -166,9 +156,10 @@ if test -n "$(command -v autoenv)"; then
   source ~/.autoenv/activate.sh
 fi
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="$HOME/.meteor:$PATH"
+#aws
+if test -n "$(command -v aws)"; then
+  complete -C '/usr/bin/aws_completer' aws
+fi
 
 #DOCKER
 alias docker='sudo docker'

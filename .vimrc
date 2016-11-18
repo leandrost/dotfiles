@@ -12,6 +12,7 @@ set mouse=a
 set encoding=utf-8
 set backupcopy=no
 set nobackup
+set tabpagemax=15
 
 " only on WINDOWS
 if has("win32")
@@ -57,13 +58,9 @@ set wildignore+=*.gem
 set wildignore+=*.gemsspec
 set wildignore+=*.sassc
 
-""" Colors
-set t_Co=256
-set background=dark
-colorscheme tomorrow-night
-
 let g:bg_flag = 0
 
+""" custom functions
 function! ShowBackground()
   let g:bg_flag = 1
   execute 'colorscheme '.tolower(g:colors_name)
@@ -84,12 +81,22 @@ function! ToggleBackground()
   endif
 endfunction
 
+function! WriteCreatingDirs()
+    execute ':silent !mkdir -p %:h'
+    write
+endfunction
+
+""" colors
+set t_Co=256
+set background=dark
+colorscheme tomorrow-night
 call HideBackground()
-""" Search
+
+""" search
 set hlsearch
 set incsearch
 
-""" File types
+""" file types
 autocmd BufRead,BufNewFile *spec.js  set filetype=javascript.javascript-test
 autocmd BufRead,BufNewFile *Spec.js  set filetype=javascript.javascript-test
 autocmd BufRead,BufNewFile *.erb  set filetype=eruby.html
@@ -99,8 +106,7 @@ autocmd BufRead,BufNewFile *.srt set filetype=srt
 autocmd BufRead,BufNewFile *.vb set filetype=vb
 autocmd BufRead,BufNewFile *.ofx set filetype=xml
 
-""" Key Mapping
-"custom maps
+""" mapping
 map <C-l> :let @/=""<CR>
 map <F2> :NERDTreeTabsToggle<CR>
 autocmd BufRead,BufNewFile *.xml map <F3> :.!xmllint --format --recover -<CR>
@@ -114,21 +120,23 @@ autocmd BufEnter,BufRead,BufNewFile *.py map <S-F6> Oimport pdb; pdb.set_trace()
 map <F7> :SyntasticCheck rubocop<CR>
 
 map <F8> ve:s/_/ /g<CR><C-o><C-l>
-map <F9> :call HighlightLongLines()<CR>
 map <F10> :tabe $MYVIMRC<CR>
 map <F12> :call ToggleBackground()<CR>
 
-map \* <S-*>:AckFromSearch! app lib<CR>
-map \\* <S-*>:AckFromSearch! app lib spec<CR>
-map \@ :Ack! "(def (self.\|)\|class )<cword>" app<CR>
-map \\@ :Ack! "(class\|module) <cword>" app<CR>
-map \f :Ack!
+map \* <S-*>:AckFromSearch!<CR>
+map \\* <S-*>:AckFromSearch! ../lib<CR>
+map \@ :Ack! "(def (self.\|)\|class )<cword>"<CR>
+map \\@ :Ack! "(class\|module) <cword>"<CR>
+map \f :Ack!<Space>
+
 map \c :%s///gn<CR>
-map \i :IndentLinesToggle<CR>
+map \l :let @+= "rspec ".GetSpecPath(). ":".line('.')<CR>
 map \n :NERDTreeTabsToggle<CR>
+map \r :let @+= "rspec ".GetSpecPath()<CR>
+map \j :let @+= "mocha ".GetJsSpecPath()<CR>
 map \, :BreakLineCommas<CR>
 
-"COPY, PASTE, DELETE
+"copy, paste, delete
 map \p "+p
 map \y "+y
 map \yy "+yy
@@ -139,7 +147,7 @@ vmap <C-c> "+y<CR>
 imap <C-v> <ESC>"+p==<space>
 imap <C-A> <ESC>ggvG$
 
-"MOVE LINE
+"move line
 nmap <C-j> :m+<CR>==
 nmap <C-k> :m-2<CR>==
 vmap <C-j> :m'>+<CR>gv=gv
@@ -151,16 +159,17 @@ map cU F_lct_
 
 map <S-Insert> <MiddleMouse>
 cmap w!! %!sudo tee > /dev/null %
+cmap ww call WriteCreatingDirs()
 cmap qq tabclose
 
-"NERDCommenter
+"nerdcommenter
 map \cc :call NERDComment(0, "toggle")<CR>
 map \c<space> :call NERDComment(0, "comment")<CR>
 
-"EMMET
+"emmet
 imap <c-j> <C-y>,
 
-"RSPEC
+"rspec
 function! RunRspec(args)
   let args = ''
   if a:args != ''
@@ -192,30 +201,7 @@ function! GetJsSpecPath()
   return s
 endfunction
 
-map \r :let @+= "rspec ".GetSpecPath()<CR>
-map \l :let @+= "rspec ".GetSpecPath(). ":".line('.')<CR>
-map \j :let @+= "mocha ".GetJsSpecPath()<CR>
-
-""" Commands
-command! BG call ToggleBackground()
-command! S w !sudo tee %
-command! -nargs=1 MKS call MakeSession(<f-args>)
-command! -nargs=1 RSE call RecoverSession(<f-args>)
-
-"good tab completion - press <tab> to autocomplete if there's a character
-"previously
-function! InsertTabWrapper()
-      let col = col('.') - 1
-      if !col || getline('.')[col - 1] !~ '\k'
-          return "\<tab>"
-      else
-          return "\<c-p>"
-      endif
-endfunction
-
-set tabpagemax=15
-
-""" Folding
+""" folding
 function! ToggleFold()
    if foldlevel('.') == 0
       " No fold exists at the current line,
@@ -269,13 +255,6 @@ nmap <space> :call ToggleFold()<CR>
 vmap <space> zf
 
 """
-
-function! WriteCreatingDirs()
-    execute ':silent !mkdir -p %:h'
-    write
-endfunction
-command! W call WriteCreatingDirs()
-
 "ctrlp
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_prompt_mappings = {
@@ -290,10 +269,8 @@ let g:airline_theme = 'powerlineish'
 let g:airline_powerline_fonts = 1
 let g:airline_detect_modified=1
 
-
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
-"
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#left_sep = '  '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -302,13 +279,11 @@ let g:airline#extensions#tabline#fnamemod = ':p:t'
 
 command! FixHashSyntax call FixHashSyntax()
 
-"WindowSwap
+"windowswap
 function! TooEasyWindowSwap()
-
   call WindowSwap#EasyWindowSwap()
   wincmd l
   call WindowSwap#EasyWindowSwap()
-
   wincmd h
 endfunction
 nnoremap <silent> <leader>wl :call TooEasyWindowSwap()<CR>
