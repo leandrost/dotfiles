@@ -161,9 +161,6 @@ if test -n "$(command -v aws)"; then
   complete -C '/usr/bin/aws_completer' aws
 fi
 
-#DOCKER
-alias docker='sudo docker'
-
 docker-ip() {
   docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
 }
