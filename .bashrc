@@ -43,8 +43,10 @@ source $HOME/.npm_completion
 
 #ALIASES
 alias ls='ls --color=auto'
+alias lsd='ls --group-directories-first'
 alias la='ls -a'
 alias ll='ls -lh'
+alias lld='ll --group-directories-first'
 alias lla='ls -lha'
 alias l.='ls -d .* --color=auto'
 
@@ -63,7 +65,7 @@ alias np='node_modules/.bin/mocha -R nice-spec'
 alias ttpt='normit en pt'
 alias tten='normit pt en'
 alias lockscreen='gnome-screensaver-command -l'
-alias cdb='cd ~/projects/ballers'
+alias cdb='cd ~/projects/ballers/ballers-web'
 alias cdg='cd ~/projects/got-board'
 
 alias ns='npm start'
