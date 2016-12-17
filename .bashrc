@@ -96,6 +96,9 @@ alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias ember=node_modules/.bin/ember
 
+alias dc="docker-compose"
+alias dcu="dc up"
+
 #PROFILES
 source $HOME/.profiles/git
 source $HOME/.profiles/perl
