@@ -169,3 +169,7 @@ fi
 docker-ip() {
   docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
 }
+
+# tabtab source for yarn package
+# uninstall by removing these lines or running `tabtab uninstall yarn`
+[ -f /home/leandrost/.yarn-config/global/node_modules/tabtab/.completions/yarn.bash ] && . /home/leandrost/.yarn-config/global/node_modules/tabtab/.completions/yarn.bash

@@ -89,7 +89,7 @@ endfunction
 """ colors
 set t_Co=256
 set background=dark
-colorscheme tomorrow-night
+colorscheme hybrid_material
 call HideBackground()
 
 """ search
@@ -263,6 +263,7 @@ let g:ctrlp_prompt_mappings = {
       \ 'AcceptSelection("t")': ['<CR>', '<C-T>', '<2-LeftMouse>'],
       \ }
 let g:ctrlp_root_markers = ['Gemfile', 'package.json']
+let g:ctrlp_show_hidden = 1
 
 "airline
 let g:airline_theme = 'powerlineish'
@@ -292,15 +293,10 @@ nnoremap <silent> <leader>wl :call TooEasyWindowSwap()<CR>
 let javascript_enable_domhtmlcss=1
 
 "vim-jsx
-"let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 "ack
 "let g:ack_autoclose = 1
-
-"syntastic
-let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
-let g:syntastic_javascript_checkers = ['jshint']
-"let g:syntastic_ruby_checkers = ['rubocop']
 
 "nerdtree
 let g:NERDTreeShowLineNumbers=1
@@ -321,3 +317,12 @@ let g:startify_list_order = [
       \ ['   Commands:'],
       \ 'commands',
       \ ]
+
+"ale
+let g:ale_linters = {
+      \   'javascript': ['eslint'],
+      \   'ruby': ['rubocop'],
+      \}
+let g:ale_echo_msg_error_str = 'Error'
+let g:ale_echo_msg_warning_str = 'Warning'
+let g:ale_echo_msg_format = '[%linter%] %s '
