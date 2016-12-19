@@ -23,7 +23,6 @@ export ANDROID_HOME=/opt/android-sdk
 
 export EDITOR=vim
 
-
 function make-completion-wrapper () {
   local function_name="$2"
   local arg_count=$(($#-3))
@@ -69,6 +68,7 @@ alias cdb='cd ~/projects/ballers/ballers-web'
 alias cdg='cd ~/projects/got-board'
 
 alias ns='npm start'
+alias ys='yarn start'
 
 if test -n "$(command -v keychain)"; then
   alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa) && ssh'
@@ -146,8 +146,6 @@ export ES_CLASSPATH="$ELASTICSEARCH_CONFIG_PATH/logging.yml"
 HEROKU_PATH=/usr/local/heroku/bin
 PHANTOMJS_PATH=/opt/phantomjs/phantomjs-1.9.1/bin
 
-PATH=$PATH:$HEROKU_PATH:$PHANTOMJS_PATH
-
 #export LC_CTYPE=pt_BR.UTF-8
 #export LC_ALL=pt_BR.UTF-8
 
@@ -166,6 +164,10 @@ if test -n "$(command -v aws)"; then
   complete -C '/usr/bin/aws_completer' aws
 fi
 
+#DOCKER
+alias docker='sudo docker'
+alias docker-clear-volumes='docker volume ls -qf dangling=true | xargs -r docker volume rm'
+
 docker-ip() {
   docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
 }
@@ -173,3 +175,5 @@ docker-ip() {
 # tabtab source for yarn package
 # uninstall by removing these lines or running `tabtab uninstall yarn`
 [ -f /home/leandrost/.yarn-config/global/node_modules/tabtab/.completions/yarn.bash ] && . /home/leandrost/.yarn-config/global/node_modules/tabtab/.completions/yarn.bash
+
+PATH=$PATH:$HEROKU_PATH:$PHANTOMJS_PATH

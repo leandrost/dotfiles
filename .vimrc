@@ -123,7 +123,7 @@ map <F8> ve:s/_/ /g<CR><C-o><C-l>
 map <F10> :tabe $MYVIMRC<CR>
 map <F12> :call ToggleBackground()<CR>
 
-map \* <S-*>:AckFromSearch!<CR>
+map \* <S-*>:AckFromSearch! app<CR>
 map \\* <S-*>:AckFromSearch! ../lib<CR>
 map \@ :Ack! "(def (self.\|)\|class )<cword>"<CR>
 map \\@ :Ack! "(class\|module) <cword>"<CR>
