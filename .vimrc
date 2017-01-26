@@ -135,6 +135,8 @@ map \n :NERDTreeTabsToggle<CR>
 map \r :let @+= "rspec ".GetSpecPath()<CR>
 map \j :let @+= "mocha ".GetJsSpecPath()<CR>
 map \, :BreakLineCommas<CR>
+map \" :%s/'/"/g<CR>
+
 
 "copy, paste, delete
 map \p "+p
@@ -168,6 +170,7 @@ map \c<space> :call NERDComment(0, "comment")<CR>
 
 "emmet
 imap <c-j> <C-y>,
+vmap \e <C-y>,
 
 "rspec
 function! RunRspec(args)
