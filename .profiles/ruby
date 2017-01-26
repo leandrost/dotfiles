@@ -1,19 +1,12 @@
 #!/usr/bin/env
-
-function run_rspec() {
-  if [ -f bin/rspec ]; then
-    bin/spring rspec $1
-  else
-    bundle exec rspec $1
-  fi
-}
-
-alias rails='bundle exec rails'
-alias rake='bundle exec rake'
-alias rspec='run_rspec'
-alias spring='bundle exec spring'
-alias fs='bundle exec foreman start -f Procfile.development'
-alias guard='bundle exec guard'
+alias rails='bin/rails'
+alias rake='bin/rake'
+alias rspec='bin/rspec'
+alias spring='bin/spring'
+alias foreman='bin/foreman'
+alias fsd='foreman start -f Procfile.development'
+alias fs='foreman start'
+alias guard='bin/guard'
 alias guard-sidekiq='guard -P sidekiq'
 alias guard-livereload='guard -P livereload'
 alias guard-rubocop='guard -P rubocop'

@@ -38,7 +38,7 @@ if [[ $response =~ ^([nN][oO]|[nN])$ ]]
 then
  exit 0
 else
- cd $CERTMAN_HOME && . bin/activate && cd src && fab freeze:$NEW_INSTANCE && cd $MYFINANCE_HOME/src &&
+ cd $CERTMAN_HOME && . bin/activate && cd src && fab freeze:$NEW_INSTANCE; cd $MYFINANCE_HOME/src &&
    as-update-auto-scaling-group $ASG --min-size $DEFAULT_ASG_MIN_SIZE --max-size $DEFAULT_ASG_MAX_SIZE --desired-capacity $DEFAULT_ASG_DESIRED_CAPACITY --health-check-type ELB --grace-period 600 --default-cooldown 300 &&
    curl https://api.rollbar.com/api/1/deploy/ \
      -F access_token=3e33dfb922a74fdda83584a0ddb2b4f6 \

@@ -48,12 +48,12 @@ set list listchars=tab:\ \ ,trail:·
 set wildmode=list:longest
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore+=vendor/**
-set wildignore +=*.log
+set wildignore+=*.log
 set wildignore+=log/**
 set wildignore+=*/log/**
-set wildignore+=tmp/**
+set wildignore+=*tmp/**
 set wildignore+=*.png,*.jpg,*.gif
-set wildignore +=*/.git
+set wildignore+=*/.git
 set wildignore+=*.gem
 set wildignore+=*.gemsspec
 set wildignore+=*.sassc
@@ -267,6 +267,11 @@ let g:ctrlp_prompt_mappings = {
       \ }
 let g:ctrlp_root_markers = ['Gemfile', 'package.json']
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\vendor$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
 "airline
 let g:airline_theme = 'powerlineish'
@@ -303,6 +308,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 "nerdtree
 let g:NERDTreeShowLineNumbers=1
+let g:loaded_nerdtree_custom_maps = 1
 
 "startify
 let g:startify_update_oldfiles        = 1
