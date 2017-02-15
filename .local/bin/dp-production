@@ -29,7 +29,8 @@ do
 done
 
 cd $CERTMAN_HOME
-. bin/activate
+source .envrc
+source bin/activate
 cd src
 
 fab $DEPLOY_ENV asg:$ASG deploy:$MYFINANCE_HOME,branch=$BRANCH &&
@@ -52,7 +53,10 @@ fi
 ec2ssh $DEPLOY_INSTANCE_2 'for i in /etc/init/application-work-*; do NAME=$(basename $i); sudo initctl stop ${NAME%.conf}; done' &&
   ec2ssh $DEPLOY_INSTANCE_3 'for i in /etc/init/application-work-*; do NAME=$(basename $i); sudo initctl stop ${NAME%.conf}; done'
 
-cd $CERTMAN_HOME && . bin/activate && cd src && fab freeze:$NEW_INSTANCE
+cd $CERTMAN_HOME &&
+  source .envrc &&
+  . bin/activate &&
+  cd src && fab freeze:$NEW_INSTANCE
 
 read -r -p "Siga em frente se o freeze estiver OK. Tecle enter para prosseguir."
 

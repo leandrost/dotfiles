@@ -13,7 +13,7 @@ DEFAULT_ASG_MIN_SIZE=1
 DEFAULT_ASG_MAX_SIZE=1
 DEFAULT_ASG_DESIRED_CAPACITY=1
 
-export msg="@all fazendo deploy do app myfinance para $DEPLOY_ENV a partir do branch $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) em $(git rev-parse HEAD)"
+export msg="@all fazendo deploy do app myfinance para $DEPLOY_ENV a partir do branch $BRANCH em $(git rev-parse HEAD)"
 echo $msg | xclip -selection clipboard
 read -p "AVISE NO HIPCHAT: $msg"
 
@@ -21,7 +21,7 @@ as-describe-auto-scaling-groups $ASG
 echo "Enter instance: " &&
 read DEPLOY_INSTANCE
 
-cd $CERTMAN_HOME && echo $CERTMAN_HOME && . bin/activate && cd src
+cd $CERTMAN_HOME && source .envrc && echo $CERTMAN_HOME && . bin/activate && cd src
 
 fab $DEPLOY_ENV asg:$ASG deploy:$MYFINANCE_HOME,branch=$BRANCH &&
   cd $MYFINANCE_HOME/src &&
@@ -47,7 +47,7 @@ else
      -F local_username=`whoami`
 fi
 
-export msg="@all deploy do app myfinance para $DEPLOY_ENV a partir do branch $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) terminado"
+export msg="@all deploy do app myfinance para $DEPLOY_ENV a partir do branch $BRANCH terminado"
 echo $msg | xclip -selection clipboard
 read -r -p "AVISE NO HIPCHAT: $msg"
 

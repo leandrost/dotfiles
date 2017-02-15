@@ -9,7 +9,7 @@
   title_transmit_bg_color = "#f7f7f7"
   title_transmit_fg_color = "#343a3c"
 [keybindings]
-  broadcast_group = None
+  broadcast_group = <Shift><Alt>g
   broadcast_off = <Shift><Alt>a
   close_term = <Shift><Alt>q
   close_window = <Primary><Shift>q
