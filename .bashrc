@@ -69,6 +69,11 @@ alias cdg='cd ~/projects/got-board'
 
 alias ns='npm start'
 alias ys='yarn start'
+alias yb='yarn build'
+alias yw='yarn watch'
+alias yt='yarn test'
+
+alias todo='vimt /home/leandrost/.local/share/todo.txt/todo.txt'
 
 if test -n "$(command -v keychain)"; then
   alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa) && ssh'
@@ -177,3 +182,6 @@ docker-ip() {
 [ -f /home/leandrost/.yarn-config/global/node_modules/tabtab/.completions/yarn.bash ] && . /home/leandrost/.yarn-config/global/node_modules/tabtab/.completions/yarn.bash
 
 PATH=$PATH:$HEROKU_PATH:$PHANTOMJS_PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
