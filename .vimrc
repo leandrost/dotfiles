@@ -138,6 +138,7 @@ map \, :BreakLineCommas<CR>
 map \" :%s/'/"/g<CR>
 map \% :lcd %:p:h<CR>
 map \%n :NERDTree %:p:h<CR>
+map \N :NERDTree %:p:h<CR>
 
 
 "copy, paste, delete

@@ -65,7 +65,10 @@
     show_titlebar = False
     use_system_font = False
   [[glassy]]
+    background_darkness = 0.91
     background_image = None
+    background_type = transparent
+    scrollback_infinite = True
   [[production]]
     background_color = "#5a000a"
     background_darkness = 0.86
@@ -79,7 +82,7 @@
     show_titlebar = False
     use_system_font = False
   [[sandbox]]
-    background_color = "#252845"
+    background_color = "#1d213c"
     background_darkness = 0.95
     background_image = None
     background_type = transparent
@@ -90,16 +93,16 @@
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
-  [[solarized-dark]]
-    background_color = "#00151b"
-    background_darkness = 0.89
+  [[stage]]
+    background_color = "#002b36"
+    background_darkness = 0.86
     background_image = None
     background_type = transparent
     cursor_color = "#eee8d5"
     font = Source Code Pro for Powerline 9
-    foreground_color = "#eee8d5"
+    foreground_color = "#d5dcdd"
     icon_bell = False
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
