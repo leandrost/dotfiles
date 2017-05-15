@@ -6,6 +6,10 @@ call pathogen#helptags()
 """ General Config
 "runtime macros/matchit.vim
 syntax on
+set t_Co=256
+set background=dark
+colorscheme hybrid_material
+
 set number
 set nowrap
 set mouse=a
@@ -60,38 +64,6 @@ set wildignore+=*.sassc
 
 let g:bg_flag = 0
 
-""" custom functions
-function! ShowBackground()
-  let g:bg_flag = 1
-  execute 'colorscheme '.tolower(g:colors_name)
-endfunction
-
-function! HideBackground()
-  let g:bg_flag = 0
-  highlight Normal ctermbg=none
-  highlight NonText ctermbg=none
-  highlight LineNr ctermbg=none
-endfunction
-
-function! ToggleBackground()
-  if g:bg_flag == 0
-    call ShowBackground()
-  else
-    call HideBackground()
-  endif
-endfunction
-
-function! WriteCreatingDirs()
-    execute ':silent !mkdir -p %:h'
-    write
-endfunction
-
-""" colors
-set t_Co=256
-set background=dark
-colorscheme hybrid_material
-call HideBackground()
-
 """ search
 set hlsearch
 set incsearch
@@ -116,21 +88,26 @@ autocmd BufEnter,BufRead,BufNewFile *.haml map <S-F6> O- binding.pry<ESC>
 autocmd BufEnter,BufRead,BufNewFile *.rb map <S-F6> Obinding.pry<ESC>
 autocmd BufEnter,BufRead,BufNewFile *.js map <S-F6> Odebugger<ESC>
 autocmd BufEnter,BufRead,BufNewFile *.py map <S-F6> Oimport pdb; pdb.set_trace()<ESC>
-
 map <F7> :SyntasticCheck rubocop<CR>
-
 map <F8> ve:s/_/ /g<CR><C-o><C-l>
+map <F9> :source $MYVIMRC<CR>
 map <F10> :tabe $MYVIMRC<CR>
-map <F12> :call ToggleBackground()<CR>
+map <F12> :call background#ToggleBackground()<CR>
+
+nmap <space> :call folding#ToggleFold()<CR>
+vmap <space> zf
 
 map \* <S-*>:AckFromSearch! app<CR>
 map \\* <S-*>:AckFromSearch! ../lib<CR>
-map \@ :Ack! "(def (self.\|)\|class )<cword>"<CR>
+map \@ :Ack! "(def (self.\|)\|class) <cword>"<CR>
 map \\@ :Ack! "(class\|module) <cword>"<CR>
 map \f :Ack!<Space>
 
 map \c :%s///gn<CR>
 map \l :let @+= "rspec ".GetSpecPath(). ":".line('.')<CR>
+map \lff :let @+= "rspec ".GetSpecPath(). ":".line('.'). " --fail-fast"<CR>
+map \rf :let @+= "rspec ".GetSpecPath(). " --only-failures"<CR>
+map \ff :let @+= "rspec ".GetSpecPath(). " --fail-fast"<CR>
 map \n :NERDTreeToggle<CR>
 map \r :let @+= "rspec ".GetSpecPath()<CR>
 map \j :let @+= "mocha ".GetJsSpecPath()<CR>
@@ -139,7 +116,6 @@ map \" :%s/'/"/g<CR>
 map \% :lcd %:p:h<CR>
 map \%n :NERDTree %:p:h<CR>
 map \N :NERDTree %:p:h<CR>
-
 
 "copy, paste, delete
 map \p "+p
@@ -175,93 +151,7 @@ map \c<space> :call NERDComment(0, "comment")<CR>
 imap <c-j> <C-y>,
 vmap \e <C-y>,
 
-"rspec
-function! RunRspec(args)
-  let args = ''
-  if a:args != ''
-    let args .= ':'.a:args
-  end
-  if a:args == '-'
-    let cmd = g:last_rspec
-  else
-    let cmd = "rspec ".expand("%").args
-  end
-  execute 'silent execute "!echo ".cmd." > /dev/pts/2" | redraw!'
-  execute 'silent execute "!".cmd." > /dev/pts/2" | redraw!'
-  let g:last_rspec = cmd
-endfunction
-
-function! GetSpecPath()
-  let s = expand('%')
-
-  if stridx(s, 'app/') >= 0
-    let s = substitute(s, 'app/', 'spec/', '')
-    let s = substitute(s, '.rb', '_spec.rb', '')
-  endif
-
-  return s
-endfunction
-
-function! GetJsSpecPath()
-  let s = expand('%')
-  return s
-endfunction
-
-""" folding
-function! ToggleFold()
-   if foldlevel('.') == 0
-      " No fold exists at the current line,
-      " so create a fold based on indentation
-
-      let l_min = line('.')   " the current line number
-      let l_max = line('$')   " the last line number
-      let i_min = indent('.') " the indentation of the current line
-      let l = l_min + 1
-
-      " Search downward for the last line whose indentation > i_min
-      while l <= l_max
-         " if this line is not blank ...
-         if strlen(getline(l)) > 0 && getline(l) !~ '^\s*$'
-            if indent(l) <= i_min
-
-               " we've gone too far
-               let l = l - 1    " backtrack one line
-               break
-            endif
-         endif
-         let l = l + 1
-      endwhile
-
-      " Clamp l to the last line
-      if l > l_max
-         let l = l_max
-      endif
-
-      " Backtrack to the last non-blank line
-      while l > l_min
-         if strlen(getline(l)) > 0 && getline(l) !~ '^\s*$'
-            break
-         endif
-         let l = l - 1
-      endwhile
-
-      "execute "normal i" . l_min . "," . l . " fold"   " print debug info
-
-      if l > l_min
-         " Create the fold from l_min to l
-         execute l_min . "," . l . " fold"
-      endif
-   else
-      " Delete the fold on the current line
-      normal zd
-   endif
-endfunction
-
-nmap <space> :call ToggleFold()<CR>
-vmap <space> zf
-
-"""
-"ctrlp
+""" "ctrlp
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_prompt_mappings = {
       \ 'AcceptSelection("h")': ['<C-X>', '<C-S>'],
@@ -308,6 +198,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 "ack
 "let g:ack_autoclose = 1
+let g:ackprg = 'ag --vimgrep'
 
 "nerdtree
 let g:NERDTreeShowLineNumbers=1

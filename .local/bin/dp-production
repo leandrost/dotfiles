@@ -79,7 +79,7 @@ curl https://api.rollbar.com/api/1/deploy/ \
   -F local_username=`whoami`
 
 read -r -p "Link para o RELEASE:  " release
-msg="@all deploy do app myfinance para $DEPLOY_ENV a partir do branch $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) em $(git rev-parse HEAD) terminado, release: $release"
+msg="@all deploy do app myfinance para $DEPLOY_ENV a partir do branch $BRANCH terminado, release: $release"
 echo $msg | xclip -selection clipboard
 read -r -p "AVISE NO HIPCHAT: $msg"
 

@@ -103,6 +103,7 @@ alias ember=node_modules/.bin/ember
 
 alias dc="docker-compose"
 alias dcu="dc up"
+alias disable-bracketed='printf "\e[?2004l"'
 
 #PROFILES
 source $HOME/.profiles/git
