@@ -17,7 +17,6 @@ alias gau='git add -u'
 alias gba='git branch -a'
 alias gbam='git branch --merged | grep -v "^*\|deploy\|master$")'
 alias gbdm='git branch -d $(git branch --merged | grep -v "\*\|deploy\|master$")'
-alias gbdg="git branch -D $(git branch -vv | awk '{print $1,$4}' | grep 'gone]' | awk '{print $1}')"
 
 alias gs='git status'
 alias gsu='git status --untracked-files no'
@@ -69,3 +68,4 @@ alias vs='vit status --untracked-files=no'
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=false
 export GIT_PS1_SHOWUPSTREAM=auto
+export GIT_DISCOVERY_ACROSS_FILESYSTEM=1

@@ -13,34 +13,34 @@ loadfile /etc/bash_completion
 
 shopt -s autocd
 
-#add my scripts to path
+##add my scripts to path
 PATH=$PATH:$HOME/.local/bin
 
-#ANDROID
+##ANDROID
 PATH=$PATH:/opt/android-sdk/platform-tools/
 PATH=$PATH:/opt/android-sdk/tools/
 export ANDROID_HOME=/opt/android-sdk
 
 export EDITOR=vim
 
-function make-completion-wrapper () {
-  local function_name="$2"
-  local arg_count=$(($#-3))
-  local comp_function_name="$1"
-  shift 2
-  local function="
-function $function_name {
-  ((COMP_CWORD+=$arg_count))
-  COMP_WORDS=( "$@" \${COMP_WORDS[@]:1} )
-  "$comp_function_name"
-  return 0
-}"
-  eval "$function"
-}
+#function make-completion-wrapper () {
+  #local function_name="$2"
+  #local arg_count=$(($#-3))
+  #local comp_function_name="$1"
+  #shift 2
+  #local function="
+#function $function_name {
+  #((COMP_CWORD+=$arg_count))
+  #COMP_WORDS=( "$@" \${COMP_WORDS[@]:1} )
+  #"$comp_function_name"
+  #return 0
+#}"
+  #eval "$function"
+#}
 
-source $HOME/.npm_completion
+#source $HOME/.npm_completion
 
-#ALIASES
+##ALIASES
 alias ls='ls --color=auto'
 alias lsd='ls --group-directories-first'
 alias la='ls -a'
@@ -105,13 +105,13 @@ alias dc="docker-compose"
 alias dcu="dc up"
 alias disable-bracketed='printf "\e[?2004l"'
 
-#PROFILES
+##PROFILES
 source $HOME/.profiles/git
 source $HOME/.profiles/perl
 source $HOME/.profiles/ruby
 source $HOME/.profiles/myfreecomm
 
-#PS1
+##PS1
 if [ $TERM = "xterm" ]
 then
   function clr ()
@@ -142,47 +142,42 @@ else
   PS1="\u@\h \w$(__git_ps1)\n$ "
 fi
 
-#ELASTICSEARCH
+##ELASTICSEARCH
 export ELASTICSEARCH_CONFIG_PATH="/etc/elasticsearch"
 export ELASTICSEARCH_BIN="/usr/share/elasticsearch/bin/elasticsearch"
 export ELASTICSEARCH_CONFIG="$ELASTICSEARCH_CONFIG_PATH/elasticsearch.yml"
 export ES_CLASSPATH="$ELASTICSEARCH_CONFIG_PATH/logging.yml"
 
-#CUSTOM PATH
-HEROKU_PATH=/usr/local/heroku/bin
-PHANTOMJS_PATH=/opt/phantomjs/phantomjs-1.9.1/bin
+##CUSTOM PATH
+#HEROKU_PATH=/usr/local/heroku/bin
+#PHANTOMJS_PATH=/opt/phantomjs/phantomjs-1.9.1/bin
 
-#export LC_CTYPE=pt_BR.UTF-8
-#export LC_ALL=pt_BR.UTF-8
+##export LC_CTYPE=pt_BR.UTF-8
+##export LC_ALL=pt_BR.UTF-8
 
-#DIRENV
+##DIRENV
 if test -n "$(command -v direnv)"; then
   eval "$(direnv hook bash)"
 fi
 
-#AUTOENV
-if test -n "$(command -v autoenv)"; then
-  source ~/.autoenv/activate.sh
-fi
+##AUTOENV
+#if test -n "$(command -v autoenv)"; then
+  #source ~/.autoenv/activate.sh
+#fi
 
-#aws
+##aws
 if test -n "$(command -v aws)"; then
   complete -C '/usr/bin/aws_completer' aws
 fi
 
-#DOCKER
-alias docker='sudo docker'
+##DOCKER
 alias docker-clear-volumes='docker volume ls -qf dangling=true | xargs -r docker volume rm'
 
 docker-ip() {
   docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
 }
 
-# tabtab source for yarn package
-# uninstall by removing these lines or running `tabtab uninstall yarn`
-[ -f /home/leandrost/.yarn-config/global/node_modules/tabtab/.completions/yarn.bash ] && . /home/leandrost/.yarn-config/global/node_modules/tabtab/.completions/yarn.bash
-
-PATH=$PATH:$HEROKU_PATH:$PHANTOMJS_PATH
+#PATH=$PATH:$HEROKU_PATH:$PHANTOMJS_PATH
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

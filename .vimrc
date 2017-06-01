@@ -99,7 +99,7 @@ vmap <space> zf
 
 map \* <S-*>:AckFromSearch! app<CR>
 map \\* <S-*>:AckFromSearch! ../lib<CR>
-map \@ :Ack! "(def (self.\|)\|class) <cword>"<CR>
+map \@ :Ack! "(def (self.\|)\|class) <cword> app"<CR>
 map \\@ :Ack! "(class\|module) <cword>"<CR>
 map \f :Ack!<Space>
 
@@ -114,8 +114,10 @@ map \j :let @+= "mocha ".GetJsSpecPath()<CR>
 map \, :BreakLineCommas<CR>
 map \" :%s/'/"/g<CR>
 map \% :lcd %:p:h<CR>
-map \%n :NERDTree %:p:h<CR>
-map \N :NERDTree %:p:h<CR>
+map \\n :NERDTree %:p:h<CR>
+map \o :only<CR>
+map \i :ALENext<CR>
+map \\i :ALEPrevious<CR>
 
 "copy, paste, delete
 map \p "+p
@@ -171,7 +173,7 @@ let g:airline_theme = 'powerlineish'
 let g:airline_powerline_fonts = 1
 let g:airline_detect_modified=1
 
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#left_sep = '  '
