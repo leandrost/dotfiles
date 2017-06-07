@@ -99,7 +99,7 @@ vmap <space> zf
 
 map \* <S-*>:AckFromSearch! app<CR>
 map \\* <S-*>:AckFromSearch! ../lib<CR>
-map \@ :Ack! "(def (self.\|)\|class) <cword> app"<CR>
+map \@ :Ack! "def\s.*<cword>"<CR>
 map \\@ :Ack! "(class\|module) <cword>"<CR>
 map \f :Ack!<Space>
 
