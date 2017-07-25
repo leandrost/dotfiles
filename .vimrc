@@ -5,11 +5,6 @@ call pathogen#helptags()
 
 """ General Config
 "runtime macros/matchit.vim
-syntax on
-set t_Co=256
-set background=dark
-colorscheme hybrid_material
-
 set number
 set nowrap
 set mouse=a
@@ -92,7 +87,8 @@ map <F7> :SyntasticCheck rubocop<CR>
 map <F8> ve:s/_/ /g<CR><C-o><C-l>
 map <F9> :source $MYVIMRC<CR>
 map <F10> :tabe $MYVIMRC<CR>
-map <F12> :call background#ToggleBackground()<CR>
+map <C-F10> :tabe ~/.vim<CR>
+map <F12> :call theme#ToggleBackground()<CR>
 
 nmap <space> :call folding#ToggleFold()<CR>
 vmap <space> zf
@@ -142,7 +138,7 @@ map cU F_lct_
 
 map <S-Insert> <MiddleMouse>
 cmap w!! %!sudo tee > /dev/null %
-cmap ww call WriteCreatingDirs()
+cmap ww call utils#WriteCreatingDir()
 cmap qq tabclose
 
 "nerdcommenter

@@ -103,7 +103,9 @@ alias ember=node_modules/.bin/ember
 
 alias dc="docker-compose"
 alias dcu="dc up"
+alias dcd="dc down"
 alias dce="dc exec"
+alias dcr="dc run --rm"
 alias disable-bracketed='printf "\e[?2004l"'
 
 ##PROFILES
@@ -178,7 +180,11 @@ docker-ip() {
   docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
 }
 
+source ~/.dvm/dvm.sh
+
+
 #PATH=$PATH:$HEROKU_PATH:$PHANTOMJS_PATH
 
 export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
