@@ -112,7 +112,7 @@ alias disable-bracketed='printf "\e[?2004l"'
 source $HOME/.profiles/git
 source $HOME/.profiles/perl
 source $HOME/.profiles/ruby
-source $HOME/.profiles/myfreecomm
+source $HOME/.profiles/nexaas
 
 ##PS1
 if [ $TERM = "xterm" ]
