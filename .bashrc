@@ -180,7 +180,8 @@ docker-ip() {
   docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
 }
 
-source ~/.dvm/dvm.sh
+# TODO: Config docker version mananger
+#source ~/.dvm/dvm.sh
 
 
 #PATH=$PATH:$HEROKU_PATH:$PHANTOMJS_PATH
