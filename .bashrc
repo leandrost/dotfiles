@@ -99,14 +99,23 @@ fi
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
-alias ember=node_modules/.bin/ember
+alias disable-bracketed='printf "\e[?2004l"'
 
+# DOCKER
 alias dc="docker-compose"
 alias dcu="dc up"
 alias dcd="dc down"
-alias dce="dc exec"
+# using workaround to exec while docker-compose does not support detachKeys
+#alias dce="dc exec"
 alias dcr="dc run --rm"
-alias disable-bracketed='printf "\e[?2004l"'
+
+function dce() {
+  docker exec -it $(docker-compose ps -q $1) "${@:2}"
+}
+
+function dct() {
+  docker attach $(docker-compose ps -q $1)
+}
 
 ##PROFILES
 source $HOME/.profiles/git
