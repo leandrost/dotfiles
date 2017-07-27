@@ -50,6 +50,7 @@ PKGS="
  docker-ce
  docker-compose
  direnv
+ xclip
 "
 DEV_PKGS="
  golang

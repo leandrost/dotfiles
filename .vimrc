@@ -69,9 +69,11 @@ autocmd BufRead,BufNewFile *Spec.js  set filetype=javascript.javascript-test
 autocmd BufRead,BufNewFile *.erb  set filetype=eruby.html
 autocmd BufRead,BufNewFile *.exbl  set filetype=ruby.html
 autocmd BufRead,BufNewFile *.rxls  set filetype=ruby.html
+autocmd BufRead,BufNewFile *.rabl  set filetype=ruby
 autocmd BufRead,BufNewFile *.srt set filetype=srt
 autocmd BufRead,BufNewFile *.vb set filetype=vb
 autocmd BufRead,BufNewFile *.ofx set filetype=xml
+autocmd BufRead,BufNewFile .envrc set filetype=sh
 
 """ mapping
 map <C-l> :let @/=""<CR>
