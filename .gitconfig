@@ -3,6 +3,7 @@
 	email = leandro.s.thimoteo@gmail.com
 [github]
 	user = leandrost
+	username = leandrost
 	token = exit
 [color]
 	ui = true
@@ -21,4 +22,4 @@
 [pull]
 	rebase = true
 [hub]
-	protocol = ssh
+	protocol = https
