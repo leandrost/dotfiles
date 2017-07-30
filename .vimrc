@@ -20,6 +20,14 @@ if has("win32")
   imap <C-S-V> <ESC>"+gP
 endif
 
+" workaround for https://github.com/vim/vim/issues/1start671
+if has("unix")
+  let s:uname = system("echo -n \"$(uname)\"")
+  if !v:shell_error && s:uname == "Linux"
+    set t_BE=
+  endif
+endif
+
 """ Statusbar
 set laststatus=2
 set ruler
@@ -103,8 +111,8 @@ map \f :Ack!<Space>
 
 map \c :%s///gn<CR>
 map \l :let @+= "rspec ".GetSpecPath(). ":".line('.')<CR>
-map \lff :let @+= "rspec ".GetSpecPath(). ":".line('.'). " --fail-fast"<CR>
-map \rf :let @+= "rspec ".GetSpecPath(). " --only-failures"<CR>
+map \ffl :let @+= "rspec ".GetSpecPath(). ":".line('.'). " --fail-fast"<CR>
+"map \rf :let @+= "rspec ".GetSpecPath(). " --only-failures"<CR>
 map \ff :let @+= "rspec ".GetSpecPath(). " --fail-fast"<CR>
 map \n :NERDTreeToggle<CR>
 map \r :let @+= "rspec ".GetSpecPath()<CR>
