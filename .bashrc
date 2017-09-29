@@ -107,15 +107,25 @@ alias dcu="dc up"
 alias dcd="dc down"
 # using workaround to exec while docker-compose does not support detachKeys
 #alias dce="dc exec"
-alias dcr="dc run --rm"
+#alias dcr="dc run --rm"
+alias docker-clear-volumes='docker volume ls -qf dangling=true | xargs -r docker volume rm'
 
 function dce() {
   docker exec -it $(docker-compose ps -q $1) "${@:2}"
 }
 
+function dcr() {
+  docker run -it $(docker-compose ps -q $1) "${@:2}"
+}
+
 function dct() {
   docker attach $(docker-compose ps -q $1)
 }
+
+docker-ip() {
+  docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
+}
+
 
 ##PROFILES
 source $HOME/.profiles/git
@@ -181,13 +191,6 @@ fi
 if test -n "$(command -v aws)"; then
   complete -C '/usr/bin/aws_completer' aws
 fi
-
-##DOCKER
-alias docker-clear-volumes='docker volume ls -qf dangling=true | xargs -r docker volume rm'
-
-docker-ip() {
-  docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
-}
 
 # TODO: Config docker version mananger
 #source ~/.dvm/dvm.sh
