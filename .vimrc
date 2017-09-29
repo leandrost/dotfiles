@@ -64,8 +64,7 @@ set wildignore+=*/.git
 set wildignore+=*.gem
 set wildignore+=*.gemsspec
 set wildignore+=*.sassc
-
-let g:bg_flag = 0
+set wildignore+=*/node_modules/*
 
 """ search
 set hlsearch
@@ -103,7 +102,7 @@ map <F12> :call theme#ToggleBackground()<CR>
 nmap <space> :call folding#ToggleFold()<CR>
 vmap <space> zf
 
-map \* <S-*>:AckFromSearch! app<CR>
+map \* <S-*>:AckFromSearch! app src .<CR>
 map \\* <S-*>:AckFromSearch! ../lib<CR>
 map \@ :Ack! "def\s.*<cword>"<CR>
 map \\@ :Ack! "(class\|module) <cword>"<CR>
@@ -197,6 +196,11 @@ function! TooEasyWindowSwap()
   wincmd h
 endfunction
 nnoremap <silent> <leader>wl :call TooEasyWindowSwap()<CR>
+
+function! WriteCreatingDirs()
+    execute ':silent !mkdir -p %:h'
+    write
+endfunction
 
 "vim-javascript
 let javascript_enable_domhtmlcss=1
