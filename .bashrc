@@ -1,5 +1,5 @@
-#!/usr/bin/env
 
+#!/usr/bin/env
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -65,7 +65,8 @@ alias ttpt='normit en pt'
 alias tten='normit pt en'
 alias lockscreen='gnome-screensaver-command -l'
 alias cdb='cd ~/projects/ballers/ballers-web'
-alias cdg='cd ~/projects/got-board'
+alias cdg='cd ~/projects/got-board/react-app'
+alias cdgi='cd ~/projects/got-board/api'
 
 alias ns='npm start'
 alias ys='yarn start'
