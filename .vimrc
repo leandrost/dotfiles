@@ -117,7 +117,8 @@ map \n :NERDTreeToggle<CR>
 map \r :let @+= "rspec ".GetSpecPath()<CR>
 map \j :let @+= "mocha ".GetJsSpecPath()<CR>
 map \, :BreakLineCommas<CR>
-map \" :%s/'/"/g<CR>
+map \" :s/'/"/g<CR>
+map \' :s/"/'/g<CR>
 map \% :lcd %:p:h<CR>
 map \\n :NERDTree %:p:h<CR>
 map \o :only<CR>
