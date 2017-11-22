@@ -111,7 +111,6 @@ map \f :Ack!<Space>
 map \c :%s///gn<CR>
 map \l :let @+= "rspec ".GetSpecPath(). ":".line('.')<CR>
 map \ffl :let @+= "rspec ".GetSpecPath(). ":".line('.'). " --fail-fast"<CR>
-"map \rf :let @+= "rspec ".GetSpecPath(). " --only-failures"<CR>
 map \ff :let @+= "rspec ".GetSpecPath(). " --fail-fast"<CR>
 map \n :NERDTreeToggle<CR>
 map \r :let @+= "rspec ".GetSpecPath()<CR>
