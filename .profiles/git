@@ -39,12 +39,12 @@ alias gcfl="git rev-parse HEAD | xargs git commit --fixup"
 alias gcf="git commit --fixup"
 alias grbc="git rebase --continue"
 
-alias sgc='SKIP=RuboCop git commit'
-alias sgcm='SKIP=RuboCop git commit -m'
-alias sgcam='SKIP=RuboCop git commit -am'
-alias sgcmd='SKIP=RuboCop git commit --amend'
-alias sgcf="SKIP=RuboCop git commit --fixup"
-alias sgcfl="SKIP=RuboCop git rev-parse HEAD | xargs git commit --fixup"
+alias sgc='SKIP=RuboCop,EsLint git commit'
+alias sgcm='SKIP=RuboCop,EsLint git commit -m'
+alias sgcam='SKIP=RuboCop,EsLint git commit -am'
+alias sgcmd='SKIP=RuboCop,EsLint git commit --amend'
+alias sgcf="SKIP=RuboCop,EsLint git commit --fixup"
+alias sgcfl="SKIP=RuboCop,EsLint git rev-parse HEAD | xargs git commit --fixup"
 
 
 #dotfiles
