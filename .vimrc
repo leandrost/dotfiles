@@ -102,7 +102,7 @@ map <F12> :call theme#ToggleBackground()<CR>
 nmap <space> :call folding#ToggleFold()<CR>
 vmap <space> zf
 
-map \* <S-*>:AckFromSearch! app src .<CR>
+map \* <S-*>:AckFromSearch!<CR>
 map \\* <S-*>:AckFromSearch! ../lib<CR>
 map \@ :Ack! "def\s.*<cword>"<CR>
 map \\@ :Ack! "(class\|module) <cword>"<CR>
@@ -123,6 +123,8 @@ map \\n :NERDTree %:p:h<CR>
 map \o :only<CR>
 map \i :ALENext<CR>
 map \\i :ALEPrevious<CR>
+
+abbr todo: <esc>:call AddTodo()<CR>
 
 "copy, paste, delete
 map \p "+p
@@ -153,6 +155,8 @@ cmap qq tabclose
 "nerdcommenter
 map \cc :call NERDComment(0, "toggle")<CR>
 map \c<space> :call NERDComment(0, "comment")<CR>
+let NERDSpaceDelims=1
+let NERDDefaultAlign = 'left'
 
 "emmet
 imap <c-j> <C-y>,
@@ -202,6 +206,12 @@ function! WriteCreatingDirs()
     write
 endfunction
 
+function! AddTodo()
+    let branch_name = system('printf $(git rev-parse --abbrev-ref HEAD)')
+    execute 'normal! i @todo '.branch_name.' -'
+    startinsert!
+endfunction
+
 "vim-javascript
 let javascript_enable_domhtmlcss=1
 
@@ -241,3 +251,6 @@ let g:ale_linters = {
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
 let g:ale_echo_msg_format = '[%linter%] %s '
+let g:ale_sign_error = '•'
+let g:ale_sign_warning = '•'
+let g:ale_change_sign_column_color=1
