@@ -89,6 +89,7 @@ fi
 alias npe='PATH=$(npm bin):$PATH'
 alias apt-get='sudo apt-get'
 alias service='sudo service'
+alias apt='sudo apt'
 
 if test -n "$(command -v google-chrome-stable)"; then
   alias chrome='google-chrome-stable'
