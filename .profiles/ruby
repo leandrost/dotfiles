@@ -8,7 +8,7 @@ alias fsd='foreman start -f Procfile.docker'
 alias fsl='foreman start -f Procfile.local'
 alias fs='foreman start'
 alias guard='bin/guard'
-alias guard-sidekiq='guard -P sidekiq'
+alias guard-sidekiq='guard -P script/sidekiq'
 alias guard-livereload='guard -P livereload'
 alias guard-rubocop='guard -P rubocop'
 

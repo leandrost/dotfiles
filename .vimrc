@@ -81,6 +81,7 @@ autocmd BufRead,BufNewFile *.srt set filetype=srt
 autocmd BufRead,BufNewFile *.vb set filetype=vb
 autocmd BufRead,BufNewFile *.ofx set filetype=xml
 autocmd BufRead,BufNewFile .envrc set filetype=sh
+autocmd BufRead,BufNewFile *.reek set filetype=yaml
 
 """ mapping
 map <C-l> :let @/=""<CR>
