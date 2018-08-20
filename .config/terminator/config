@@ -1,6 +1,6 @@
 [global_config]
   dbus = True
-  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler
+  enabled_plugins = EditorPlugin, LaunchpadCodeURLHandler, APTURLHandler
   geometry_hinting = False
   handle_size = 1
   inactive_color_offset = 1.0
@@ -49,6 +49,10 @@
       command = ls
       enabled = True
       name = xxx
+  [[EditorPlugin]]
+    command = vim-open {filepath}:{line}
+    groups = file line
+    match = ([^ \t\n\r\f\v:]+):?([:0-9]+)?
 [profiles]
   [[default]]
     background_color = "#101010"
