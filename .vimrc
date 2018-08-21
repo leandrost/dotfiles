@@ -124,6 +124,7 @@ map \\n :NERDTree %:p:h<CR>
 map \o :only<CR>
 map \i :ALENext<CR>
 map \\i :ALEPrevious<CR>
+map \. :b#<CR>
 
 abbr todo: <esc>:call AddTodo()<CR>
 
@@ -213,6 +214,24 @@ function! AddTodo()
     startinsert!
 endfunction
 
+function! OpenTabToNewSpec()
+  let current_file_name = expand('%:r')
+  let file_name = substitute(current_file_name, 'app', 'spec', '')
+  execute 'tabedit '.file_name.'_spec.rb'
+endfunction
+cmap AA call OpenTabToNewSpec()
+
+" Replaces regular assignments `a = 1` with let `let(:a) { 1 }` in normal mode
+fun! LettifyAssignment()
+  :s/\(\w*\)\s=\s\(.*\_$\)/let(:\1) { \2 }/g
+endfun
+" Calls `LettifyAssignment` for entire visual selection
+fun! LettifyAssignments() range
+  :call LettifyAssignment()
+endfun
+nnoremap <Leader>let :call LettifyAssignment()<cr>
+vnoremap <Leader>let :call LettifyAssignments()<cr>
+
 "vim-javascript
 let javascript_enable_domhtmlcss=1
 
@@ -220,7 +239,7 @@ let javascript_enable_domhtmlcss=1
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 "ack
-"let g:ack_autoclose = 1
+let g:ack_autoclose = 1
 let g:ackprg = 'ag --vimgrep'
 
 "nerdtree
