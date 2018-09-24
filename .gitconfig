@@ -12,7 +12,7 @@
 [core]
 	excludesfile = ~/.gitignore
 [alias]
-  ignore = update-index --assume-unchanged 
+  ignore = update-index --assume-unchanged
   unignore = update-index --no-assume-unchanged
   ignored = !git ls-files -v | grep ^[a-z]
 [credential]
