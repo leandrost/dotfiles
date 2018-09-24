@@ -229,7 +229,7 @@ endfun
 fun! LettifyAssignments() range
   :call LettifyAssignment()
 endfun
-nnoremap <Leader>let :call LettifyAssignment()<cr>
+nnoremap \\let :call LettifyAssignment()<cr>
 vnoremap <Leader>let :call LettifyAssignments()<cr>
 
 "vim-javascript
@@ -266,7 +266,7 @@ let g:startify_list_order = [
 "ale
 let g:ale_linters = {
       \   'javascript': ['eslint'],
-      \   'ruby': ['rubocop'],
+      \   'ruby': ['rubocop', 'reek'],
       \}
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
