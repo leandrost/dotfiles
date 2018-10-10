@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+list=$(ls .env.* -d)
+index=0
+for fn in $list; do
+  echo " [$index] $fn"
+  index=$(expr $index + 1)
+done
+
+echo "Switch env to: "
+read selected
+
+files=($list)
+env_file=${files[$selected]}
+
+cp .env .env.0_last
+cp $env_file .env

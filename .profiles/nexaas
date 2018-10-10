@@ -1,4 +1,7 @@
 #!/usr/bin/env
+export MYFINANCE_HOME="${HOME}/projects/myfinance"
+export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:bin/javac::")
+
 alias cdm='cd ${HOME}/projects/nexaas/myfinance/src/'
 alias fs='bundle exec foreman start -f Procfile.development'
 alias fsw='bundle exec foreman start worker -f Procfile.development'
@@ -18,13 +21,13 @@ alias depisandbox='echo "@all fazendo deploy do app myfinance para sandbox a par
 alias depiproduction='echo "@all fazendo deploy do app myfinance para production a partir do branch deploy em $(git rev-parse HEAD)" | pbcopy'
 alias aws-auth-prod='ec2-authorize myfinance-ProductionSG-JM6T2EAL96NH -P tcp -p 22 -s '
 alias aws-revoke-prod='ec2-revoke myfinance-ProductionSG-JM6T2EAL96NH -P tcp -p 22 -s '
-export MYFINANCE_HOME="${HOME}/projects/myfinance"
-export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:bin/javac::")
+
 alias pr='hub2 pull-request -r lmansur -r vagnerzampieri -r maxsalles -r dansdantas'
 alias prb='hub2 pull-request -l bug -l wip -r lmansur -r vagnerzampieri -r maxsalles -r dansdantas'
 alias prf='hub2 pull-request -l feature -l wip -r lmansur -r vagnerzampieri -r maxsalles -r dansdantas'
 alias pre='hub2 pull-request -l enhancement -l wip -r lmansur -r vagnerzampieri -r maxsalles -r dansdantas'
 alias sk='script/sidekiq'
+alias ds='dc up deps'
 
 loadfile $HOME/.certmanrc
 
