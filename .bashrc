@@ -67,6 +67,7 @@ alias lockscreen='gnome-screensaver-command -l'
 alias cdb='cd ~/projects/ballers/ballers-web'
 alias cdg='cd ~/projects/got-board/react-app'
 alias cdgi='cd ~/projects/got-board/api'
+alias cdp='cd ~/projects/'
 
 alias ns='npm start'
 alias ys='yarn start'
