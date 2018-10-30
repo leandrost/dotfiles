@@ -1,7 +1,7 @@
 [global_config]
   enabled_plugins = EditorPlugin, LaunchpadCodeURLHandler, APTURLHandler
-  handle_size = 1
-  inactive_color_offset = 1.0
+  handle_size = 0
+  inactive_color_offset = 0.603896103896
   title_inactive_bg_color = "#0c0c0c"
   title_inactive_fg_color = "#d6d6d6"
   title_transmit_bg_color = "#f7f7f7"
@@ -50,14 +50,15 @@
   [[EditorPlugin]]
     command = vim-open {filepath}:{line}
     groups = file line
-    match = ([^ \t\n\r\f\v:]+):?([:0-9]+)?
+    match = ([^\t\n\r\f\v:]+):?([:0-9]+)?
 [profiles]
   [[default]]
     background_color = "#101010"
     background_darkness = 0.81
     background_type = transparent
+    copy_on_selection = True
     cursor_color = "#e1e1e1"
-    font = Source Code Pro for Powerline 9
+    font = Source Code Pro for Powerline 11
     foreground_color = "#e2e2e2"
     icon_bell = False
     palette = "#4c4c4c:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#cecece:#cb4b16:#7f9ea7:#a4bcc5:#376186:#6c71c4:#85e1e1:#fdf6e3"

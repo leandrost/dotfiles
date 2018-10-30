@@ -45,6 +45,7 @@ autocmd FileType * set shiftwidth=2
 autocmd FileType python,java set tabstop=4
 autocmd FileType python,java set tabstop=4
 autocmd FileType python,java set softtabstop=4
+autocmd FileType pytoh, java set shiftwidth=2
 autocmd FileType json set conceallevel=0
 
 " Display tabs and trailing spaces visually

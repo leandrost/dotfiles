@@ -137,7 +137,7 @@ source $HOME/.profiles/ruby
 source $HOME/.profiles/nexaas
 
 ##PS1
-if [ $TERM = "xterm" ]
+if [ $TERM = "xterm-256color" ]
 then
   function clr ()
   {
@@ -167,12 +167,6 @@ else
   PS1="\u@\h \w$(__git_ps1)\n$ "
 fi
 
-##ELASTICSEARCH
-export ELASTICSEARCH_CONFIG_PATH="/etc/elasticsearch"
-export ELASTICSEARCH_BIN="/usr/share/elasticsearch/bin/elasticsearch"
-export ELASTICSEARCH_CONFIG="$ELASTICSEARCH_CONFIG_PATH/elasticsearch.yml"
-export ES_CLASSPATH="$ELASTICSEARCH_CONFIG_PATH/logging.yml"
-
 ##CUSTOM PATH
 #HEROKU_PATH=/usr/local/heroku/bin
 #PHANTOMJS_PATH=/opt/phantomjs/phantomjs-1.9.1/bin
@@ -184,11 +178,6 @@ export ES_CLASSPATH="$ELASTICSEARCH_CONFIG_PATH/logging.yml"
 if test -n "$(command -v direnv)"; then
   eval "$(direnv hook bash)"
 fi
-
-##AUTOENV
-#if test -n "$(command -v autoenv)"; then
-  #source ~/.autoenv/activate.sh
-#fi
 
 ##aws
 if test -n "$(command -v aws)"; then
