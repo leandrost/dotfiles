@@ -11,6 +11,7 @@ alias guard='bin/guard'
 alias guard-sidekiq='guard -P script/sidekiq'
 alias guard-livereload='guard -P livereload'
 alias guard-rubocop='guard -P rubocop'
+alias be='bundle exec'
 
 alias rc='rails console'
 alias rs='rails server'

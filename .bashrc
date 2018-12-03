@@ -15,6 +15,7 @@ shopt -s autocd
 
 ##add my scripts to path
 PATH=$PATH:$HOME/.local/bin
+PATH=$PATH:$HOME/.yarn/bin
 
 ##ANDROID
 PATH=$PATH:/opt/android-sdk/platform-tools/
@@ -191,7 +192,7 @@ fi
 #PATH=$PATH:$HEROKU_PATH:$PHANTOMJS_PATH
 
 export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 loadfile ~/projects/forgit/forgit.plugin.sh
 

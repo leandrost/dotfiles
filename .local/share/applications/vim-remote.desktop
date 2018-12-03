@@ -9,3 +9,4 @@ Categories=Application;Utility;TextEditor;
 MimeType=text/plain;x-scheme-handler/vim;x-scheme-handler/txmt;
 StartupNotify=true
 Icon=vim
+NotShowIn=GNOME;Unity;

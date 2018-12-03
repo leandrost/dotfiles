@@ -41,6 +41,7 @@ filetype plugin indent on
 autocmd FileType * set tabstop=2
 autocmd FileType * set softtabstop=2
 autocmd FileType * set shiftwidth=2
+autocmd FileType * NoMatchParen
 
 autocmd FileType python,java set tabstop=4
 autocmd FileType python,java set tabstop=4
@@ -96,7 +97,8 @@ autocmd BufEnter,BufRead,BufNewFile *.js map <S-F6> Odebugger<ESC>
 autocmd BufEnter,BufRead,BufNewFile *.py map <S-F6> Oimport pdb; pdb.set_trace()<ESC>
 map <F7> :SyntasticCheck rubocop<CR>
 map <F8> ve:s/_/ /g<CR><C-o><C-l>
-map <F9> :source $MYVIMRC<CR>
+map <F9> :tabe<CR>:Startify<CR>
+map <S-F9> :tabe<CR>:bprevious<CR>
 map <F10> :tabe $MYVIMRC<CR>
 map <C-F10> :tabe ~/.vim<CR>
 map <F12> :call theme#ToggleBackground()<CR>
@@ -126,6 +128,7 @@ map \o :only<CR>
 map \i :ALENext<CR>
 map \\i :ALEPrevious<CR>
 map \. :b#<CR>
+map \\p :cd $PROJECT_HOME<CR>
 
 abbr todo: <esc>:call AddTodo()<CR>
 
@@ -220,6 +223,7 @@ function! OpenTabToNewSpec()
   let file_name = substitute(current_file_name, 'app', 'spec', '')
   execute 'tabedit '.file_name.'_spec.rb'
 endfunction
+
 cmap AA call OpenTabToNewSpec()
 
 " Replaces regular assignments `a = 1` with let `let(:a) { 1 }` in normal mode
@@ -263,7 +267,6 @@ let g:startify_list_order = [
       \ ['   Commands:'],
       \ 'commands',
       \ ]
-
 "ale
 let g:ale_linters = {
       \   'javascript': ['eslint'],

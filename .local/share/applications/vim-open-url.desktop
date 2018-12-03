@@ -9,3 +9,10 @@ Categories=Application;Utility;TextEditor;
 MimeType=text/plain;x-scheme-handler/vim;x-scheme-handler/txmt;
 StartupNotify=true
 StartupWMClass=vim_open_url
+NotShowIn=GNOME;Unity;
+
+
+
+
+
+

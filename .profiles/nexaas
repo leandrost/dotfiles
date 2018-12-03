@@ -22,10 +22,10 @@ alias depiproduction='echo "@all fazendo deploy do app myfinance para production
 alias aws-auth-prod='ec2-authorize myfinance-ProductionSG-JM6T2EAL96NH -P tcp -p 22 -s '
 alias aws-revoke-prod='ec2-revoke myfinance-ProductionSG-JM6T2EAL96NH -P tcp -p 22 -s '
 
-alias pr='hub2 pull-request -r lmansur -r vagnerzampieri -r maxsalles -r dansdantas'
-alias prb='hub2 pull-request -l bug -l wip -r lmansur -r vagnerzampieri -r maxsalles -r dansdantas'
-alias prf='hub2 pull-request -l feature -l wip -r lmansur -r vagnerzampieri -r maxsalles -r dansdantas'
-alias pre='hub2 pull-request -l enhancement -l wip -r lmansur -r vagnerzampieri -r maxsalles -r dansdantas'
+alias pr='hub pull-request -r lmansur -r vagnerzampieri -r maxsalles -r dansdantas'
+alias prb='hub pull-request -l bug -l wip -r lmansur -r vagnerzampieri -r maxsalles -r dansdantas'
+alias prf='hub pull-request -l feature -l wip -r lmansur -r vagnerzampieri -r maxsalles -r dansdantas'
+alias pre='hub pull-request -l enhancement -l wip -r lmansur -r vagnerzampieri -r maxsalles -r dansdantas'
 alias sk='script/sidekiq'
 alias ds='dc up deps'
 
