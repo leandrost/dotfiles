@@ -28,6 +28,7 @@ alias prf='hub pull-request -l feature -l wip -r lmansur -r vagnerzampieri -r ma
 alias pre='hub pull-request -l enhancement -l wip -r lmansur -r vagnerzampieri -r maxsalles -r dansdantas'
 alias sk='script/sidekiq'
 alias ds='dc up deps'
+alias amssh="ssh -i ${HOME}/.amazon/myfreecomm-AWS-US-East.pem"
 
 loadfile $HOME/.certmanrc
 

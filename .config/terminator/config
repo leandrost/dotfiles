@@ -1,7 +1,7 @@
 [global_config]
   enabled_plugins = EditorPlugin, LaunchpadCodeURLHandler, APTURLHandler
   handle_size = 0
-  inactive_color_offset = 0.603896103896
+  inactive_color_offset = 0.851851851852
   title_inactive_bg_color = "#0c0c0c"
   title_inactive_fg_color = "#d6d6d6"
   title_transmit_bg_color = "#f7f7f7"
@@ -23,6 +23,7 @@
   group_all_toggle = None
   group_tab = <Alt>g
   group_tab_toggle = <Shift><Alt>g
+  help = None
   layout_launcher = <Shift><Alt>y
   paste = <Alt>v
   resize_down = <Shift><Alt>j
@@ -75,7 +76,7 @@
     background_darkness = 0.86
     background_type = transparent
     cursor_color = "#eee8d5"
-    font = Source Code Pro for Powerline 9
+    font = Source Code Pro for Powerline 11
     foreground_color = "#ffffff"
     icon_bell = False
     scrollback_infinite = True
@@ -83,13 +84,22 @@
     show_titlebar = False
     use_system_font = False
   [[sandbox]]
-    background_color = "#1d213c"
-    background_darkness = 0.95
+    background_color = "#060f40"
+    background_darkness = 0.85
     background_type = transparent
+    cursor_color = "#aaaaaa"
+    scrollbar_position = hidden
+    show_titlebar = False
+  [[solid]]
+    background_color = "#282828"
+    background_darkness = 0.97
+    copy_on_selection = True
     cursor_color = "#eee8d5"
-    font = Source Code Pro for Powerline 9
-    foreground_color = "#ffffff"
+    font = Source Code Pro for Powerline 11
+    foreground_color = "#ebdbb2"
     icon_bell = False
+    palette = "#282828:#ee5555:#9dd443:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
@@ -103,6 +113,17 @@
     icon_bell = False
     scrollback_infinite = True
     scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+  [[stage 2]]
+    background_color = "#282828"
+    background_darkness = 0.78
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = Source Code Pro for Powerline 10
+    foreground_color = "#ebdbb2"
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    scrollback_infinite = True
     show_titlebar = False
     use_system_font = False
   [[terminator-default]]

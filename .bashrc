@@ -19,7 +19,8 @@ PATH=$PATH:$HOME/.yarn/bin
 
 ##ANDROID
 PATH=$PATH:/opt/android-sdk/platform-tools/
-PATH=$PATH:/opt/android-sdk/tools/
+PATH=$PATH:/opt/android-sdk/emulator/
+PATH=$PATH:/opt/android-sdk/tools/bin
 export ANDROID_HOME=/opt/android-sdk
 
 export EDITOR=vim
@@ -75,6 +76,8 @@ alias ys='yarn start'
 alias yb='yarn build'
 alias yw='yarn watch'
 alias yt='yarn test'
+
+alias ef='env | fzf'
 
 alias todo='vimt /home/leandrost/.local/share/todo.txt/todo.txt'
 
@@ -194,6 +197,7 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
+forgit_add=gaa
 loadfile ~/projects/forgit/forgit.plugin.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

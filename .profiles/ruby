@@ -1,8 +1,8 @@
 #!/usr/bin/env
-alias rails='bin/rails'
-alias rake='bin/rake'
-alias rspec='bin/rspec'
-alias spring='bin/spring'
+# alias rails='bin/rails'
+# alias rake='bin/rake'
+# alias rspec='bin/rspec'
+# alias spring='bin/spring'
 alias foreman='bin/foreman'
 alias fsd='foreman start -f Procfile.docker'
 alias fsl='foreman start -f Procfile.local'
@@ -15,6 +15,7 @@ alias be='bundle exec'
 
 alias rc='rails console'
 alias rs='rails server'
+alias rr='rails restart'
 alias rdbc='rails dbconsole'
 
 alias rdbtp='rake db:test:prepare'

@@ -84,6 +84,7 @@ autocmd BufRead,BufNewFile *.vb set filetype=vb
 autocmd BufRead,BufNewFile *.ofx set filetype=xml
 autocmd BufRead,BufNewFile .envrc set filetype=sh
 autocmd BufRead,BufNewFile *.reek set filetype=yaml
+autocmd BufRead,BufNewFile *.js set filetype=javascript.jsx
 
 """ mapping
 map <C-l> :let @/=""<CR>
@@ -106,11 +107,11 @@ map <F12> :call theme#ToggleBackground()<CR>
 nmap <space> :call folding#ToggleFold()<CR>
 vmap <space> zf
 
-map \* <S-*>:AckFromSearch!<CR>
-map \\* <S-*>:AckFromSearch! ../lib<CR>
-map \@ :Ack! "def\s.*<cword>"<CR>
-map \\@ :Ack! "(class\|module) <cword>"<CR>
-map \f :Ack!<Space>
+map \* :Ag <C-R><C-W><CR>
+map \\* <S-*>:AckF:Ag <C-R><C-W><CR>romSearch! ../lib<CR>
+map \@ :Ag "def\s.*<cword>"<CR>
+map \\@ :Ag "(class\|module) <cword>"<CR>
+map \f :Ag <Space>
 
 map \c :%s///gn<CR>
 map \l :let @+= "rspec ".GetSpecPath(). ":".line('.')<CR>
@@ -278,3 +279,5 @@ let g:ale_echo_msg_format = '[%linter%] %s '
 let g:ale_sign_error = '•'
 let g:ale_sign_warning = '•'
 let g:ale_change_sign_column_color=1
+
+set rtp+=~/.fzf
