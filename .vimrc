@@ -113,7 +113,8 @@ map \@ :Ag "def\s.*<cword>"<CR>
 map \\@ :Ag "(class\|module) <cword>"<CR>
 map \f :Ag <Space>
 
-map \c :%s///gn<CR>
+"count previous search matches ocurrences
+map \c :%s///gn<CR> 
 map \l :let @+= "rspec ".GetSpecPath(). ":".line('.')<CR>
 map \ffl :let @+= "rspec ".GetSpecPath(). ":".line('.'). " --fail-fast"<CR>
 map \ff :let @+= "rspec ".GetSpecPath(). " --fail-fast"<CR>
@@ -134,11 +135,6 @@ map \\p :cd $PROJECT_HOME<CR>
 abbr todo: <esc>:call AddTodo()<CR>
 
 "copy, paste, delete
-map \p "+p
-map \y "+y
-map \yy "+yy
-map \yw "+yw
-map \yb "+yb
 vmap <C-x> "+d<CR>
 vmap <C-c> "+y<CR>
 imap <C-v> <ESC>"+p==<space>
