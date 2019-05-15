@@ -20,11 +20,10 @@ alias rdbc='rails dbconsole'
 
 alias rdbtp='rake db:test:prepare'
 alias rdbm='rake db:migrate'
-alias rdbmtp='rake db:migrate && rake db:test:prepare'
+alias rdbmtp='rake db:migrate db:test:prepare'
 alias rdbms='rake db:migrate:status'
-alias rdbmup='rake db:migrate:up'
 alias rdbmdown='rake db:migrate:down'
-alias rdbrb='rake db:rollback'
+alias rdbr='rake db:rollback'
 alias rntd='rake notes:custom ANNOTATION="@todo $(git rev-parse --abbrev-ref HEAD)"'
 
 #rbenv
