@@ -1,4 +1,9 @@
 bundler
-rubocop
+git_remote_branch
 hub
+overcommit
 pry
+pry-doc
+pry-nav
+reek
+rubocop
