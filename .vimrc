@@ -13,6 +13,13 @@ set backupcopy=no
 set nobackup
 set tabpagemax=15
 
+" Persistent undo
+set undofile
+set undodir=$HOME/.vim/undo
+
+set undolevels=1000
+set undoreload=10000
+
 " only on WINDOWS
 if has("win32")
   set runtimepath=~/.vim,$VIMRUNTIME
@@ -115,11 +122,9 @@ map \f :Ag <Space>
 
 "count previous search matches ocurrences
 map \c :%s///gn<CR> 
-map \l :let @+= "rspec ".GetSpecPath(). ":".line('.')<CR>
-map \ffl :let @+= "rspec ".GetSpecPath(). ":".line('.'). " --fail-fast"<CR>
-map \ff :let @+= "rspec ".GetSpecPath(). " --fail-fast"<CR>
+map \l :let @+= "rspec --no-profile ".GetSpecPath(). ":".line('.')<CR>
 map \n :NERDTreeToggle<CR>
-map \r :let @+= "rspec ".GetSpecPath()<CR>
+map \r :let @+= "rspec --no-profile ".GetSpecPath()<CR>
 map \j :let @+= "mocha ".GetJsSpecPath()<CR>
 map \, :BreakLineCommas<CR>
 map \" :s/'/"/g<CR>

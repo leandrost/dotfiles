@@ -21,6 +21,10 @@ PATH=$PATH:$HOME/.yarn/bin
 PATH=$PATH:/opt/android-sdk/platform-tools/
 PATH=$PATH:/opt/android-sdk/emulator/
 PATH=$PATH:/opt/android-sdk/tools/bin
+
+PATH=$PATH:$HOME/.kerl/bin
+PATH=$PATH:$HOME/.kiex/bin
+
 export ANDROID_HOME=/opt/android-sdk
 
 export EDITOR=vim
@@ -201,3 +205,5 @@ forgit_add=gaa
 loadfile ~/projects/forgit/forgit.plugin.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+[[ -s "/home/leandrost/.gvm/scripts/gvm" ]] && source "/home/leandrost/.gvm/scripts/gvm"

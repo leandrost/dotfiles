@@ -21,10 +21,10 @@ alias depiproduction='echo "@all fazendo deploy do app myfinance para production
 alias aws-auth-prod='ec2-authorize myfinance-ProductionSG-JM6T2EAL96NH -P tcp -p 22 -s '
 alias aws-revoke-prod='ec2-revoke myfinance-ProductionSG-JM6T2EAL96NH -P tcp -p 22 -s '
 
-alias pr='hub pull-request -r lmansur -r vagnerzampieri -r maxsalles -r dansdantas'
-alias prb='hub pull-request -l bug -l wip -r lmansur -r vagnerzampieri -r maxsalles -r dansdantas'
-alias prf='hub pull-request -l feature -l wip -r lmansur -r vagnerzampieri -r maxsalles -r dansdantas'
-alias pre='hub pull-request -l enhancement -l wip -r lmansur -r vagnerzampieri -r maxsalles -r dansdantas'
+alias pr='hub pull-request -r dansdantas'
+alias prb='hub pull-request -l bug -l wip -r dansdantas'
+alias prf='hub pull-request -l feature -l wip -r dansdantas'
+alias pre='hub pull-request -l enhancement -l wip -r dansdantas'
 alias sk='script/sidekiq'
 alias ds='dc up deps'
 alias amssh="ssh -i ${HOME}/.amazon/myfreecomm-AWS-US-East.pem"
@@ -55,3 +55,18 @@ alias mf-revoke-prod="mf-revoke myfinance-ProductionSG-JM6T2EAL96NH ~/mf-ec2-pro
 
 alias mf-auth-sand="mf-auth myfinance-SandboxSG-BVDXE3Y0EATH ~/mf-ec2-sand-ip"
 alias mf-revoke-sand="mf-revoke myfinance-SandboxSG-BVDXE3Y0EATH ~/mf-ec2-sand-ip"
+
+function mf-debug-sand() {
+  cd $MYFINANCE_HOME
+  echo "Creating debugging pod..."
+  kubectl create -f ops/k8s/myfinance-console-pod.yaml
+  read -r -p "Are you finished ? [Y/n] " response
+  kubectl delete -f ops/k8s/myfinance-console-pod.yaml
+  exit
+}
+function mf-rails-console-k8() {
+  cd $MYFINANCE_HOME
+  setTerminatorProfile sandbox
+  kubectl exec -it myfinance-console -- bundle exec rails console
+  setTerminatorProfile default
+}
