@@ -114,7 +114,7 @@ alias disable-bracketed='printf "\e[?2004l"'
 
 # DOCKER
 alias dc="docker-compose"
-alias dcu="dc up"
+alias dcu="dc up --detach"
 alias dcd="dc down"
 # using workaround to exec while docker-compose does not support detachKeys
 #alias dce="dc exec"
