@@ -1,13 +1,17 @@
 .~*
 .local/share/applications/mimeapps.list
-.profiles/myfreecomm
 .certmanrc
 *.zip
 
+#direnv
+.envrc
+
 # vim
 .vim/.netrwhist
-*.swp
+*.swm
+*.swn
 *.swo
+*.swp
 
 # ruby
 .ruby-version
