@@ -84,6 +84,7 @@ alias yt='yarn test'
 alias ef='env | fzf'
 
 alias todo='vimt /home/leandrost/.local/share/todo.txt/todo.txt'
+alias croc-update="curl https://getcroc.schollz.com | bash"
 
 if test -n "$(command -v keychain)"; then
   alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa) && ssh'

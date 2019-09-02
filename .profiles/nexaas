@@ -2,21 +2,15 @@
 export MYFINANCE_HOME="${HOME}/projects/myfinance"
 export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:bin/javac::")
 
-alias cdm='cd ${HOME}/projects/nexaas/myfinance/src/'
-alias fs='bundle exec foreman start -f Procfile.development'
-alias fsw='bundle exec foreman start worker -f Procfile.development'
-alias integrate='RAILS_ENV=test time rake integrate && echo "NICE! Agora buzine duas vezes e apague o branch que vc integrou rapazinho!"'
+alias cdm='cd ${HOME}/projects/nexaas/myfinance'
+alias cdk='cd ${HOME}/projects/nexaas/estoka'
+
 alias rdbdr='bundle exec rake db:data:reset db:test:prepare;'
-alias bfs='bundle && fs'
-alias specall='bundle exec rake db:migrate db:test:prepare && RAILS_ENV=test time bundle exec rspec spec/models/* && RAILS_ENV=test time bundle exec rspec spec/controllers/* && RAILS_ENV=test time bundle exec rspec spec/helpers/* spec/routing/* spec/lib/* spec/mailers/* spec/workers/* spec/reports/* && RAILS_ENV=test time bundle exec rake spec:javascript && RAILS_ENV=test time bundle exec rspec features/*_spec.rb'
-alias spec-without-mc='bundle exec rake db:migrate db:test:prepare && RAILS_ENV=test time bundle exec rspec spec/helpers/* spec/routing/* spec/lib/* spec/mailers/* spec/workers/* spec/reports/* && RAILS_ENV=test time bundle exec rake spec:javascript && RAILS_ENV=test time bundle exec rspec features/*_spec.rb'
-alias spec-mc='bundle exec rake db:migrate db:test:prepare && RAILS_ENV=test time bundle exec rspec spec/models/* && RAILS_ENV=test time bundle exec rspec spec/controllers/*'
 alias gbdm='git branch -d $(git branch --merged | grep -v "\*\|deploy$")'
-alias watch-asg-sandbox='watch -n 5 as-describe-auto-scaling-groups myfinance-sandbox-ASG-4LAO6AJJ3JW7'
-alias watch-elb-sandbox='watch -n 5 elb-describe-instance-health myfinance-sand-ELB-1V2F0MY0KS8BS'
+
 alias watch-asg-production='watch -n 5 as-describe-auto-scaling-groups myfinance-production-ASG-WK63242C95K7'
 alias watch-elb-production='watch -n 5 elb-describe-instance-health myfinance-prod-ELB-10E1045ZCLZ8Z'
-alias depisandbox='echo "@all fazendo deploy do app myfinance para sandbox a partir do branch $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) em $(git rev-parse HEAD)" | pbcopy'
+
 alias depiproduction='echo "@all fazendo deploy do app myfinance para production a partir do branch deploy em $(git rev-parse HEAD)" | pbcopy'
 alias aws-auth-prod='ec2-authorize myfinance-ProductionSG-JM6T2EAL96NH -P tcp -p 22 -s '
 alias aws-revoke-prod='ec2-revoke myfinance-ProductionSG-JM6T2EAL96NH -P tcp -p 22 -s '
@@ -25,7 +19,6 @@ alias pr='hub pull-request -r dansdantas'
 alias prb='hub pull-request -l bug -l wip -r dansdantas'
 alias prf='hub pull-request -l feature -l wip -r dansdantas'
 alias pre='hub pull-request -l enhancement -l wip -r dansdantas'
-alias sk='script/sidekiq'
 alias ds='dc up deps'
 alias amssh="ssh -i ${HOME}/.amazon/myfreecomm-AWS-US-East.pem"
 
@@ -35,13 +28,14 @@ function mf-auth() {
   ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
   echo $ip
   ec2-authorize $1 -P tcp -p 22 -s $ip/32
-  echo $ip >> $2
+  cmd="ec2-revoke myfinance-ProductionSG-JM6T2EAL96NH -P tcp -p 22 -s $ip/32"
+  echo $cmd >> $2
+  chmod 777 $2
 }
 
 function mf-revoke() {
-  ip=$(cat $2)
-  echo $ip
-  ec2-revoke $1 -P tcp -p 22 -s $ip/32
+  echo $1
+  sh $1
   read -r -p "Remove ip file ? [Y/n] " response
   if [[ $response =~ ^([nN][oO]|[nN])$ ]]
   then
@@ -53,20 +47,29 @@ function mf-revoke() {
 alias mf-auth-prod="mf-auth myfinance-ProductionSG-JM6T2EAL96NH ~/mf-ec2-prod-ip"
 alias mf-revoke-prod="mf-revoke myfinance-ProductionSG-JM6T2EAL96NH ~/mf-ec2-prod-ip"
 
-alias mf-auth-sand="mf-auth myfinance-SandboxSG-BVDXE3Y0EATH ~/mf-ec2-sand-ip"
-alias mf-revoke-sand="mf-revoke myfinance-SandboxSG-BVDXE3Y0EATH ~/mf-ec2-sand-ip"
-
 function mf-debug-sand() {
   cd $MYFINANCE_HOME
   echo "Creating debugging pod..."
-  kubectl create -f ops/k8s/myfinance-console-pod.yaml
-  read -r -p "Are you finished ? [Y/n] " response
-  kubectl delete -f ops/k8s/myfinance-console-pod.yaml
-  exit
+  kubectl create -f ops/k8s/sandbox/myfinance-console-pod.yaml &&
+  sleep 15 &&
+  echo "Opening rails console..." &&
+  mf-rails-console-k8 &&
+  echo "Removing debugging pod..." &&
+  mf-remove-debug-pod
 }
+
+function mf-remove-debug-pod() {
+  kubectl delete -f ops/k8s/myfinance-console-pod.yaml
+}
+
 function mf-rails-console-k8() {
-  cd $MYFINANCE_HOME
   setTerminatorProfile sandbox
   kubectl exec -it myfinance-console -- bundle exec rails console
+  setTerminatorProfile default
+}
+
+function mf-ssh-k8() {
+  setTerminatorProfile sandbox
+  kubectl exec -it myfinance-console -- bash
   setTerminatorProfile default
 }
