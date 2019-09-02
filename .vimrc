@@ -56,6 +56,9 @@ autocmd FileType python,java set softtabstop=4
 autocmd FileType pytoh, java set shiftwidth=2
 autocmd FileType json set conceallevel=0
 
+
+autocmd BufRead,BufNewFile *.erb set tabstop=4 shiftwidth=4 softtabstop=4
+
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
 
@@ -121,7 +124,7 @@ map \\@ :Ag "(class\|module) <cword>"<CR>
 map \f :Ag <Space>
 
 "count previous search matches ocurrences
-map \c :%s///gn<CR> 
+map \count :%s///gn<CR>
 map \l :let @+= "rspec --no-profile ".GetSpecPath(). ":".line('.')<CR>
 map \n :NERDTreeToggle<CR>
 map \r :let @+= "rspec --no-profile ".GetSpecPath()<CR>
@@ -136,6 +139,7 @@ map \i :ALENext<CR>
 map \\i :ALEPrevious<CR>
 map \. :b#<CR>
 map \\p :cd $PROJECT_HOME<CR>
+map \\la :call LettifyAssignments()<CR>
 
 abbr todo: <esc>:call AddTodo()<CR>
 
