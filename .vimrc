@@ -103,6 +103,7 @@ autocmd BufRead,BufNewFile *.xml map <F3> :.!xmllint --format --recover -<CR>
 map <F4> xf 3xi:<ESC>
 map <F5> :e<CR>
 autocmd BufEnter,BufRead,BufNewFile *.haml map <S-F6> O- binding.pry<ESC>
+autocmd BufEnter,BufRead,BufNewFile *.erb map <S-F6> O<% binding.pry %><ESC>
 autocmd BufEnter,BufRead,BufNewFile *.rb map <S-F6> Obinding.pry<ESC>
 autocmd BufEnter,BufRead,BufNewFile *.js map <S-F6> Odebugger<ESC>
 autocmd BufEnter,BufRead,BufNewFile *.py map <S-F6> Oimport pdb; pdb.set_trace()<ESC>
