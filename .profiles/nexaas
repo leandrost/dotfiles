@@ -62,14 +62,20 @@ function mf-remove-debug-pod() {
   kubectl delete -f ops/k8s/myfinance-console-pod.yaml
 }
 
-function mf-rails-console-k8() {
-  setTerminatorProfile sandbox
-  kubectl exec -it myfinance-console -- bundle exec rails console
+function k8sprod() {
+  setTerminatorProfile production
+  k8s_console production
   setTerminatorProfile default
 }
 
-function mf-ssh-k8() {
+function k8ssand() {
   setTerminatorProfile sandbox
-  kubectl exec -it myfinance-console -- bash
+  k8s_console sandbox
+  setTerminatorProfile default
+}
+
+function k8shomolog() {
+  setTerminatorProfile stage
+  k8s_console homologation $1
   setTerminatorProfile default
 }
