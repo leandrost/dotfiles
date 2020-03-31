@@ -119,7 +119,7 @@ nmap <space> :call folding#ToggleFold()<CR>
 vmap <space> zf
 
 map \* :Ag <C-R><C-W><CR>
-map \\* <S-*>:AckF:Ag <C-R><C-W><CR>romSearch! ../lib<CR>
+map \\*a :Ag "<cword>" app<CR>
 map \@ :Ag "def\s.*<cword>"<CR>
 map \\@ :Ag "(class\|module) <cword>"<CR>
 map \f :Ag <Space>
