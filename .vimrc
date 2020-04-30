@@ -129,18 +129,20 @@ map \count :%s///gn<CR>
 map \l :let @+= "rspec --no-profile ".GetSpecPath(). ":".line('.')<CR>
 map \n :NERDTreeToggle<CR>
 map \r :let @+= "rspec --no-profile ".GetSpecPath()<CR>
-map \j :let @+= "mocha ".GetJsSpecPath()<CR>
 map \, :BreakLineCommas<CR>
 map \" :s/'/"/g<CR>
 map \' :s/"/'/g<CR>
 map \% :lcd %:p:h<CR>
 map \\n :NERDTree %:p:h<CR>
-map \o :only<CR>
 map \i :ALENext<CR>
 map \\i :ALEPrevious<CR>
-map \. :b#<CR>
 map \\p :cd $PROJECT_HOME<CR>
 map \\la :call LettifyAssignments()<CR>
+
+"buffers mappings
+map \. :b#<CR>
+map \j :bnext<CR>
+map \k :bprevious<CR>
 
 abbr todo: <esc>:call AddTodo()<CR>
 
@@ -185,7 +187,7 @@ let g:ctrlp_prompt_mappings = {
 let g:ctrlp_root_markers = ['Gemfile', 'package.json']
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\vendor$',
+  \ 'dir':  '\v[\/]\vendor$\|public\/packs',
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
