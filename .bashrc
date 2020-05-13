@@ -24,6 +24,7 @@ PATH=$PATH:/opt/android-sdk/tools/bin
 
 PATH=$PATH:$HOME/.kerl/bin
 PATH=$PATH:$HOME/.kiex/bin
+PATH=$PATH:$HOME/.cargo/bin
 
 export ANDROID_HOME=/opt/android-sdk
 
@@ -71,8 +72,7 @@ alias ttpt='normit en pt'
 alias tten='normit pt en'
 alias lockscreen='gnome-screensaver-command -l'
 alias cdb='cd ~/projects/ballers/ballers-web'
-alias cdg='cd ~/projects/got-board/react-app'
-alias cdgi='cd ~/projects/got-board/api'
+alias cdg='cd ~/projects/got-board'
 alias cdp='cd ~/projects/'
 
 alias ns='npm start'
