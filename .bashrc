@@ -121,7 +121,8 @@ alias dcd="dc down"
 #alias dce="dc exec"
 #alias dcr="dc run --rm"
 alias docker-clear-volumes='docker volume ls -qf dangling=true | xargs -r docker volume rm'
-alias k8s-edit-secret="KUBE_EDITOR=$HOME/projects/nexaas/kube-secret-editor/kube-secret-editor.py kubectl edit secret"
+
+alias cat="bat"
 
 function dce() {
   docker exec -it $(docker-compose ps -q $1) "${@:2}"
