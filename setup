@@ -13,21 +13,18 @@ sudo apt-get update
 PKGS="
  git
  terminator
- vim-gnome
- dropbox
+ vim-gtk
  htop
  ack-grep
  curl
  tree
  moka-icon-theme
  trash-cli
- python-pip
  direnv
  xclip
  silversearcher-ag
 "
 DEV_PKGS="
- golang
  npm
 "
 sudo apt-get install -y $PKGS $DEV_PKGS
