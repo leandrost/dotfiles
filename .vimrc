@@ -229,7 +229,7 @@ endfunction
 
 function! OpenTabToNewSpec()
   let current_file_name = expand('%:r')
-  let file_name = substitute(current_file_name, 'app', 'spec', '')
+  let file_name = substitute(current_file_name, 'app\|src', 'spec', '')
   execute 'tabedit '.file_name.'_spec.rb'
 endfunction
 
