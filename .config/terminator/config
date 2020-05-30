@@ -1,42 +1,129 @@
 [global_config]
-  enabled_plugins = EditorPlugin, LaunchpadCodeURLHandler, APTURLHandler
   handle_size = 0
-  inactive_color_offset = 0.851851851852
-  title_inactive_bg_color = "#0c0c0c"
-  title_inactive_fg_color = "#d6d6d6"
-  title_transmit_bg_color = "#f7f7f7"
   title_transmit_fg_color = "#343a3c"
+  title_transmit_bg_color = "#f7f7f7"
+  title_inactive_fg_color = "#d6d6d6"
+  title_inactive_bg_color = "#0c0c0c"
+  inactive_color_offset = 0.851851851852
+  enabled_plugins = EditorPlugin, LaunchpadCodeURLHandler, APTURLHandler
 [keybindings]
-  broadcast_all = None
-  broadcast_group = <Alt>a
-  broadcast_off = <Shift><Alt>a
-  close_term = <Shift><Alt>q
-  close_window = <Primary><Shift>q
-  copy = <Alt>c
-  go_down = <Alt>j
-  go_left = <Alt>h
   go_next = <Alt>w
   go_prev = <Shift><Alt>w
-  go_right = <Alt>l
   go_up = <Alt>k
+  go_down = <Alt>j
+  go_left = <Alt>h
+  go_right = <Alt>l
+  split_horiz = <Alt>o
+  split_vert = <Alt>i
+  close_term = <Shift><Alt>q
+  copy = <Alt>c
+  paste = <Alt>v
+  page_up = <Shift><Super>k
+  page_down = <Shift><Super>j
+  line_up = <Primary><Shift>k
+  line_down = <Primary><Shift>j
+  close_window = <Primary><Shift>q
+  resize_up = <Shift><Alt>k
+  resize_down = <Shift><Alt>j
+  resize_left = <Shift><Alt>h
+  resize_right = <Shift><Alt>l
+  toggle_zoom = <Alt>x
+  switch_to_tab_1 = <Alt>1
+  switch_to_tab_2 = <Alt>2
+  switch_to_tab_3 = <Alt>3
   group_all = None
   group_all_toggle = None
   group_tab = <Alt>g
   group_tab_toggle = <Shift><Alt>g
-  help = None
+  broadcast_off = <Shift><Alt>a
+  broadcast_group = <Alt>a
+  broadcast_all = None
   layout_launcher = <Shift><Alt>y
-  line_down = <Primary><Shift>j
-  line_up = <Primary><Shift>k
-  page_down = <Shift><Super>j
-  page_up = <Shift><Super>k
-  paste = <Alt>v
-  resize_down = <Shift><Alt>j
-  resize_left = <Shift><Alt>h
-  resize_right = <Shift><Alt>l
-  resize_up = <Shift><Alt>k
-  split_horiz = <Alt>o
-  split_vert = <Alt>i
-  toggle_zoom = <Alt>x
+  help = None
+[profiles]
+  [[default]]
+    icon_bell = False
+    background_color = "#101010"
+    background_darkness = 0.81
+    background_type = transparent
+    cursor_color = "#e1e1e1"
+    font = SauceCodePro Nerd Font 12
+    foreground_color = "#e2e2e2"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#4c4c4c:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#cecece:#cb4b16:#7f9ea7:#a4bcc5:#376186:#6c71c4:#85e1e1:#fdf6e3"
+    use_system_font = False
+    copy_on_selection = True
+  [[glassy]]
+    background_darkness = 0.05
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    scrollback_infinite = True
+  [[production]]
+    icon_bell = False
+    background_color = "#5a000a"
+    background_darkness = 0.86
+    background_type = transparent
+    cursor_color = "#eee8d5"
+    font = Source Code Pro for Powerline 11
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    use_system_font = False
+  [[sandbox]]
+    background_color = "#060f40"
+    background_darkness = 0.85
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    show_titlebar = False
+    scrollbar_position = hidden
+  [[solid]]
+    icon_bell = False
+    background_color = "#282828"
+    background_darkness = 0.97
+    cursor_color = "#eee8d5"
+    font = Source Code Pro for Powerline 11
+    foreground_color = "#ebdbb2"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#282828:#ee5555:#9dd443:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    use_system_font = False
+    copy_on_selection = True
+  [[stage]]
+    icon_bell = False
+    background_color = "#002b36"
+    background_darkness = 0.86
+    background_type = transparent
+    cursor_color = "#eee8d5"
+    font = Source Code Pro for Powerline Medium 12
+    foreground_color = "#d5dcdd"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    use_system_font = False
+  [[stage 2]]
+    background_color = "#282828"
+    background_darkness = 0.78
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = Source Code Pro for Powerline 10
+    foreground_color = "#ebdbb2"
+    show_titlebar = False
+    scrollback_infinite = True
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    use_system_font = False
+  [[terminator-default]]
+    icon_bell = False
+    background_darkness = 0.88
+    background_type = transparent
+    cursor_color = "#eee8d5"
+    font = Source Code Pro for Powerline 9
+    foreground_color = "#ffffff"
+    scrollbar_position = hidden
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child1]]]
@@ -54,89 +141,5 @@
       name = xxx
   [[EditorPlugin]]
     command = vim-open {filepath}:{line}
-    groups = file line
     match = ([^\t\n\r\f\v:]+):?([:0-9]+)?
-[profiles]
-  [[default]]
-    background_color = "#101010"
-    background_darkness = 0.81
-    background_type = transparent
-    copy_on_selection = True
-    cursor_color = "#e1e1e1"
-    font = Source Code Pro for Powerline Medium 11
-    foreground_color = "#e2e2e2"
-    icon_bell = False
-    palette = "#4c4c4c:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#cecece:#cb4b16:#7f9ea7:#a4bcc5:#376186:#6c71c4:#85e1e1:#fdf6e3"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
-  [[glassy]]
-    background_darkness = 0.05
-    background_type = transparent
-    cursor_color = "#aaaaaa"
-    scrollback_infinite = True
-  [[production]]
-    background_color = "#5a000a"
-    background_darkness = 0.86
-    background_type = transparent
-    cursor_color = "#eee8d5"
-    font = Source Code Pro for Powerline 11
-    foreground_color = "#ffffff"
-    icon_bell = False
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
-  [[sandbox]]
-    background_color = "#060f40"
-    background_darkness = 0.85
-    background_type = transparent
-    cursor_color = "#aaaaaa"
-    scrollbar_position = hidden
-    show_titlebar = False
-  [[solid]]
-    background_color = "#282828"
-    background_darkness = 0.97
-    copy_on_selection = True
-    cursor_color = "#eee8d5"
-    font = Source Code Pro for Powerline 11
-    foreground_color = "#ebdbb2"
-    icon_bell = False
-    palette = "#282828:#ee5555:#9dd443:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
-  [[stage]]
-    background_color = "#002b36"
-    background_darkness = 0.86
-    background_type = transparent
-    cursor_color = "#eee8d5"
-    font = Source Code Pro for Powerline Medium 12
-    foreground_color = "#d5dcdd"
-    icon_bell = False
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
-  [[stage 2]]
-    background_color = "#282828"
-    background_darkness = 0.78
-    background_type = transparent
-    cursor_color = "#aaaaaa"
-    font = Source Code Pro for Powerline 10
-    foreground_color = "#ebdbb2"
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-    scrollback_infinite = True
-    show_titlebar = False
-    use_system_font = False
-  [[terminator-default]]
-    background_darkness = 0.88
-    background_type = transparent
-    cursor_color = "#eee8d5"
-    font = Source Code Pro for Powerline 9
-    foreground_color = "#ffffff"
-    icon_bell = False
-    scrollbar_position = hidden
-    use_system_font = False
+    groups = file line
