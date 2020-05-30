@@ -1,0 +1,48 @@
+#!/usr/bin/env sh
+
+echo '== Apt Update =='
+sudo apt update
+
+PKGS="
+ git
+ terminator
+ vim-gtk
+ htop
+ ack-grep
+ curl
+ tree
+ trash-cli
+ direnv
+ xclip
+ silversearcher-ag
+"
+DEV_PKGS="
+ npm
+"
+echo '== Install default packages =='
+sudo apt-get install -y $PKGS $DEV_PKGS
+
+echo '== Copy dot files =='
+cp -a . $HOME
+rm -rf $HOME/.git
+
+echo '== Config submodules =='
+cd $HOME
+git --git-dir=/home/leandrost/projects/dotfiles/.git/ \
+  --work-tree=/home/leandrost/ \
+  submodule update
+
+echo '== Install VIM plugins =='
+cd $HOME/.vim
+git checkout master
+git submodule update
+
+cd $HOME
+
+if ! test -n "$(command -v rbenv)"; then
+  echo '== Install rbenv =='
+  git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+  curl https://raw.githubusercontent.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
+fi
+
+echo "== DONE! =="
