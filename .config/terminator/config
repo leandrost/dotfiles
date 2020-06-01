@@ -140,6 +140,6 @@
       enabled = True
       name = xxx
   [[EditorPlugin]]
-    command = vim-open {filepath}:{line}
-    match = ([^\t\n\r\f\v:]+):?([:0-9]+)?
+    command = /home/leandrost/.local/bin/vim-open {filepath}:{line}
+    match = ([^ \t\n\r\f\v:]+?)[ \n:](([0-9]+)*)
     groups = file line

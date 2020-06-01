@@ -1,3 +1,6 @@
 [submodule ".vim"]
 	path = .vim
 	url = git@github.com:leandrost/vimfiles.git
+[submodule ".config/terminator/plugins/terminator-editor-plugin"]
+	path = .config/terminator/plugins/terminator-editor-plugin
+	url = git@github.com:mchelem/terminator-editor-plugin.git
