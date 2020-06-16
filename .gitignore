@@ -19,6 +19,7 @@
 .rails_generators~
 .bundle
 .rspec
+.byebug_history
 
 vendor
 
