@@ -15,7 +15,7 @@ set tabpagemax=15
 
 " Persistent undo
 set undofile
-set undodir=$HOME/.vim/undo
+set undodir=$HOME/.vimundo
 
 set undolevels=1000
 set undoreload=10000
@@ -104,7 +104,8 @@ map <F4> xf 3xi:<ESC>
 map <F5> :e<CR>
 autocmd BufEnter,BufRead,BufNewFile *.haml map <S-F6> O- binding.pry<ESC>
 autocmd BufEnter,BufRead,BufNewFile *.erb map <S-F6> O<% binding.pry %><ESC>
-autocmd BufEnter,BufRead,BufNewFile *.rb map <S-F6> Obinding.pry<ESC>
+autocmd BufEnter,BufRead,BufNewFile *.rb map <S-F6> Orequire 'pry'; binding.pry<ESC>
+autocmd BufEnter,BufRead,BufNewFile *.rb map <F6> Orequire 'byebug'; byebug<ESC>
 autocmd BufEnter,BufRead,BufNewFile *.js map <S-F6> Odebugger<ESC>
 autocmd BufEnter,BufRead,BufNewFile *.py map <S-F6> Oimport pdb; pdb.set_trace()<ESC>
 map <F7> :SyntasticCheck rubocop<CR>
@@ -145,6 +146,7 @@ map \j :bnext<CR>
 map \k :bprevious<CR>
 
 abbr todo: <esc>:call AddTodo()<CR>
+map \/ :call AlternateToSpec()<CR>
 
 "copy, paste, delete
 vmap <C-x> "+d<CR>
