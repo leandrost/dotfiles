@@ -52,6 +52,7 @@ alias vimp='vim -p'
 alias cdb='cd ~/projects/ballers/ballers-web'
 alias cdg='cd ~/projects/got-board'
 alias cdbp='cd ~/projects/beep'
+alias cdo='cd ~/projects/beep/oswaldo'
 alias cdp='cd ~/projects/'
 
 alias ns='npm start'
