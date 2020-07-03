@@ -8,6 +8,7 @@
 
 # vim
 .vim/.netrwhist
+local.vimrc
 *.swm
 *.swn
 *.swo
@@ -18,7 +19,7 @@
 .ruby-gemset
 .rails_generators~
 .bundle
-.rspec
+.rspec*
 .byebug_history
 
 vendor

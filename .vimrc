@@ -3,6 +3,10 @@ runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
+if !empty(glob($APP_PATH.'/local.vimrc'))
+  source $APP_PATH/local.vimrc
+endif
+
 """ General Config
 "runtime macros/matchit.vim
 set number
@@ -127,9 +131,9 @@ map \f :Ag <Space>
 
 "count previous search matches ocurrences
 map \count :%s///gn<CR>
-map \l :let @+= "rspec --no-profile ".GetSpecPath(). ":".line('.')<CR>
+map \l :let @+= "rspec ".GetSpecPath(). ":".line('.')<CR>
 map \n :NERDTreeToggle<CR>
-map \r :let @+= "rspec --no-profile ".GetSpecPath()<CR>
+map \r :let @+= "rspec ".GetSpecPath()<CR>
 map \, :BreakLineCommas<CR>
 map \" :s/'/"/g<CR>
 map \' :s/"/'/g<CR>
@@ -139,14 +143,17 @@ map \i :ALENext<CR>
 map \\i :ALEPrevious<CR>
 map \\p :cd $PROJECT_HOME<CR>
 map \\la :call LettifyAssignments()<CR>
+map \\lp :set path+=$APP_PATH/src/**<CR>
 
 "buffers mappings
-map \. :b#<CR>
+" map \. :b#<CR>
 map \j :bnext<CR>
 map \k :bprevious<CR>
 
 abbr todo: <esc>:call AddTodo()<CR>
-map \/ :call AlternateToSpec()<CR>
+map \. :call AlternateToSpec()<CR>
+map \\. :vsplit<CR>:call AlternateToSpec()<CR>
+map \t. :tabe %<CR>:call AlternateToSpec()<CR>
 
 "copy, paste, delete
 vmap <C-x> "+d<CR>
